@@ -1,0 +1,74 @@
+{
+	"List": {
+		"event": {
+			"id": 1,
+			"_comment": "id는 채널번호"
+			"start_ts": 1745816940000,
+			"_comment": "start_ts : Datetime 의 H.M.S"
+			"start_ts_ms": 1745816940000,
+			"_comment": "start_ts_ms : millisecond"
+			"duration": 88,
+			"level0": 220,
+			"level1": 220,
+			"level2": 220
+		},
+		"alarm": {
+			"id": 2,
+			"time": 1745816940000,
+			"channel": 1,
+			"condition": 257,
+			"level": 10,
+			"value": 35.929443359375,
+			"status": 1,
+			"count": 40
+		},
+		"energylog":{
+			"id":1,
+			"timestamp":1745816940000,
+			"kwh_import":300,
+			"kvarh_lag":30,
+			"kvarh_lead":0,
+			"kVAh":10
+		}
+	},
+	"Hash":{
+		"MaxMin_main":{
+			"Frequency":{
+				"max_value":40,
+				"max_time": 1745816940000,
+				"min_value":30,
+				"min_time":1745816940000
+			},
+			"U1":{
+				"max_value":40,
+				"max_time": 1745816940000,
+				"min_value":30,
+				"min_time":1745816940000
+			},
+			"_comment": "Parameter 이름은 지정된 개수만큼"
+		},
+		"MaxMin_sub":{
+			"Frequency":{
+				"max_value":40,
+				"max_time": 1745816940000,
+				"min_value":30,
+				"min_time":1745816940000
+			},
+			"U1":{
+				"max_value":40,
+				"max_time": 1745816940000,
+				"min_value":30,
+				"min_time":1745816940000
+			},
+			"_comment": "Parameter 이름은 지정된 개수만큼"
+		},
+		"EN50160":{
+			"startdate":1745816940000,
+			"enddate":1745816940000,
+			"status&compliance":257,
+			"Fvar1":100,
+			"_comment": "Parameter 항목은 지정된 개수만큼, (param,value) pair",
+			
+		}
+	}
+}

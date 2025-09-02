@@ -1,0 +1,700 @@
+{
+  "projectName": "mosaic-vue",
+  "entryComponent": "src/App.vue",
+  "componentHierarchy": {
+    "name": "App.vue",
+    "path": "src/App.vue",
+    "children": [
+      {
+        "name": "SideBar3.vue",
+        "path": "src/pages/common/SideBar3.vue",
+        "children": [
+          {
+            "name": "SidebarLinkGroup.vue",
+            "path": "src/pages/common/SidebarLinkGroup.vue",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Header.vue",
+        "path": "src/partials/Header.vue",
+        "children": [
+          {
+            "name": "DropdownHelp.vue",
+            "path": "src/pages/common/DropdownHelp.vue",
+            "children": []
+          },
+          {
+            "name": "DropdownProfile.vue",
+            "path": "src/pages/common/DropdownProfile.vue",
+            "children": []
+          },
+          {
+            "name": "ThemeToggle.vue",
+            "path": "src/pages/common/ThemeToggle.vue",
+            "children": []
+          },
+          {
+            "name": "DropdownLanguage.vue",
+            "path": "src/pages/common/DropdownLanguage.vue",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Footer.vue",
+        "path": "src/pages/common/Footer.vue",
+        "children": []
+      },
+      {
+        "name": "ModalBasic.vue",
+        "path": "src/pages/common/ModalBasic.vue",
+        "children": []
+      },
+      {
+        "name": "SearchModal.vue",
+        "path": "src/pages/common/SearchModal.vue",
+        "children": []
+      },
+      {
+        "name": "RouterView",
+        "note": "Renders components based on the current route defined in router2.js",
+        "children": [
+          {
+            "name": "DynamicDashboard.vue",
+            "path": "src/pages/DynamicDashboard.vue",
+            "children": [
+              {
+                "name": "SingleChannelLayout.vue",
+                "path": "src/pages/layouts/SingleChannelLayout.vue",
+                "children": [
+                  {
+                    "name": "DashboardCard_Meter_Ch1.vue",
+                    "path": "src/partials/inners/dashboard/DashboardCard_Meter_Ch1.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "DashboardCard_PQ_Claude2.vue",
+                    "path": "src/partials/inners/dashboard/DashboardCard_PQ_Claude2.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "Dashboard_TransInfo_final.vue",
+                    "path": "src/partials/inners/dashboard/Dashboard_TransInfo_final.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "DashboardCard_kwh_realtime.vue",
+                    "path": "src/partials/inners/dashboard/DashboardCard_kwh_realtime.vue",
+                    "children": [
+                      {
+                        "name": "RealtimeChart2.vue",
+                        "path": "src/charts/connect/RealtimeChart2.vue",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "name": "DashboardCard_Diagnosis.vue",
+                    "path": "src/partials/inners/dashboard/DashboardCard_Diagnosis.vue",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "DualChannelLayout.vue",
+                "path": "src/pages/layouts/DualChannelLayout.vue",
+                "children": [
+                  {
+                    "name": "DashboardCard_Meter_Ch2.vue",
+                    "path": "src/partials/inners/dashboard/DashboardCard_Meter_Ch2.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "DashboardCard_New.vue",
+                    "path": "src/partials/inners/dashboard/DashboardCard_New.vue",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Meter.vue",
+            "path": "src/pages/Meter.vue",
+            "children": [
+              {
+                "name": "MeterDetail2.vue",
+                "path": "src/partials/inners/meter/MeterDetail2.vue",
+                "children": []
+              },
+              {
+                "name": "CanvasAngle4.vue",
+                "path": "src/partials/inners/meter/CanvasAngle4.vue",
+                "children": []
+              },
+              {
+                "name": "MeterKwh.vue",
+                "path": "src/partials/inners/meter/MeterKwh.vue",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "PowerQ.vue",
+            "path": "src/pages/PowerQ.vue",
+            "children": [
+              {
+                "name": "BarChart05.vue",
+                "path": "src/charts/connect/BarChart05.vue",
+                "children": []
+              },
+              {
+                "name": "LineChart02.vue",
+                "path": "src/charts/connect/LineChart02.vue",
+                "children": []
+              },
+              {
+                "name": "ReportTable2.vue",
+                "path": "src/partials/inners/power/ReportTable2.vue",
+                "children": []
+              },
+              {
+                "name": "PowerQ_Table.vue",
+                "path": "src/partials/inners/power/PowerQ_Table.vue",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Trend.vue",
+            "path": "src/pages/Trend.vue",
+            "children": [
+              {
+                "name": "TrendTab.vue",
+                "path": "src/partials/inners/trend/TrendTab.vue",
+                "children": [
+                  {
+                    "name": "Trend_treetable.vue",
+                    "path": "src/partials/inners/trend/Trend_treetable.vue",
+                    "children": [
+                      {
+                        "name": "TreeRowTrend.vue",
+                        "path": "src/partials/inners/trend/TreeRowTrend.vue",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "name": "LineChart01_Echart.vue",
+                    "path": "src/charts/connect/LineChart01_Echart.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "Notification_origin.vue",
+                    "path": "src/partials/inners/trend/Notification_origin.vue",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Setting.vue",
+            "path": "src/pages/Setting.vue",
+            "children": [
+              {
+                "name": "PlansPanel.vue",
+                "path": "src/partials/inners/setting/PlansPanel.vue",
+                "children": [
+                  {
+                    "name": "ModalBasic.vue",
+                    "path": "src/components/ModalBasic.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "WaveformFTPCard.vue",
+                    "path": "src/partials/inners/setting/WaveformFTPCard.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "SNTPCard.vue",
+                    "path": "src/partials/inners/setting/SNTPCard.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "General_diagnosisCard.vue",
+                    "path": "src/partials/inners/setting/General_diagnosisCard.vue",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "ModalBasic.vue",
+                "path": "src/components/ModalBasic.vue",
+                "children": []
+              },
+              {
+                "name": "ChannelPanel.vue",
+                "path": "src/partials/inners/setting/ChannelPanel.vue",
+                "children": [
+                  {
+                    "name": "TreeNode.vue",
+                    "path": "src/partials/inners/setting/TreeNode.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "ModalBasic.vue",
+                    "path": "src/pages/common/ModalBasic.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "TrendPanelCard.vue",
+                    "path": "src/partials/inners/setting/TrendPanelCard.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "AssetCard.vue",
+                    "path": "src/partials/inners/setting/AssetCard.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "NameplateCard.vue",
+                    "path": "src/partials/inners/setting/NameplateCard.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "Channel_diagnosisCard.vue",
+                    "path": "src/partials/inners/setting/Channel_diagnosisCard.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "EventCard2.vue",
+                    "path": "src/partials/inners/setting/EventCard2.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "EventCard1.vue",
+                    "path": "src/partials/inners/setting/EventCard1.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "ParamCard.vue",
+                    "path": "src/partials/inners/setting/ParamCard.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "AlarmCard.vue",
+                    "path": "src/partials/inners/setting/AlarmCard.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "LineChart01_Echart2.vue",
+                    "path": "src/charts/connect/LineChart01_Echart2.vue",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "AdminPanel.vue",
+                "path": "src/partials/inners/setting/AdminPanel.vue",
+                "children": [
+                  {
+                    "name": "SettingsSidebar.vue",
+                    "path": "src/partials/inners/setting/SettingsSidebar.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "AccountPanel.vue",
+                    "path": "src/partials/inners/setting/AccountPanel.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "BillingPanel.vue",
+                    "path": "src/partials/inners/setting/BillingPanel.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "APIPanel.vue",
+                    "path": "src/partials/inners/setting/APIPanel.vue",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Calibrate2.vue",
+            "path": "src/pages/Calibrate2.vue",
+            "children": [
+              {
+                "name": "CaliSideBar2.vue",
+                "path": "src/partials/inners/config/CaliSideBar2.vue",
+                "children": []
+              },
+              {
+                "name": "CaliPanel2.vue",
+                "path": "src/partials/inners/config/CaliPanel2.vue",
+                "children": [
+                  {
+                    "name": "CaliCard2.vue",
+                    "path": "src/partials/inners/config/CaliCard2.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "CaliCard4.vue",
+                    "path": "src/partials/inners/config/CaliCard4.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "FormBlock.vue",
+                    "path": "src/partials/inners/config/FormBlock.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "GroupTable.vue",
+                    "path": "src/partials/inners/config/GroupTable.vue",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "ServicePanel.vue",
+                "path": "src/partials/inners/config/ServicePanel.vue",
+                "children": [
+                  {
+                    "name": "ServiceCard.vue",
+                    "path": "src/partials/inners/config/ServiceCard.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "ServiceStatus.vue",
+                    "path": "src/partials/inners/config/ServiceStatus.vue",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "MaintenancePanel.vue",
+                "path": "src/partials/inners/config/MaintenancePanel.vue",
+                "children": [
+                  {
+                    "name": "maintenanceItem.vue",
+                    "path": "src/partials/inners/config/maintenanceItem.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "PaginationNumeric.vue",
+                    "path": "src/pages/common/PaginationNumeric.vue",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Report2.vue",
+            "path": "src/pages/Report2.vue",
+            "children": [
+              {
+                "name": "Report_table.vue",
+                "path": "src/partials/inners/report/Report_table.vue",
+                "children": []
+              },
+              {
+                "name": "Report_ITIC.vue",
+                "path": "src/partials/inners/report/Report_ITIC.vue",
+                "children": []
+              },
+              {
+                "name": "ReportComponent.vue",
+                "path": "src/partials/inners/report/ReportComponent.vue",
+                "children": [
+                  {
+                    "name": "LineChart.vue",
+                    "path": "src/charts/LineChart_ITIC.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "Report_PQ.vue",
+                    "path": "src/partials/inners/report/Report_PQ.vue",
+                    "children": [
+                      {
+                        "name": "Diagnosis_BarChart2.vue",
+                        "path": "src/partials/dashboard/Diagnosis_BarChart2.vue",
+                        "children": [
+                          {
+                            "name": "BarChart_Claude.vue",
+                            "path": "src/charts/BarChart_Claude.vue",
+                            "children": []
+                          },
+                          {
+                            "name": "BarChart_PQ_Claude.vue",
+                            "path": "src/charts/BarChart_PQ_Claude.vue",
+                            "children": []
+                          },
+                          {
+                            "name": "BarChart_FaultEvent.vue",
+                            "path": "src/charts/BarChart_FaultEvent.vue",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Report_PQ_detail.vue",
+                    "path": "src/partials/inners/report/Report_PQ_detail.vue",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "Report_WattHour.vue",
+                "path": "src/partials/inners/report/Report_WattHour.vue",
+                "children": []
+              },
+              {
+                "name": "Report_Diagnosis.vue",
+                "path": "src/partials/inners/report/Report_Diagnosis.vue",
+                "children": [
+                  {
+                    "name": "DashboardCard_table3.vue",
+                    "path": "src/partials/inners/report/DashboardCard_table4.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "Diagnosis_Barchart.vue",
+                    "path": "src/partials/inners/diagnosis/Diagnosis_BarChart2.vue",
+                    "children": [
+                      {
+                        "name": "BarChart_Claude.vue",
+                        "path": "src/charts/BarChart_Claude.vue",
+                        "children": []
+                      },
+                      {
+                        "name": "BarChart_PQ_Claude.vue",
+                        "path": "src/charts/BarChart_PQ_Claude.vue",
+                        "children": []
+                      },
+                      {
+                        "name": "BarChart_FaultEvent.vue",
+                        "path": "src/charts/BarChart_FaultEvent.vue",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Diagnosis_Info.vue",
+                    "path": "src/partials/inners/diagnosis/Diagnosis_Info2.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "StatusReport.vue",
+                    "path": "src/partials/inners/report/StatusReport.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "ReportTrend.vue",
+                    "path": "src/partials/inners/report/ReportTrend.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "ReportEventFault.vue",
+                    "path": "src/partials/inners/report/ReportEventFault.vue",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "Report_Info.vue",
+                "path": "src/partials/inners/report/Report_Info.vue",
+                "children": []
+              },
+              {
+                "name": "PDFPreview.vue",
+                "path": "src/partials/inners/report/PDFPreview.vue",
+                "children": [
+                  {
+                    "name": "LineChart.vue",
+                    "path": "src/charts/connect/LineChart_ITIC.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "BarChart2.vue",
+                    "path": "src/charts/connect/BarChart01_Energy.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "BarChart.vue",
+                    "path": "src/charts/connect/BarChart03.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "Diagnosis_Barchart.vue",
+                    "path": "src/partials/inners/diagnosis/Diagnosis_BarChart2.vue",
+                    "children": [
+                      {
+                        "name": "BarChart_Claude.vue",
+                        "path": "src/charts/connect/BarChart_Claude.vue",
+                        "children": []
+                      },
+                      {
+                        "name": "BarChart_PQ_Claude.vue",
+                        "path": "src/charts/connect/BarChart_PQ_Claude.vue",
+                        "children": []
+                      },
+                      {
+                        "name": "BarChart_FaultEvent.vue",
+                        "path": "src/charts/connect/BarChart_FaultEvent.vue",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "name": "DashboardCard_table3.vue",
+                    "path": "src/partials/inners/report/DashboardCard_table4.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "Diagnosis_Info.vue",
+                    "path": "src/partials/inners/diagnosis/Diagnosis_Info2.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "StatusReport.vue",
+                    "path": "src/partials/inners/report/StatusReport.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "ReportTrend.vue",
+                    "path": "src/partials/inners/report/ReportTrend.vue",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Diagnosis2.vue",
+            "path": "src/pages/Diagnosis2.vue",
+            "children": [
+              {
+                "name": "DiagnosisTab.vue",
+                "path": "src/partials/inners/diagnosis/DiagnosisTab.vue",
+                "children": [
+                  {
+                    "name": "Diagnosis_TreeTable2.vue",
+                    "path": "src/partials/inners/diagnosis/Diagnosis_TreeTable2.vue",
+                    "children": []
+                  },
+                  {
+                    "name": "Diagnosis_BarChart2.vue",
+                    "path": "src/partials/inners/diagnosis/Diagnosis_BarChart2.vue",
+                    "children": [
+                      {
+                        "name": "BarChart_Claude.vue",
+                        "path": "src/charts/connect/BarChart_Claude.vue",
+                        "children": []
+                      },
+                      {
+                        "name": "BarChart_PQ_Claude.vue",
+                        "path": "src/charts/connect/BarChart_PQ_Claude.vue",
+                        "children": []
+                      },
+                      {
+                        "name": "BarChart_FaultEvent.vue",
+                        "path": "src/charts/connect/BarChart_FaultEvent.vue",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Transformer.vue",
+                    "path": "src/partials/inners/diagnosis/Transformer.vue",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "Diagnosis_Info.vue",
+                "path": "src/partials/inners/diagnosis/Diagnosis_Info.vue",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "Event.vue",
+            "path": "src/pages/Event.vue",
+            "children": [
+              {
+                "name": "EventTab.vue",
+                "path": "src/partials/inners/event/EventTab.vue",
+                "children": [
+                  {
+                    "name": "EventTable.vue",
+                    "path": "src/partials/inners/event/EventTable.vue",
+                    "children": [
+                      {
+                        "name": "EventTableItem.vue",
+                        "path": "src/partials/inners/event/EventTableItem.vue",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "name": "PaginationClassic.vue",
+                    "path": "src/pages/common/PaginationClassic.vue",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "name": "AlarmStatusTable.vue",
+                "path": "src/partials/inners/event/AlarmStatusTable.vue",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "MasterDashboard.vue",
+            "path": "src/pages/MasterDashboard.vue",
+            "children": [
+              {
+                "name": "DashCard.vue",
+                "path": "src/partials/inners/dashboard/DashCard.vue",
+                "children": []
+              },
+              {
+                "name": "PaginationNumeric.vue",
+                "path": "src/pages/common/PaginationNumeric.vue",
+                "children": []
+              },
+              {
+                "name": "ModalBasic.vue",
+                "path": "src/pages/common/ModalBasic.vue",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "ResetPassword.vue",
+            "path": "src/pages/main/ResetPassword.vue",
+            "children": []
+          },
+          {
+            "name": "Signin.vue",
+            "path": "src/pages/main/Signin.vue",
+            "children": []
+          },
+          {
+            "name": "Signup.vue",
+            "path": "src/pages/main/Signup.vue",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,634 @@
+{
+    "Title": "Start SV-500!",
+    "common":{
+        "positive":"Positive",
+        "nagative":"Nagative",
+        "value":"Value",
+        "yes":"Yes",
+        "no":"No",
+        "save":"Save",
+        "close":"Close",
+        "ok":"OK",
+        "change":"Change",
+        "cancel":"Cancel",
+        "none":"None",
+        "under":"Under",
+        "over":"Over",
+        "minu": "min",
+        "hour":"Hour",
+        "sec" :"Sec"
+    },
+    "signin": {
+        "account": "Account",
+        "language": "Language",
+        "password": "Password",
+        "context": "Forgot Password?",
+        "login": "Sign In",
+        "msg": "Would you like to register an administrator account?",
+        "link": "Register"
+    },
+    "resetPass": {
+        "account": "Account",
+        "accountType": "Account Type",
+        "email": "Email",
+        "password": "Password",
+        "msg_success": "Password has been reset.",
+        "msg_fail": "Password reset failed.",
+        "msg_undefined": "This email is not registered.",
+        "save": "Save",
+        "close": "Close"
+    },
+    "signup": {
+        "title1": "Language and Device",
+        "title2": "Register admin account",
+        "deviceType": "Device Type",
+        "device0": "Data Acquisition Device",
+        "device1": "Diagnostic Device",
+        "device2": "Interchangeably operated transformer",
+        "device3": "Integrated Server",
+        "name": "Name",
+        "account": "Account",
+        "accountType": "Account Type",
+        "language": "Language",
+        "email": "Email Address",
+        "Adminpassword": "Admin Password",
+        "password": "Password",
+        "register": "Sign up",
+        "link": "Login",
+        "msg": "Have an account?"
+    },
+    "header": {
+        "profile": "Profile",
+        "user": "User Management",
+        "maintenance": "Maintenance",
+        "signout": "LogOut",
+        "link": {
+            "msg": "Need Help?",
+            "catalog": "Product catalog",
+            "manual": "User manual"
+        }
+    },
+    "sidebar": {
+        "dashboard": "Dashboard",
+        "main": "Main Channel",
+        "meter": "Meter",
+        "pq": "Power Quality",
+        "sub": "Sub Channel",
+        "diagnosis": "Diagnostic",
+        "event": "Alarm/Event",
+        "report": "Report",
+        "trend": "Trend",
+        "config": "Administration",
+        "setup": "Configuration",
+        "general": "General",
+        "system":"System",
+        "service": "Service",
+        "calibration": "Calibration",
+        "maintenance": "Maintenance"
+    },
+    "dashboard": {
+       "singleinfo":{
+            "title": "Equipment Info",
+            "Operatingtime": "Running Hours",
+            "EquipmentInformation": "Equipment Information"
+        },
+        "sitemap": "Dashboard",      
+        "meter": {
+            "title": "Meter",
+            "subtitle_main": "main channel",
+            "subtitle_sub": "sub channel",
+            "subtitle_main2": "Primary",
+            "subtitle_sub2": "Secondary",
+            "voltage": "Voltage",
+            "current": "Current",
+            "avgvoltage": "Average voltage",
+            "totcurrent": "Total current",
+            "activepower": "Total active power",
+            "activeenergy": "Active Energy",
+            "frequency": "Frequency"
+        },
+        "pq": {
+            "title": "Power Quality",
+            "title2": "THD",
+            "subtitle_main": "main channel",
+            "subtitle_sub": "sub channel",
+            "voltageunbalance": "Voltage Unbalance",
+            "currentunbalance": "Current Unbalance",
+            "unbalance": "Unbalance",
+            "powerfactor": "Power factor",
+            "THD": "THD"
+        },
+        "diagnosis": {
+            "title": "Status",
+            "subtitle_main": "main channel",
+            "subtitle_sub": "sub channel",
+            "equipment": "Equipment",
+            "diagnostic": "Equipment Status",
+            "event":"Event Status",
+            "pq": "Power Quality Status",
+            "name": "Name",
+            "type": "Type",
+            "st0": "Stop",
+            "st1": "OK",
+            "st2": "Warning",
+            "st3": "Inspect",
+            "st4": "Repair",
+            "ch_msg": "Last Alarm",
+            "ch1": "No Alarm",
+            "ch2": "Alarm",
+            "noAlarm": "The channel is normal",
+            "item": "Item",
+            "pqfe0": "Stop",
+            "pqfe1": "OK",
+            "pqfe2": "Low",
+            "pqfe3": "Medium",
+            "pqfe4": "High"
+        },
+        "kwh": "Total power consumption",
+        "kwh_realtime": {
+        "today": "Today",
+        "comparetoyesterday": "vs Yesterday",
+        "thisweek": "This Week",
+        "comparetolastweek": "vs Last Week",
+        "thismonth": "This Month",
+        "comparetolastmonth": "vs Last Month",
+        "thisyear": "This Year",
+        "comparetolastyyear": "vs Last Year"
+        },
+        "transDiag": {
+            "Temperature": "Temperature",
+            "LoadFactor": "Load Factor",
+            "PowerFactor": "Power Factor",
+            "Ig": "Leakage Current",
+            "PT_WiringMode": "PT Wiring Mode",
+            "RatedKVA": "Rated KVA",
+            "RatedVoltage": "Rated Voltage",
+            "RatedFrequency": "Rated Frequency",
+            "RatedCurrent": "Rated Current"
+        }
+    },
+    "meter": {
+        "sitemap": {
+            "title": "Meter",
+            "main": "Main Channel",
+            "sub": "Sub Channel"
+        },
+        "cardTitle": {
+            "title_meter": "Meter",
+            "title_power": "Power",
+            "title_thd": "THD",
+            "title_phase": "Phasor Diagram",
+            "title_unbal": "Unbalance",
+            "title_energy": "Energy",
+            "title_demand": "Demand Power",
+            "title_demand_i": "Demand Current"
+        },
+        "Table": {
+            "title": "Meter",
+            "th_tilte": "Title",
+            "th_subtitle": "Item",
+            "th_value": "value",
+            "th_min": "min",
+            "th_max": "max",
+            "Phase Voltage": "Phase Voltage",
+            "Line Voltage": "Line Voltage",
+            "Current": "Current",
+            "Unbalance": "Unbalance",
+            "Frequency": "Frequency",
+            "Active Power": "Active Power",
+            "Reactive Power": "Reactive Power",
+            "Apparent Power": "Apparent Power",
+            "THD-U": "THD-U",
+            "THD-I": "THD-I",
+            "TDD-I": "TDD-I",
+            "PF": "Power Factor",
+            "Active": "Active Power",
+            "Reactive": "Reactive Power",
+            "Apparent": "Apparent Power",
+            "Imp.": "Imp.",
+            "Imp. Max": "Imp. Max",
+            "Exp.": "Exp.",
+            "Exp. Max": "Exp. Max",
+            "L1": "L1",
+            "L2": "L2",
+            "L3": "L3"
+        },
+        "cardContext": {
+            "Voltage": "Voltage",
+            "Current": "Current",
+            "Import": "Import",
+            "Export": "Export"
+        }
+    },
+    "diagnosis": {
+        "sitemap": {
+            "title": "Diagnostic",
+            "main": "Main Channel",
+            "sub": "Sub Channel"
+        },
+        "info": {
+            "name": "Equipment Name",
+            "type": "Equipment Type",
+            "location": "Installation Location",
+            "status": "Equipment Status",
+            "Rated Voltage": "Rated Voltage",
+            "Rated Frequency": "Rated Frequency",
+            "Rated Current": "Rated Current",
+            "Speed": "Speed",
+            "Torque": "Torque",
+            "PT WiringMode": "PT Wiring Mode",
+            "Rated KVA": "Rated Capacity"
+        },
+        "tabTitle": {
+            "Dignosis Status": "Diagnostic Status",
+            "Fault": "Fault",
+            "PowerQuality": "Power Quality",
+            "Event": "Event",
+            "detailTitle":"Diagnostic detail item status",
+            "detailTitle_pq":"Power Quality detail item status",
+            "detailTitle_event":"Event detail item status",
+            "detailTitle_fault":"Fault detail item status"
+        },
+        "tabContext": {
+            "th_title": "Item",
+            "th_assembly": "Module",
+            "th_value": "Value",
+            "th_status": "Status",
+            "th_description": "Description",
+            "legend":"Status legend",
+            "st0": "Stop",
+            "st1": "OK",
+            "st2": "Warning",
+            "st3": "Inspect",
+            "st4": "Repair",
+            "pqfe0": "Stop",
+            "pqfe1": "OK",
+            "pqfe2": "Low",
+            "pqfe3": "Medium",
+            "pqfe4": "High"
+        }
+    },
+
+    "report": {
+        "sitemap": {
+        "title": "Report",
+        "main": "Main Channel",
+        "sub": "Sub Channel"
+        },
+        "info": {
+        "ct_direction1": "CT1 Direction",
+        "ct_direction2": "CT2 Direction",
+        "ct_direction3": "CT3 Direction",
+        "ct_inorminal": "Rated Current",
+        "pt_wiringmode": "PT Wiring Mode",
+        "pt_vnorminal": "Rated Voltage",
+        "pt_linefrequency": "Line Frequency"
+        },
+        "cardTitle": {
+        "Channel": "Equipment Information",
+        "PowerQuality": "Power Quality-EN 50160 Report",
+
+        "iticCurAnalysis": "ITIC Curve Analysis",
+        "hourlyEngUsage":"Hourly Energy Usage",
+        "dailyEngUsage":"Daily Energy Usage",
+        "monthlyEngUsage":"Monthly Energy Usage",
+        
+        "Diagnosis": "Equipment",
+        "Energy": "Active Energy",
+        "Energy2": "Energy & Load Rate Trend",
+        "parameter": "Trend of Power Quality Parameters",
+        "LoadPatternAnalysis": "Load Rate Pattern Analysis (Day × Hour)",
+        "weeklyLoadDistribution": "Weekly Load Rate Distribution Statistics",
+        "THD1": "Voltage THD",
+        "THD2": "Current THD",
+        "distortionRate": "Distortion Rate"
+        },
+        "cardContext": {
+        "th_title": "Item",
+        "th_status": "Status",
+        "th_description": "Description",
+        "st0": "Stop",
+        "st1": "OK",
+        "st2": "Warning",
+        "st3": "Inspect",
+        "st4": "Repair",
+        "lightLoadHours": "Light Load Hours",
+        "mediumLoadHours": "Medium Load Hours",
+        "heavyLoadHours": "Heavy Load Hours",
+        "overloadHours": "Overload Hours",
+        "loadRate": "Load Rate",
+        "overload": "Exceeded",
+        "averageLoadRate": "Average Load Rate",
+        "maxLoadRate": "Max Load Rate",
+        "overloadCount": "Overload Occurrences",
+        "count": "times",
+        "days": {
+            "sun": "Sun",
+            "mon": "Mon",
+            "tue": "Tue",
+            "wed": "Wed",
+            "thu": "Thu",
+            "fri": "Fri",
+            "sat": "Sat",
+            "day":"day",
+            "week":""
+        },
+        "hight":"Hight",
+        "low" :"Low",
+        "info": {
+            "equip": "Equipment Information",
+            "status": "Diagnostic Information",
+            "pq": "Power Quality Information",
+            "energy": "Total Energy"
+        },
+        "pqInfo": {
+            "This Week": "This Week",
+            "Last Week": "Last Week",
+            "parameter": "Parameter",
+            "compliance": "Compliance",
+            "RequiredQuality": "Required Quality",
+            "hour": "Last 24 Hours",
+            "day": "Last 7 Days",
+            "month": "Last 30 Days"
+        },
+        "energyInfo": {
+            "This Month": "This Month",
+            "Last Month": "Last Month",
+            "Import": "Import",
+            "Export": "Export"
+        },
+        "previewForPdf":
+        {
+            "title1":"Power Quality - EN 50160 Report"
+
+        }
+        }
+    },
+
+    "pq": {
+        "sitemap": {
+            "title": "Power Quality",
+            "main": "Main Channel",
+            "sub": "Sub Channel"
+        },
+        "tabs": {
+            "harmonics": "Harmonics",
+            "waveform": "Waveform"
+        },
+        "options": {
+            "phaseVoltage": "Phase Voltage",
+            "lineVoltage": "Line-to-Line Voltage",
+            "current": "Current"
+        },
+        "Button": {
+            "table": "Table",
+            "chart": "Chart"
+        }
+    },
+    "event": {
+        "sitemap": {
+            "title": "Event",
+            "main": "Main Channel",
+            "sub": "Sub Channel"
+        },
+        "date": {
+            "StartDate": "Occur Datetime",
+            "EndDate": "Return Datetime"
+        },
+        "search": {
+            "title": "Search Option",
+            "period": "Period",
+            "parameter": "Condition Parameter"
+        },
+        "tabs": {
+            "alarmStatus": "Alarm Status",
+            "alarmLog": "Alarm Log",
+            "eventLog": "Event Log"
+        },
+        "table": {
+            "index": "Index",
+            "alarmChannel": "Alarm Type",
+            "state": "State",
+            "count": "Count"
+        },
+        "alarmTable": {
+            "index": "Index",
+            "AlarmLog": "Alarm Log",
+            "Timestamp": "Timestamp",
+            "AlarmChannel": "Alarm Type",
+            "State": "State",
+            "Value": "Value"
+        },
+        "eventTable": {
+            "index": "Index",
+            "EventLog": "Event Log",
+            "Type": "Type",
+            "StartTime": "Start Time",
+            "EndTime": "End Time",
+            "Duration": "Duration",
+            "Phase": "Phase",
+            "Level": "Level"
+        }
+    },
+    "User": {
+        "sidebar": {
+            "title": "User Management",
+            "profile": "My Profile",
+            "user": "Users",
+            "api": "Restful API Users"
+        },
+        "profile": {
+            "title": "Account Information",
+            "account": "Account",
+            "username": "User Name",
+            "email": "Email Address",
+            "useAPI": "Use API for Diagnostic",
+            "nowPass": "Current password",
+            "newPass": "New password",
+            "cnfPass": "Confirm new password"
+        },
+        "user": {
+            "title": "User Management",
+            "msg": "Select account",
+            "account": "Account",
+            "username": "User Name",
+            "email": "Email Address",
+            "Pass": "Password",
+            "role": "User Role",
+            "remove": "Remove account",
+            "btnAdd": "Add Account"
+        },
+        "api": {
+            "title": "Restful API User Management",
+            "msg": "Select account",
+            "noexist": "No existing API users",
+            "account": "Account",
+            "role": "Account Role",
+            "remove": "Remove account",
+            "btnAdd": "Add Account"
+        },
+        "btnSave": "Save Changes"
+    },
+    "trend": {
+        "sitemap": {
+            "title": "Trend",
+            "main": "Main Channel",
+            "sub": "Sub Channel"
+        },
+        "date": {
+            "StartDate": "Start Date",
+            "EndDate": "End Date"
+        },
+        "TrendTab": {
+            "slot": "Select the parameters below and click the Draw Chart button",
+            "Plot": "Plot"
+        },
+        "Linechart": {
+            "TrendChart": "Trend Chart",
+            "nodata": "There is no data for the selected period"
+        },
+        "tabTitle": {
+            "Meter": "Meter",
+            "Power Quality": "PowerQuality",
+            "Diagnosis": "Diagnostic",
+            "Parameters": "Parameters",
+            "Energy": "Energy"
+        },
+        "treetable": {
+            "Item": "Item",
+            "Assembly": "Module",
+            "Select": "Select"
+        }
+    },
+    "config": {
+        "sitemap": {
+            "title": "Configuration",
+            "Main Channel": "Main Channel",
+            "Sub Channel": "Sub Channel",
+            "Command":"System",
+            "General": "General",
+            "User Management": "User Management",
+            "API User Management": "Restful API User Management",
+            "Account": "Account",
+            "Trend": "Trend",
+            "Maintenance": "Maintenance",
+            "Service": "Service",
+            "Calibrate": "Calibrate"
+        },
+        "maintenance":{
+            "header":"System Maintenance",
+            "Title":"Title",
+            "enterTitle":"Enter Title",
+            "Installation": "Installation",
+            "Update": "Update",
+            "Replacement": "Replacement",
+            "FirmWare": "Firmware",
+            "App":"App",
+            "Web":"Web",
+            "Context":"Context",
+            "Save":"Save",
+            "Delete":"Delete"
+        },
+        "selectOption":{
+            "useDiagnosis":"Use Diagnosis",
+            "main":"Main",
+            "sub" :"Sub",
+            "active":"Active",
+            "inactive":"Inactive"
+        },
+        "plansPanel":{
+            "useWaveFormFTP":"Waveform FTP",
+            "useSNTP":"SNTP",
+            "info": "Waveform and event files will be stored locally",
+            "devInformation":{
+                "title": "Device Information",
+                "name":"Name",
+                "loc":"Location",
+                "sn":"Serial Number",
+                "mac":"Mac Address"
+            },
+            "communication":{
+                 "title": "Communication",
+                 "ip":"IP Address",
+                 "sm":"Subnet Mask",
+                 "gw":"Gateway",
+                 "dns":"DNS Server"
+            },
+            "modbus":{
+                 "title": "Modbus",
+                 "tcp":"TCP Port",
+                "tcpTO":"Timeout (ms)",
+                "snInfor":"Serial Information",
+                "rtuid":"RTU/ID",
+                "baudrate":"Baud Rate",
+                "parity":"Parity",
+                "dbits":"Data Bits",
+                "sbits":"Stop Bits"
+
+            },
+            "demand":{
+            
+                 "title": "Demand",
+                 "interval":"Interval",
+                 "minutes":"Minutes",
+                 "hours":"Hours"
+
+            },
+            "dig":
+            {
+                "title": "Diagnostic Setup",
+                "advanced":"Advanced",
+                "dburl":"DBUrl",
+                "dbToken":"DBToken",
+                "dbOrg":"DBOrganization",
+                "influxPath":"InfluxPath",
+                "rPeriod":"RetentionPeriod",
+                "eventHistory":"EventHistory",
+                "trCount":"TrendRecordCount",
+                "faultLimits":"FaultLimits",
+                "keepLogFiles":"NumberOfDaysToKeepBackupFiles",
+                "dataPath":"DataPath",
+                "fileProType":"FileProcessType",
+                "logLevel":"logLevel"
+                
+            }
+        },
+        "channelPanel":{
+            "selEnable":"Enable",
+            "selPQ":"PowerQuality",
+            "alarmCard":{
+                "title": "Alarm",
+                "common":"COMMON",
+                "timeDelay":"Compare time delay (sec)",
+                "alChannel":"Alarm Channel",
+                "parameter":"Parameter",
+                "conditions":"Conditions",
+                "hysteresis":"Hysteresis"       
+
+
+            }
+
+        },
+        "system":{
+            "title_1":"Main Channel Clear Command",
+            "title_2":"Sub Channel Clear Command",
+            "title_3":"Settings",
+            "demand":"Demand",
+            "minmax":"MaxMin",
+            "energy":"Energy",
+            "alarm":"Alarm",
+            "eventCount":"Event Count",
+            "runhour":"Run Hour",
+            "init":"Init setting",
+            "reboot":"Reboot",
+            "import":"Import",
+            "export":"Export",
+            "restore":"Restore",
+            "reset":"Reset"
+
+        },
+        "save":"Save Changes",
+        "testSet":"Test Diagnosis setting"
+        
+    }
+}

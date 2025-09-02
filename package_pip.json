@@ -1,0 +1,17 @@
+{
+  "dependencies": [
+    "fastapi",
+    "uvicorn[standard]",
+    "requests",
+    "influxdb-client",
+    "redis",
+    "httpx",
+    "pycryptodome",
+    "itsdangerous",
+    "bcrypt",
+    "python-multipart",
+    "httptools",
+    "psutil",
+    "ujson"
+  ]
+}

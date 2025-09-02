@@ -1,0 +1,362 @@
+# FastAPI + Vue Router 연결 분석 보고서
+생성일: 2025-01-16
+
+## 1. Vue 프론트엔드 구조
+
+### 1.1 Vue Router 설정 (frontend/src/router2.js)
+- 메인 라우터 파일: router2.js
+- 주요 라우트:
+  * / (home) → Dashboard
+  * /signin → Signin
+  * /signup → Signup
+  * /dashboard → Dashboard
+  * /dashboard/:user → Dashboard (사용자별)
+  * /master → MasterDashboard
+  * /meter/:channel → Meter
+  * /powerq/:channel → PowerQ
+  * /diagnosis/:channel → Diagnosis
+  * /event/:channel → Event
+  * /report/:channel → Report2
+  * /trend/:channel → Trend
+  * /settings/:mode/:channel → Setting
+  * /config/:channel → Calibrate
+
+### 1.2 Pages 폴더 구조 (frontend/src/pages)
+#### 1.2.1 Common Components
+- Footer.vue
+- Header.vue
+- ModalBasic.vue
+- ModalBlank.vue
+- PaginationClassic.vue
+- PaginationNumeric.vue
+- SearchModal.vue
+- SideBar3.vue
+- SidebarLinkGroup.vue
+
+#### 1.2.2 Component Pages
+- AccordionPage.vue
+- AlertPage.vue
+- AvatarPage.vue
+- BadgePage.vue
+- BreadcrumbPage.vue
+- ButtonPage.vue
+- DropdownPage.vue
+- FormPage.vue
+- IconsPage.vue
+- ModalPage.vue
+- PaginationPage.vue
+- TabsPage.vue
+- TooltipPage.vue
+
+#### 1.2.3 Header Components
+- DropdownHelp.vue
+- DropdownLanguage.vue
+- DropdownProfile.vue
+- ThemeToggle.vue
+
+#### 1.2.4 Layout Components
+- DualChannelLayout.vue
+- SingleChannelLayout.vue
+
+#### 1.2.5 Main Pages
+- Calibrate2.vue
+- Diagnosis2.vue
+- DynamicDashboard.vue
+- Event.vue
+- MasterDashboard.vue
+- Meter.vue
+- PowerQ.vue
+- Report2.vue
+- ResetPassword.vue
+- Setting.vue
+- Signin.vue
+- Signup.vue
+- Trend.vue
+
+#### 1.2.6 Utility Pages
+- Changelog.vue
+- EmptyState.vue
+- Faqs.vue
+- PageNotFound.vue
+- Roadmap.vue
+
+### 1.3 Partials 폴더 구조 (frontend/src/partials/inners)
+#### 1.3.1 Config Components
+- CaliCard2.vue
+- CaliCard4.vue
+- CaliPanel2.vue
+- CaliSideBar2.vue
+- FormArea.vue
+- FormBlock.vue
+- GroupTable.vue
+- maintenanceItem.vue
+- MaintenancePanel.vue
+- ServiceCard.vue
+- ServicePanel.vue
+- ServiceStatus.vue
+
+#### 1.3.2 Dashboard Components
+- Dashboard_Single_Info.vue
+- Dashboard_TransInfo_final.vue
+- DashboardCard_Diagnosis.vue
+- DashboardCard_kwh_realtime.vue
+- DashboardCard_Meter_Ch1.vue
+- DashboardCard_Meter_Ch2.vue
+- DashboardCard_New.vue
+- DashboardCard_PQ_Claude2.vue
+- DashboardCard_THD.vue
+- DashCard.vue
+- EquipItem.vue
+- StatusItem_Claude2.vue
+- StatusItem_Trans_Claude.vue
+- StatusItem2_Claude.vue
+- StatusItem2.vue
+
+#### 1.3.3 Diagnosis Components
+- Diagnosis_BarChart2.vue
+- Diagnosis_Info.vue
+- Diagnosis_Info2.vue
+- Diagnosis_TreeTable2.vue
+- DiagnosisTab.vue
+- Transformer.vue
+- TreeRow_FaultEvent.vue
+- TreeRow.vue
+
+#### 1.3.4 Event Components
+- AlarmStatusTable.vue
+- EventTab.vue
+- EventTable.vue
+- EventTableItem.vue
+
+#### 1.3.5 Meter Components
+- CanvasAngle.vue
+- CanvasAngle4.vue
+- MeterDetail2.vue
+- MeterKwh.vue
+- MeterTable2.vue
+
+#### 1.3.6 Power Components
+- PowerQ_Table.vue
+- ReportTable2.vue
+
+#### 1.3.7 Report Components
+- DashboardCard_table4.vue
+- PDFPreview.vue
+- Report_Diagnosis.vue
+- Report_Info.vue
+- Report_ITIC.vue
+- Report_kwh_detail.vue
+- Report_PQ_detail.vue
+- Report_PQ.vue
+- Report_table.vue
+- Report_WattHour.vue
+- ReportComponent.vue
+- ReportEventFault.vue
+- ReportTrend.vue
+- StatusReport.vue
+
+#### 1.3.8 Setting Components
+- AccountPanel.vue
+- AdminPanel.vue
+- AlarmCard.vue
+- APIPanel.vue
+- AssetCard.vue
+- BillingPanel.vue
+- ChannelPanel.vue
+- CommandItem.vue
+- CommandPanel.vue
+- EventCard1.vue
+- EventCard2.vue
+- General_diagnosisCard.vue
+- NameplateCard.vue
+- ParamCard.vue
+- PlansPanel.vue
+- SettingsSidebar.vue
+- SNTPCard.vue
+- TreeRowAsset.vue
+- TrendPanel.vue
+- TrendPanelCard.vue
+- WaveformFTPCard.vue
+
+#### 1.3.9 Trend Components
+- Notification_origin.vue
+- TreeRowTrend.vue
+- Trend_treetable.vue
+- TrendTab.vue
+
+## 2. FastAPI 백엔드 구조
+
+### 2.1 라우터 파일들 (routes/)
+- __init__.py
+- api.py (메인 API 라우터)
+- auth.py (인증 관련)
+- config.py (설정 관련)
+- master.py (마스터 대시보드)
+- RedisBinary.py
+- redismap.py
+- setting.py (설정 관리)
+- temp.py
+- Test.py
+
+### 2.2 주요 FastAPI 엔드포인트
+
+#### 2.2.1 API 라우터 (routes/api.py) - 주요 엔드포인트
+- GET /getChannelSetting/{channel} - 채널 설정 조회
+- GET /getHarmonics/{channel} - 고조파 데이터 조회
+- GET /getWave/{channel} - 파형 데이터 조회
+- GET /getDiagnosisDetail/{asset} - 진단 상세 정보
+- GET /getDiagPQ/{asset} - 진단 전력품질 정보
+- GET /getFaults/{asset} - 고장 정보
+- GET /getEvents/{asset} - 이벤트 정보
+- GET /getTrendParameters/{channel} - 트렌드 파라미터
+- GET /getParameters/{asset}/{type} - 파라미터 조회
+- GET /getTrendParameters/{asset}/{type} - 트렌드 파라미터 조회
+- POST /getTrendData - 트렌드 데이터 조회
+
+#### 2.2.2 인증 라우터 (routes/auth.py) - 주요 엔드포인트
+- GET /getInfluxdb - InfluxDB 설정 조회
+- GET /checkInstall - 설치 상태 확인
+- GET /checkDBMS - DBMS 상태 확인
+- POST /joinAdmin - 관리자 가입
+- GET /checkSession - 세션 확인
+- GET /getUser - 사용자 정보 조회
+- GET /getUserList - 사용자 목록 조회
+- POST /resetPassword - 비밀번호 재설정
+- GET /getAPIUsers - API 사용자 조회
+- GET /saveUser/{account}/{role} - 사용자 역할 업데이트
+- GET /removeUser/{username} - 사용자 삭제
+- POST /updateProfile - 프로필 업데이트
+- GET /joinAPI/{role} - API 사용자 가입
+- GET /removeAPI/{role} - API 사용자 삭제
+- POST /join - 사용자 가입
+- POST /checkLogins - 로그인 확인
+- GET /logout - 로그아웃
+
+#### 2.2.3 설정 라우터 (routes/setting.py) - 주요 엔드포인트
+- GET /initDB - InfluxDB 초기화
+- GET /checkSettingFile - 설정 파일 확인
+- GET /getSetting - 설정 조회
+- GET /getSettingData/{channel} - 채널별 설정 데이터
+- GET /SysService/{cmd}/{item} - 시스템 서비스 제어
+- GET /Reset - 설정 리셋
+- GET /ResetAll - 전체 리셋
+- GET /getDiagnosisSetting - 진단 설정 조회
+- GET /getDiagnosisProfile - 진단 프로필 조회
+- POST /setDiagnosisSetting - 진단 설정 저장
+- POST /setDiagnosisProfile - 진단 프로필 저장
+- GET /getAssetList - 자산 목록 조회
+- POST /upload - 설정 파일 업로드
+- GET /checkBearing - 베어링 데이터 확인
+- POST /uploadBearing - 베어링 파일 업로드
+- GET /download - 설정 파일 다운로드
+- POST /createAsset - 자산 생성
+- POST /modifyAsset - 자산 수정
+- GET /deleteAsset/{asset} - 자산 삭제
+- GET /unregisterAsset/{channel} - 자산 등록 해제
+- GET /registerAsset/{channel}/{assetName}/{assetType} - 자산 등록
+- POST /savefile/{channel} - 설정 파일 저장
+- POST /restoreSetting - 설정 복원
+
+#### 2.2.4 마스터 라우터 (routes/master.py) - 주요 엔드포인트
+- GET /getSetup/{ip} - 원격 설정 조회
+- POST /saveDevice - 디바이스 저장
+- GET /deleteDevice/{id} - 디바이스 삭제
+- GET /getStatus/{ip}/{asset} - 상태 조회
+- GET /getDeviceInfo - 디바이스 정보 조회
+
+#### 2.2.5 설정 라우터 (routes/config.py) - 주요 엔드포인트
+- POST /upload - 교정 파일 업로드
+- GET /checkSetup - 교정 설정 확인
+- GET /calibrate/start - 교정 시작
+- GET /calibrate/end - 교정 종료
+- POST /calibrate/cmd/{types} - 교정 명령
+- POST /savePost/{mode}/{idx} - 유지보수 포스트 저장
+- GET /getPost - 유지보수 포스트 조회
+- GET /deletePost/{idx} - 유지보수 포스트 삭제
+
+## 3. Axios 호출 분석
+
+### 3.1 주요 Axios 호출 패턴
+Vue 컴포넌트에서 FastAPI 백엔드로의 주요 API 호출들:
+
+#### 3.1.1 트렌드 관련 (TrendTab.vue)
+- GET `/api/getTrendParameters/${asset}/Diagnostic`
+- GET `/api/getTrendParameters/${asset}/PowerQuality`
+- GET `/api/getTrendParameters/${asset}/parameter`
+- GET `/api/getTrendParameters/${channel}`
+- POST `/api/getTrendData`
+
+#### 3.1.2 설정 관련
+- POST `/setting/save/Trend`
+- POST `/setting/setDiagnosisSetting`
+- POST `/setting/setDiagnosisProfile`
+- GET `/setting/getDiagnosisSetting`
+- POST `/setting/upload`
+- POST `/setting/savefile/General`
+- POST `/setting/save/General`
+- GET `/setting/getSettingData/General`
+
+#### 3.1.3 인증 관련
+- GET `/auth/getUserList`
+- POST `/auth/join`
+- GET `/auth/removeUser/{account}`
+- GET `/auth/saveUser/{account}/{role}`
+- GET `/auth/checkDBMS`
+
+#### 3.1.4 자산 관리 관련
+- GET `/setting/getAssetList`
+- GET `/setting/unregisterAsset/{channel}`
+- GET `/setting/registerAsset/{channel}/{assetName}/{assetType}`
+- POST `/setting/createAsset`
+- POST `/setting/modifyAsset`
+- GET `/setting/deleteAsset/{assetName}`
+
+#### 3.1.5 시스템 관리 관련
+- GET `/setting/SysService/{cmd}/{item}`
+- GET `/setting/initDB`
+- GET `/setting/ResetAll`
+- GET `/setting/checkAPI`
+- GET `/setting/SysCheck`
+
+#### 3.1.6 베어링 관련
+- GET `/setting/checkBearing`
+- POST `/setting/uploadBearing`
+
+#### 3.1.7 교정 관련
+- POST `/setting/setAssetParams/{assetName}`
+- POST `/setting/setAssetConfig/{assetName}`
+- GET `/setting/test/{assetName}`
+
+## 4. 주요 연결 패턴 분석
+
+### 4.1 인증 플로우
+1. Vue Router의 beforeEach 가드에서 세션 확인
+2. `/auth/checkSession` 호출로 로그인 상태 확인
+3. 비로그인 시 `/signin` 페이지로 리다이렉트
+4. 로그인 시 `/dashboard` 또는 `/master`로 이동
+
+### 4.2 데이터 플로우
+1. Vue 컴포넌트에서 axios를 통해 FastAPI 엔드포인트 호출
+2. FastAPI에서 Redis/InfluxDB/SQLite 데이터 처리
+3. JSON 응답을 Vue 컴포넌트에서 처리하여 UI 업데이트
+
+### 4.3 설정 관리 플로우
+1. Vue 설정 컴포넌트에서 설정 데이터 입력
+2. `/setting/savefile/{channel}` 엔드포인트로 설정 저장
+3. FastAPI에서 setup.json 파일 및 Redis에 설정 저장
+4. 시스템 재시작 플래그 설정
+
+### 4.4 실시간 데이터 플로우
+1. Vue 컴포넌트에서 주기적으로 API 호출
+2. FastAPI에서 Redis 데이터 조회
+3. 실시간 미터링, 진단, 이벤트 데이터 제공
+
+## 5. 시스템 특징
+- 전력 모니터링 시스템 (SV500)
+- 듀얼 채널 지원 (Main/Sub)
+- 진단, 전력품질, 트렌드, 이벤트 모니터링
+- 마스터-슬레이브 구조 지원
+- Redis, InfluxDB, SQLite 다중 데이터베이스 사용
+- 실시간 데이터 모니터링 및 알람 기능
+
+이 분석 보고서는 FastAPI 백엔드와 Vue 프론트엔드 간의 연결 구조를 상세히 정리한 것입니다.

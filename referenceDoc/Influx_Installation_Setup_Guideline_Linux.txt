@@ -1,0 +1,41 @@
+<<Influxdb Linux Installation>>
+
+Reference Link : https://cognitive.tistory.com/160
+https://remnant24c1.tistory.com/81
+https://randomnerdtutorials.com/install-influxdb-2-raspberry-pi/
+GUI Client Download : https://github.com/CymaticLabs/InfluxDBStudio/releases/download/v0.2.0-beta.1/InfluxDBStudio-0.2.0.zip
+
+[Installation]
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install apt-transport-https
+
+wget -q https://repos.influxdata.com/influxdata-archive_compat.key
+echo '393e8779c89ac8d958f81f942f9ad7fb82a25e133faddaf92e15b16e6ac9ce4c influxdata-archive_compat.key' | sha256sum -c && cat influxdata-archive_compat.key | gpg --dearmor | sudo tee etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg > /dev/null
+echo 'deb [signed-by=/etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg] https://repos.influxdata.com/debian stable main' | sudo tee /etc/apt/sources.list.d/influxdata.list
+sudo apt-get update && sudo apt-get install influxdb2
+
+
+**설정은 생략할수있음**
+[Setup]
+vi /etc/influxdb/config.toml
+
+[http]
+  # Determines whether HTTP endpoint is enabled.
+  enabled = true
+
+  # The bind address used by the HTTP service.
+  bind-address = ":8086"
+
+  # Determines whether user authentication is enabled over HTTP/HTTPS.
+  auth-enabled = false
+
+  # The default realm sent back when issuing a basic auth challenge.
+  # realm = "InfluxDB"
+  
+sudo systemctl unmask influxdb
+sudo systemctl enable influxdb
+sudo systemctl start influxdb
+sudo systemctl status influxdb
+
+sudo influx //influx client shell

@@ -1,0 +1,13 @@
+KEY_MAPPING = {
+    'Phase Voltage': ['U1', 'U2', 'U3', 'U4'],
+    'Frequency': ['Freq'],
+    'Line Voltage': ['Upp1', 'Upp2', 'Upp3', 'Upp4'],
+    'Current': ['I1', 'I2', 'I3', 'I4', 'Itot'],
+    'Unbalance': ['Ubal1', 'Ubal2', 'Ibal1', 'Ibal2'],
+    'Power': ['P1', 'P2', 'P3', 'P4', 'Q1', 'Q2', 'Q3', 'Q4', 'S1', 'S2', 'S3', 'S4'],
+    'PF': ['PF1', 'PF2', 'PF3', 'PF4'],
+    'THD': ['THD_U1', 'THD_U2', 'THD_U3', 'THD_Upp1', 'THD_Upp2', 'THD_Upp3', 'THD_I1', 'THD_I2', 'THD_I3'],
+    'TDD': ['TDD_I1', 'TDD_I2', 'TDD_I3'],
+    'Temperature': ['Temp'],
+    'Energy': ['total_kwh_import', 'total_kvarh_import', 'total_kvah_import']
+}

@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=fallback');
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+
+/* Additional styles */
+@import 'additional-styles/utility-patterns.css';
+@import 'additional-styles/flatpickr.css';
+
+@import 'tailwindcss/utilities';
+
+/* ✨ 글로벌 폰트 설정 추가 위치 */
+html[lang="jp"] {
+  font-family: "Noto Sans JP", "Yu Gothic", "Hiragino Kaku Gothic Pro", sans-serif;
+}
+html[lang="ko"] {
+  font-family: "Apple SD Gothic Neo", "Noto Sans KR", "Pretendard", sans-serif;
+}
+html[lang="en"] {
+  font-family: "Inter", "Arial", sans-serif;
+}

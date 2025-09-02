@@ -1,0 +1,62 @@
+<<STLinux IP 주소 임시 설정방법>>
+
+ifconfig end2 192.168.1.100 netmask 255.255.255.0 up
+route add default gw 192.168.1.1 end2
+
+<<influxdb2.x Installation & Setup in STLinux>>
+
+[Installation]
+sudo apt-get update
+sudo apt-get upgrade
+
+wget -q https://repos.influxdata.com/influxdata-archive_compat.key
+echo '393e8779c89ac8d958f81f942f9ad7fb82a25e133faddaf92e15b16e6ac9ce4c influxdata-archive_compat.key' | sha256sum -c && cat influxdata-archive_compat.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg > /dev/null
+echo 'deb [signed-by=/etc/apt/trusted.gpg.d/influxdata-archive_compat.gpg] https://repos.influxdata.com/debian stable main' | sudo tee /etc/apt/sources.list.d/influxdata.list
+sudo apt-get update && sudo apt-get install influxdb2
+
+sudo systemctl unmask influxdb
+sudo systemctl start influxdb
+
+[setup]
+0.influxdb 설정
+sudo vi /etc/influxdb/config.toml
+
+[http]
+  # Determines whether HTTP endpoint is enabled.
+  enabled = true
+
+  # The bind address used by the HTTP service.
+  bind-address = ":8086"
+
+  # Determines whether user authentication is enabled over HTTP/HTTPS.
+  auth-enabled = false
+
+  # The default realm sent back when issuing a basic auth challenge.
+  # realm = "InfluxDB"
+
+1. influx client 설정
+influx setup
+
+Welcome to InfluxDB 2.0!
+Please type your primary username: ntek
+Please type your password: ntek9135
+Please type your primary organization name: nteksystem
+Please type your primary bucket name: ntek
+Please type your retention period in hours, or infinite for infinite retention: infinite
+Confirm? (y/N): y
+
+2. 관리자 토큰 확인
+influx auth list
+
+ID                      Description      Token               Permissions
+1234567890abcdef  Admin Token    my-super-secret-token  all-access
+
+3. influx client config 만드는 방법
+influx config create --config-name default \
+  --host-url http://localhost:8086 \
+  --org my-org \
+  --token my-secret-token \
+  --active
+
+4. influx 클라이언트 콘솔 실행 방법
+influx v1 shell

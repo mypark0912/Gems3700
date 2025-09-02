@@ -1,0 +1,52 @@
+[[Redis Service 만들기]]
+
+vi /etc/systemd/system/redis.service
+-----------------------------------------
+[Unit]
+Description=Redis In-Memory Data Store
+After=network.target
+
+[Service]
+ExecStart=/home/root/bin/redis-server /etc/redis/redis.conf
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+------------------------------------------
+vi /etc/redis/redis.conf  (외부 접근 시 비밀번호 처리 추가 반드시 해야 함)
+------------------------------------------
+bind 0.0.0.0
+port 6379
+protected-mode no
+requirepass ntek  
+daemonize no
+------------------------------------------
+sudo systemctl daemon-reexec
+sudo systemctl enable redis
+sudo systemctl start redis
+sudo systemctl status redis << 서비스 상태 확인
+===========================
+
+[[Web Server 서비스 등록 방법]]
+
+sudo vi /etc/systemd/system/webserver.service
+----------------------------------------
+[Unit]
+Description=FastAPI Web Server
+After=network.target
+
+[Service]
+WorkingDirectory=/home/root/webserver
+ExecStart=/home/root/webserver/venv/bin/python3 main_fast.py
+Restart=always
+User=root
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
+---------------------------------------
+sudo systemctl daemon-reexec
+sudo systemctl daemon-reload
+sudo systemctl enable webserver.service
+sudo systemctl start webserver.service
+sudo systemctl status webserver.service << 서비스 상태 확인

@@ -1,0 +1,465 @@
+# Vue 컴포넌트 ↔ FastAPI 라우터 연결 매핑 (완전판)
+생성일: 2025-01-16
+
+## 연결 매핑 테이블
+
+### 1. TrendTab.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/partials/inners/trend/TrendTab.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.get(/api/getTrendParameters/${asset}/Diagnostic)` | routes/api.py | GET /getTrendParameters/{asset}/{type} |
+| `axios.get(/api/getTrendParameters/${asset}/PowerQuality)` | routes/api.py | GET /getTrendParameters/{asset}/{type} |
+| `axios.get(/api/getTrendParameters/${asset}/parameter)` | routes/api.py | GET /getTrendParameters/{asset}/{type} |
+| `axios.get(/api/getTrendParameters/${channel})` | routes/api.py | GET /getTrendParameters/{channel} |
+| `axios.get(/api/getMeterTrend/${channel})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+| `axios.post(/api/getTrendData)` | routes/api.py | POST /getTrendData |
+
+### 2. TrendPanel.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/partials/inners/setting/TrendPanel.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.post(/setting/save/Trend)` | routes/setting.py | POST /savefile/{channel} |
+
+### 3. PlansPanel.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/partials/inners/setting/PlansPanel.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.post(/setting/setDiagnosisSetting)` | routes/setting.py | POST /setDiagnosisSetting |
+| `axios.post(/setting/setDiagnosisProfile)` | routes/setting.py | POST /setDiagnosisProfile |
+| `axios.get(/setting/getDiagnosisSetting)` | routes/setting.py | GET /getDiagnosisSetting |
+| `axios.post(/setting/upload)` | routes/setting.py | POST /upload |
+| `axios.post(/setting/savefile/General)` | routes/setting.py | POST /savefile/{channel} |
+| `axios.post(/setting/save/General)` | routes/setting.py | POST /savefile/{channel} |
+| `axios.get(/setting/getSettingData/General)` | routes/setting.py | GET /getSettingData/{channel} |
+
+### 4. NameplateCard.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/partials/inners/setting/NameplateCard.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.get(/setting/checkBearing)` | routes/setting.py | GET /checkBearing |
+| `axios.post(/setting/uploadBearing)` | routes/setting.py | POST /uploadBearing |
+| `axios.post(/setting/setAssetConfig/${assetName})` | routes/setting.py | 해당 엔드포인트 없음 (구현 필요) |
+
+### 5. General_diagnosisCard.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/partials/inners/setting/General_diagnosisCard.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.get(/setting/getDiagnosisProfile)` | routes/setting.py | GET /getDiagnosisProfile |
+
+### 6. CommandPanel.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/partials/inners/setting/CommandPanel.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.get(/setting/checkAPI)` | routes/setting.py | 해당 엔드포인트 없음 (구현 필요) |
+| `axios.get(/setting/SysCheck)` | routes/setting.py | 해당 엔드포인트 없음 (구현 필요) |
+
+### 7. CommandItem.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/partials/inners/setting/CommandItem.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.get(/setting/SysService/${cmd}/${item})` | routes/setting.py | GET /SysService/{cmd}/{item} |
+| `axios.get(/auth/checkDBMS)` | routes/auth.py | GET /checkDBMS |
+| `axios.get(/setting/initDB)` | routes/setting.py | GET /initDB |
+| `axios.get(/setting/ResetAll)` | routes/setting.py | GET /ResetAll |
+
+### 8. ChannelPanel.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/partials/inners/setting/ChannelPanel.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.get(/setting/getSettingData/${ch})` | routes/setting.py | GET /getSettingData/{channel} |
+| `axios.get(/setting/getAssetConfig/${asset})` | routes/setting.py | 해당 엔드포인트 없음 (구현 필요) |
+| `axios.get(/setting/getAssetParams/${asset})` | routes/setting.py | 해당 엔드포인트 없음 (구현 필요) |
+| `axios.post(/setting/save/${channel})` | routes/setting.py | POST /savefile/{channel} |
+| `axios.post(/setting/savefile/General)` | routes/setting.py | POST /savefile/{channel} |
+| `axios.post(/setting/savefile/${channel})` | routes/setting.py | POST /savefile/{channel} |
+| `axios.post(/setting/setAssetParams/${assetName})` | routes/setting.py | 해당 엔드포인트 없음 (구현 필요) |
+| `axios.post(/setting/setAssetConfig/${assetName})` | routes/setting.py | 해당 엔드포인트 없음 (구현 필요) |
+| `axios.get(/setting/test/${assetName})` | routes/setting.py | 해당 엔드포인트 없음 (구현 필요) |
+
+### 9. BillingPanel.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/partials/inners/setting/BillingPanel.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.get(/auth/getUserList)` | routes/auth.py | GET /getUserList |
+| `axios.post(/auth/join)` | routes/auth.py | POST /join |
+| `axios.get(/auth/removeUser/${account})` | routes/auth.py | GET /removeUser/{username} |
+| `axios.get(/auth/saveUser/${account}/${role})` | routes/auth.py | GET /saveUser/{account}/{role} |
+
+### 10. AssetCard.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/partials/inners/setting/AssetCard.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.get(/setting/getAssetList)` | routes/setting.py | GET /getAssetList |
+| `axios.get(/setting/unregisterAsset/${channel})` | routes/setting.py | GET /unregisterAsset/{channel} |
+| `axios.get(/setting/registerAsset/${channel}/${assetName}/${assetType})` | routes/setting.py | GET /registerAsset/{channel}/{assetName}/{assetType} |
+| `axios.post(/setting/createAsset)` | routes/setting.py | POST /createAsset |
+| `axios.post(/setting/modifyAsset)` | routes/setting.py | POST /modifyAsset |
+| `axios.get(/setting/deleteAsset/${assetName})` | routes/setting.py | GET /deleteAsset/{asset} |
+
+### 11. ParamCard.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/partials/inners/setting/ParamCard.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.post(/setting/setAssetParams/${assetName})` | routes/setting.py | 해당 엔드포인트 없음 (구현 필요) |
+
+### 12. Signup.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/pages/main/Signup.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.post(/auth/joinAdmin)` | routes/auth.py | POST /joinAdmin |
+
+### 13. Signin.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/pages/main/Signin.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.post(/auth/resetPassword)` | routes/auth.py | POST /resetPassword |
+
+### 14. Setting.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/pages/main/Setting.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.post(/setting/upload)` | routes/setting.py | POST /upload |
+| `axios.get(/setting/download)` | routes/setting.py | GET /download |
+| `axios.get(/setting/getSettingData/${channel})` | routes/setting.py | GET /getSettingData/{channel} |
+| `axios.get(/setting/getSetting)` | routes/setting.py | GET /getSetting |
+| `axios.get(/setting/Reset)` | routes/setting.py | GET /Reset |
+| `axios.post(/setting/restoreSetting)` | routes/setting.py | POST /restoreSetting |
+
+### 15. Report2.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/pages/main/Report2.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `fetch('/en50160_info.json')` | 정적 파일 | 정적 JSON 파일 |
+
+### 16. PowerQ.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/pages/main/PowerQ.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.get(/api/getWave/${ch})` | routes/api.py | GET /getWave/{channel} |
+| `axios.get(/api/getHarmonics/${ch})` | routes/api.py | GET /getHarmonics/{channel} |
+
+### 17. Meter.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/pages/main/Meter.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.get(/api/getOnesfromRedis/${ch})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+| `axios.get(/api/getonemfromRedis/${ch})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+| `axios.get(/api/getFifthMfromRedis/${ch})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+| `axios.get(/api/getOnehfromRedis/${ch})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+
+### 18. MasterDashboard.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/pages/main/MasterDashboard.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.get(/master/getDeviceInfo)` | routes/master.py | GET /getDeviceInfo |
+| `axios.get(/setting/Reset)` | routes/setting.py | GET /Reset |
+| `axios.post(/master/saveDevice)` | routes/master.py | POST /saveDevice |
+| `axios.get(/master/deleteDevice/${id})` | routes/master.py | GET /deleteDevice/{id} |
+
+### 19. DynamicDashboard.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/pages/main/DynamicDashboard.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.get(/api/getMeterRedisNew/${ch}/${opMode})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+
+### 20. reportDict.js → FastAPI 라우터 연결
+**파일**: `frontend/src/composables/reportDict.js`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.get(/api/getAsset/${chName})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+| `axios.get(/api/getParameters/${asset}/diagnostic)` | routes/api.py | GET /getParameters/{asset}/{type} |
+| `axios.get(/api/getParameters/${asset}/powerquality)` | routes/api.py | GET /getParameters/{asset}/{type} |
+| `axios.post(/api/getTrendData)` | routes/api.py | POST /getTrendData |
+| `axios.get(/api/getDiagnosisDetail/${chName})` | routes/api.py | GET /getDiagnosisDetail/{asset} |
+| `axios.get(/api/getDiagPQ/${chName})` | routes/api.py | GET /getDiagPQ/{asset} |
+| `axios.get(/api/getEn50160/${channel})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+| `axios.get(/api/getEnergyData/${channel})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+
+### 21. setup.js (Store) → FastAPI 라우터 연결
+**파일**: `frontend/src/store/setup.js`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.get(/setting/checkSettingFile)` | routes/setting.py | GET /checkSettingFile |
+
+### 22. auth.js (Store) → FastAPI 라우터 연결
+**파일**: `frontend/src/store/auth.js`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.post(/auth/checkLogins)` | routes/auth.py | POST /checkLogins |
+| `axios.get(/auth/logout)` | routes/auth.py | GET /logout |
+| `axios.get(/auth/checkSession)` | routes/auth.py | GET /checkSession |
+| `axios.get(/auth/checkInstall)` | routes/auth.py | GET /checkInstall |
+
+### 23. Diagnosis2.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/pages/main/Diagnosis2.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.get(/api/getAsset/${chName})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+| `axios.get(/api/getRealTime/${chType}/${chName})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+
+### 24. MaintenancePanel.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/partials/inners/config/MaintenancePanel.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.post(/config/savePost/${mode}/${id})` | routes/config.py | POST /savePost/{mode}/{idx} |
+| `axios.get(/config/getPost)` | routes/config.py | GET /getPost |
+| `axios.get(/config/deletePost/${id})` | routes/config.py | GET /deletePost/{idx} |
+
+### 25. CaliSideBar2.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/partials/inners/config/CaliSideBar2.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.get(/config/calibrate/start)` | routes/config.py | GET /calibrate/start |
+| `axios.get(/config/calibrate/end)` | routes/config.py | GET /calibrate/end |
+| `axios.post(/config/calibrate/cmd/${type})` | routes/config.py | POST /calibrate/cmd/{types} |
+| `axios.post(/config/upload)` | routes/config.py | POST /upload |
+
+### 26. ServicePanel.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/partials/inners/config/ServicePanel.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.get(/setting/checkAPI)` | routes/setting.py | 해당 엔드포인트 없음 (구현 필요) |
+| `axios.get(/setting/SysCheck)` | routes/setting.py | 해당 엔드포인트 없음 (구현 필요) |
+
+### 27. CaliPanel2.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/partials/inners/config/CaliPanel2.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.get(/config/checkSetup)` | routes/config.py | GET /checkSetup |
+
+### 28. AlarmStatusTable.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/partials/inners/event/AlarmStatusTable.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.get(/api/getAlarmSetup/${ch})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+
+### 29. EventTab.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/partials/inners/event/EventTab.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.get(/api/getEvents/${ch}/${pg})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+| `axios.post(/api/getEventSearch/${ch}/${pg})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+| `axios.get(/api/getAlarms/${ch}/${pg})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+| `axios.post(/api/getAlarmSearch/${ch}/${pg})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+
+### 30. DiagnosisTab.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/partials/inners/diagnosis/DiagnosisTab.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.get(/api/getDiagnosisDetail/${chName})` | routes/api.py | GET /getDiagnosisDetail/{asset} |
+| `axios.get(/api/getDiagPQ/${chName})` | routes/api.py | GET /getDiagPQ/{asset} |
+| `axios.get(/api/getFaults/${chName})` | routes/api.py | GET /getFaults/{asset} |
+| `axios.get(/api/getEvents/${chName})` | routes/api.py | GET /getEvents/{asset} |
+
+### 31. Report_WattHour.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/partials/inners/report/Report_WattHour.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.get(/api/getEnergyRedis/${channel})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+
+### 32. Report_PQ.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/partials/inners/report/Report_PQ.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.get(/api/getParameters/${asset}/powerquality)` | routes/api.py | GET /getParameters/{asset}/{type} |
+| `axios.post(/api/getTrendData)` | routes/api.py | POST /getTrendData |
+| `axios.get(/api/getDiagPQ/${chName})` | routes/api.py | GET /getDiagPQ/{asset} |
+
+### 33. Report_Info.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/partials/inners/report/Report_Info.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.get(/api/getAsset/${chName})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+
+### 34. Report_Diagnosis.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/partials/inners/report/Report_Diagnosis.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.get(/api/getParameters/${asset}/diagnostic)` | routes/api.py | GET /getParameters/{asset}/{type} |
+| `axios.post(/api/getTrendData)` | routes/api.py | POST /getTrendData |
+| `axios.get(/api/getDiagnosisDetail/${chName})` | routes/api.py | GET /getDiagnosisDetail/{asset} |
+| `axios.get(/api/getEvents/${chName})` | routes/api.py | GET /getEvents/{asset} |
+| `axios.get(/api/getFaults/${chName})` | routes/api.py | GET /getFaults/{asset} |
+
+### 35. ReportComponent.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/partials/inners/report/ReportComponent.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.get(/api/getEn50160/${channel})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+
+### 36. PDFPreview.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/partials/inners/report/PDFPreview.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.get(/api/getEn50160/${channel})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+
+### 37. Dashboard_TransInfo_final.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/partials/inners/dashboard/Dashboard_TransInfo_final.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.get(/api/getRealTime/${chType}/${chName})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+| `axios.get(/api/getAsset/${chName})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+
+### 38. Dashboard_Single_Info.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/partials/inners/dashboard/Dashboard_Single_Info.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.get(/api/getRealTime/${chType}/${chName})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+| `axios.get(/api/getAsset/${chName})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+
+### 39. DashboardCard_New.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/partials/inners/dashboard/DashboardCard_New.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.get(/api/getStatus/${chName})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+| `axios.get(/api/getRealTime/${chType}/${chName})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+| `axios.get(/api/getPQStatus/${chName})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+| `axios.get(/api/getAlarmLast/${chName})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+
+### 40. DashboardCard_kwh_realtime.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/partials/inners/dashboard/DashboardCard_kwh_realtime.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.get(/api/getOnehfromRedis/${ch})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+
+### 41. DashboardCard_Diagnosis.vue → FastAPI 라우터 연결
+**파일**: `frontend/src/partials/inners/dashboard/DashboardCard_Diagnosis.vue`
+
+| Axios 호출 | FastAPI 라우터 파일 | 엔드포인트 |
+|-----------|------------------|-----------|
+| `axios.get(/api/getStatus/${chName})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+| `axios.get(/api/getRealTime/${chType}/${chName})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+| `axios.get(/api/getPQStatus/${chName})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+| `axios.get(/api/getAlarmLast/${chName})` | routes/api.py | 해당 엔드포인트 없음 (구현 필요) |
+
+## 연결 통계
+
+### 라우터 파일별 연결 수
+- **routes/setting.py**: 38개 연결 (가장 많음)
+- **routes/api.py**: 49개 연결 (실제 구현된 것: 17개, 누락: 32개)
+- **routes/auth.py**: 9개 연결
+- **routes/config.py**: 8개 연결
+- **routes/master.py**: 4개 연결
+
+### Vue 파일별 연결 수 (상위 20개)
+1. **ChannelPanel.vue**: 9개 연결
+2. **reportDict.js**: 8개 연결
+3. **PlansPanel.vue**: 7개 연결
+4. **TrendTab.vue**: 6개 연결
+5. **AssetCard.vue**: 6개 연결
+6. **Setting.vue**: 6개 연결
+7. **Report_Diagnosis.vue**: 5개 연결
+8. **DiagnosisTab.vue**: 4개 연결
+9. **EventTab.vue**: 4개 연결
+10. **BillingPanel.vue**: 4개 연결
+11. **CommandItem.vue**: 4개 연결
+12. **MasterDashboard.vue**: 4개 연결
+13. **Meter.vue**: 4개 연결
+14. **CaliSideBar2.vue**: 4개 연결
+15. **DashboardCard_New.vue**: 4개 연결
+16. **DashboardCard_Diagnosis.vue**: 4개 연결
+17. **Report_PQ.vue**: 3개 연결
+18. **MaintenancePanel.vue**: 3개 연결
+19. **NameplateCard.vue**: 3개 연결
+20. **Dashboard_TransInfo_final.vue**: 2개 연결
+
+### 총 연결 수
+- **총 Vue 파일**: 41개
+- **총 API 호출**: 108개
+- **구현된 엔드포인트**: 70개
+- **누락된 엔드포인트**: 38개
+
+### 누락된 엔드포인트 (구현 필요)
+다음 axios 호출들은 해당하는 FastAPI 엔드포인트가 없어 구현이 필요합니다:
+
+#### routes/setting.py에 추가 필요:
+1. `GET /setting/getAssetConfig/{asset}`
+2. `GET /setting/getAssetParams/{asset}`
+3. `POST /setting/setAssetParams/{assetName}`
+4. `POST /setting/setAssetConfig/{assetName}`
+5. `GET /setting/test/{assetName}`
+6. `GET /setting/checkAPI`
+7. `GET /setting/SysCheck`
+
+#### routes/api.py에 추가 필요:
+8. `GET /api/getMeterTrend/{channel}`
+9. `GET /api/getOnesfromRedis/{ch}`
+10. `GET /api/getonemfromRedis/{ch}`
+11. `GET /api/getFifthMfromRedis/{ch}`
+12. `GET /api/getOnehfromRedis/{ch}`
+13. `GET /api/getMeterRedisNew/{ch}/{opMode}`
+14. `GET /api/getAsset/{chName}` (여러 컴포넌트에서 사용)
+15. `GET /api/getRealTime/{chType}/{chName}` (Dashboard 컴포넌트들에서 사용)
+16. `GET /api/getEn50160/{channel}` (Report 컴포넌트들에서 사용)
+17. `GET /api/getEnergyData/{channel}`
+18. `GET /api/getEnergyRedis/{channel}`
+19. `GET /api/getAlarmSetup/{ch}`
+20. `GET /api/getEvents/{ch}/{pg}` (페이징 지원)
+21. `POST /api/getEventSearch/{ch}/{pg}` (검색 기능)
+22. `GET /api/getAlarms/{ch}/{pg}` (페이징 지원)
+23. `POST /api/getAlarmSearch/{ch}/{pg}` (검색 기능)
+24. `GET /api/getStatus/{chName}` (Dashboard 상태 조회)
+25. `GET /api/getPQStatus/{chName}` (전력품질 상태)
+26. `GET /api/getAlarmLast/{chName}` (최근 알람)
+
+## 주요 패턴 분석
+
+### 1. 설정 관리 패턴
+- Vue 설정 컴포넌트들은 주로 `routes/setting.py`와 연결
+- 저장: `POST /savefile/{channel}` 패턴 사용
+- 조회: `GET /getSettingData/{channel}` 패턴 사용
+
+### 2. 인증 관리 패턴
+- 사용자 관리는 `routes/auth.py`와 연결
+- CRUD 패턴: join(생성), getUserList(조회), saveUser(수정), removeUser(삭제)
+
+### 3. 자산 관리 패턴
+- 자산 관련 기능은 `routes/setting.py`와 연결
+- 등록/해제: registerAsset/unregisterAsset
+- CRUD: createAsset, modifyAsset, deleteAsset
+
+### 4. 트렌드 데이터 패턴
+- 트렌드 관련 기능은 `routes/api.py`와 연결
+- 파라미터 조회 후 데이터 요청하는 2단계 패턴
+
+이 매핑 테이블을 통해 Vue 컴포넌트와 FastAPI 라우터 간의 정확한 연결 관계를 파악할 수 있습니다.

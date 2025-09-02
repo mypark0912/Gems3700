@@ -1,0 +1,10 @@
+if __name__ == '__main__':
+    uvicorn.run(
+        "main_fast:app",  # 모듈명:FastAPI 인스턴스 이름
+        host="0.0.0.0",
+        port=443,  # 일반적으로 HTTPS는 443이나 권한 문제로 8443 사용
+        workers=1,  # 워커 1개로 고정 (메모리 절약)
+        http="httptools",  # 경량 HTTP 파서
+        ssl_keyfile="key.pem",     # 개인키 경로
+        ssl_certfile="cert.pem",   # 인증서 경로
+    )

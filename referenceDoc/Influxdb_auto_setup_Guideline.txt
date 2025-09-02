@@ -1,0 +1,63 @@
+POST /api/v2/setup : 이 API는 InfluxDB가 아직 초기 설정이 안 된 상태에서만 작동
+한 번 setup이 완료되면, 다시 이 API로 설정하는 건 불가능 (409 Conflict 에러 남)
+다시 초기화하려면 DB 삭제하고 새로 시작해야 돼 (예: influxd --force-remove-setup 같은 방식)
+
+
+
+request
+Content-Type: application/json
+{
+  "username": "admin",
+  "password": "mySecurePassword",
+  "org": "my-org",
+  "bucket": "default-bucket",
+  "retentionPeriodSeconds": 0
+}
+
+response
+{
+  "auth": {
+    "token": "admin-token-xxxxxx"
+  },
+  "bucket": {
+    "id": "...",
+    "name": "default-bucket"
+  },
+  ...
+}
+
+////FASTAPI/////
+import httpx
+
+async def setup_influxdb():
+    url = "http://localhost:8086/api/v2/setup"
+    payload = {
+        "username": "admin",
+        "password": "mySecurePassword",
+        "org": "nteksystem",
+        "bucket": "device_data",
+        "retentionPeriodSeconds": 0
+    }
+
+    async with httpx.AsyncClient() as client:
+        try:
+            response = await client.post(url, json=payload)
+            if response.status_code == 201:
+                token = response.json()['auth']['token']
+                print("InfluxDB setup 완료, 토큰:", token)
+                # 👉 여기서 token 파일 저장 또는 DB 저장
+                with open("/etc/influxdb_token.txt", "w") as f:
+                    f.write(token)
+            elif response.status_code == 409:
+                print("이미 setup 됨")
+            else:
+                print("InfluxDB setup 실패:", response.text)
+        except Exception as e:
+            print("InfluxDB 연결 실패:", str(e))
+
+[재부팅 시 setup 중복 막기]
+from pathlib import Path
+
+if not Path("/etc/setup_done").exists():
+    await setup_influxdb()
+    Path("/etc/setup_done").touch()

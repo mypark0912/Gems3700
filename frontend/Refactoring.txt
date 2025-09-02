@@ -1,0 +1,16 @@
+pages - common - SideBar3.vue, Header.vue, Footer.vue, ModalBasic.vue, PaginationNumeric.vue, PaginationClassic.vue, SearchModal.vue
+pages - header - DropdownHelp.vue, DropdownProfile.vue, ThemeToggle.vue, DropdownLanguage.vue
+pages - main - Calibrate2.vue, Diagnosis2.vue, DynamicDashboard.vue, Event.vue, MasterDashboard.vue, Meter.vue, PowerQ.vue, Report2.vue, ResetPassword.vue, Setting.vue, Signin.vue, Signup.vue, Trend.vue
+pages - layouts - SingleChannelLayout.vue, DualChannelLayout.vue
+partials - inners - dashboard - DashboardCard_Meter_Ch1.vue, DashboardCard_PQ_Claude2.vue, Dashboard_TransInfo_final.vue, DashboardCard_kwh_realtime.vue, DashboardCard_Diagnosis.vue, DashboardCard_Meter_Ch2.vue, DashboardCard_New.vue, DashCard.vue, StatusItem_Trans_Claude.vue, StatusItem2.vue, StatusItem_Claude2.vue, StatusItem2_Claude.vue, DashboardCard_table4.vue, DashboardCard_THD.vue
+partials - inners - meter - MeterDetail2.vue, CanvasAngle4.vue, MeterKwh.vue, CanvasAngle.vue
+partials - inners - power - ReportTable2.vue, PowerQ_Table.vue
+partials - inners - trend - Notification_origin.vue, Trend_treetable.vue, TreeRowTrend.vue, TrendTab.vue
+partials - inners - diagnosis - Diagnosis_BarChart2.vue, Diagnosis_Info2.vue, DiagnosisTab.vue, Diagnosis_TreeTable2.vue, Transformer.vue, Diagnosis_Info.vue
+partials - inners - report - Report_table.vue, Report_ITIC.vue, ReportComponent.vue, Report_PQ.vue, Report_PQ_detail.vue, Report_WattHour.vue, Report_Diagnosis.vue, StatusReport.vue, ReportTrend.vue, ReportEventFault.vue, Report_Info.vue, PDFPreview.vue, Report_kwh_detail.vue
+partials - inners - event - EventTab.vue, EventTable.vue, EventTableItem.vue, AlarmStatusTable.vue
+partials - inners - setting - PlansPanel.vue, WaveformFTPCard.vue, SNTPCard.vue, General_diagnosisCard.vue, ChannelPanel.vue, TrendPanelCard.vue, AssetCard.vue, NameplateCard.vue, Channel_diagnosisCard.vue, EventCard2.vue, EventCard1.vue, ParamCard.vue, AlarmCard.vue, AdminPanel.vue, SettingsSidebar.vue, AccountPanel.vue, BillingPanel.vue, APIPanel.vue, TreeRowAsset.vue
+partials - inners - config - CaliSideBar2.vue, CaliPanel2.vue, CaliCard2.vue, CaliCard4.vue, FormBlock.vue, GroupTable.vue, ServicePanel.vue, MaintenancePanel.vue, maintenanceItem.vue, ServiceCard.vue, ServiceStatus.vue, FormArea.vue
+charts - connect - BarChart05.vue, LineChart02.vue, LineChart01_Echart.vue, LineChart01_Echart2.vue, LineChart_ITIC.vue, BarChart01_Energy.vue, BarChart03.vue, BarChart_Claude.vue, BarChart_PQ_Claude.vue, BarChart_FaultEvent.vue, RealtimeChart2.vue, DualAxisChart.vue, ReportTrendChart_Echart.vue, THD_Chart_Claude.vue
+utils - Utils.js
+css - card-styles.css

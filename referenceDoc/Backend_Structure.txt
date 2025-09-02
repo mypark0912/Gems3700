@@ -1,0 +1,152 @@
+[main_fast.py]
+
+1. 앱 실행 진입점 : uvicorn.run(app, host="0.0.0.0", port=4000) //호스트 0.0.0.0 외부 접근 허용
+2. 미들웨어 등록 (CORS / Session)
+3. 라우터 등록
+4. Static 서빙 디렉토리 설정
+5. Vue 라우팅을 위한 html 서빙 경로 지정
+
+<사용자관리 절차>
+1. 사용자 계정 생성은 관리자만 가능하게 한다.  관리자로 로그인 하면, 사용자 관리 메뉴가 있고 사용자 관리 화면에서 권한변경, 사용자 추가/삭제가 가능하다.
+2. 진단기능을 사용하지 않을 수 잇으므로, 웹 서버 로그인은 SQLite3 로 별도 관리한다. 
+3. 장비 설정에서 진단 기능을 사용하는 경우, 사용자 계정 생성 시 RestfulAPI 로 진단 서비스 사용자를 생성한다. 
+4. 사용자 로그인 시, 진단기능 사용 여부를 확인하여 RestfulAPI 로 진단 서비스에 로그인 한다. 
+5. 사용자 로그아웃 시, 진단기능 사용 여부를 확인하여 RestfulAPI 로 진단 서비스에 로그아웃 한다.
+
+사용자 권한 => 0 : 관리자, 1 : 운영자, 2 : 사용자 (Restful API 와 동일하게 설정)
+
+[auth.py]
+
+/auth/checkSession : 로그인 여부 판단, 세션 처리
+
+/auth/fechlangset : 언어설정 가져오기, 최초 한번 실행하여 json 파일로 부터 store에 저장
+
+/auth/getUser : 로그인한 사용자 설정 가져오기
+
+/auth/resetPassword : 로그인하지 않은 경우, 비밀번호 리셋 (암호화 미처리)
+
+/auth/updateProfile : 로그인 한 경우, 사용자 설정 변경 (비밀번호 변경 시 암호화처리, 진단 기능 사용 시, 진단 로그인 정보 변경) modified by 2025.04.10 
+
+/auth/checkLogins : 로그인 기능, 로그인 후 사용자 및 로그인 여부를 store 에 저장 (진단 기능 사용 시, 진단 서비스 로그인) modified by 2025.04.10 
+
+/auth/logout : 로그아웃 기능 (진단 기능 사용 시, 진단 서비스 로그아웃) modified by 2025.04.10 
+
+/auth/checkInstall : 초기 관리자 생성 및 DB 생성 확인 (installed = False => 회원가입 링크 활성화) by 2025.04.10 
+
+/auth/joinAdmin : 초기 관리자 생성(setting/admin_secret.enc 파일로 관리자 비밀번호 확인, installed = True)  by 2025.04.10
+
+/auth/getUserList : 사용자 목록 가져오기
+
+/auth/saveUser/{username}/{role} : 사용자 권한 변경 (관리자로그인 => 사용자관리 : BillingPanel.vue)   by 2025.04.10
+
+/auth/removeUser/{username} : 사용자 삭제 - admin 제외 (관리자로그인 => 사용자관리 : BillingPanel.vue)  by 2025.04.10
+
+/auth/join : 사용자 추가 (관리자로그인 => 사용자관리 : BillingPanel.vue) by 2025.04.10
+
+[setting.py]
+
+/setting/checkSettingFile : 설정에 저장된 값에 따른 Sidebar 동적 구성 적용(with JSON File - Asset 정보 포함)
+
+/setting/getSettingData/{channel} : 채널별 설정 가져오기 (with JSON File)
+
+/setting/getDiagnosisSetting/{channel} : 진단 설정 가져오기 (with httpx Restful API)
+
+/setting/getDiagnosisSetting : 진단 설정 정보 가져오기(전체 시스템 설정 정보)
+
+/setting/upload : 설정파일 업로드(JSON File)
+
+/setting/download : 설정파일 다운로드(JSON File)
+
+/setting/savefile/{channel} : 채널별 설정 저장하기 (with JSON File)
+
+/setting/setDiagnosisSetting/{channel} : 진단 설정 저장하기 (with httpx Restful API)
+
+/setting/save/{channel} : 채널별 설정 저장하기 (with influxdb)
+
+/setting/restoreSetting : 설정 복원하기 (with JSON File)
+
+/setting/getAssetConfig/{asset} : 자산별 자산 설정 정보 가져오기  (with httpx Restful API)
+
+/setting/setAssetConfig/{asset} : 자산별 자산설정 저장하기(with httpx Restful API - POST) by 2025.04.03
+
+/setting/setDiagnosisSetting : General 의 진단 설정 저장(with httpx Restful API - POST) by 2025.04.03
+
+/setting/createAsset : 채널별 Asset 추가 (with httpx Restful API - POST) by 2025.04.03
+
+/setting/modifyAsset : 채널별 Asset 이름 변경 (with httpx Restful API - POST) by 2025.04.03
+
+/setting/deleteAsset/{asset} : 채널별 Asset 삭제 (with httpx Restful API - GET) by 2025.04.03
+
+[api.py]
+
+/api/getFormat : EN50160 테이블 정보 가져오기 (with JSON File)
+
+/api/getHarmonics/{channel} : 채널별 하모닉스 데이터 가져오기(with Redis)
+
+/api/getWave/{channel} : 채널별 웨이브폼 데이터 가져오기 (with Redis) by 2025.04.04
+
+/api/getDiagnosis/{asset} : 자산별 진단항목 상태 가져오기  (with httpx Restful API) - BarChart
+
+/api/getDiagnosisDetail/{asset} : 자산별 진단항목 상태 및 세부데이터 가져오기 (with httpx Restful API) - BarChart , TreeList
+
+/api/getDiagPQ/{asset} : 자산별 Power Quality 상태 및 세부 데이터 가져오기  (with httpx Restful API) - BarChart , TreeList
+
+/api/getFaults/{asset} : 자산별 Fault 정보 가져오기  (with httpx Restful API) - BarChart , TreeList
+
+/api/getEvents/{asset} : 자산별 Event 정보 가져오기  (with httpx Restful API) - BarChart , TreeList
+
+/api/getAsset/{assettype}/{asset} : 자산별 설정 요약 정보 가져오기 (with httpx Restful API)
+
+/api/getTrendParameters : 트렌드 파라미터 정보 가져오기  (with httpx Restful API) - TreeList
+
+/api/getTrendData : 트렌드 데이터 가져오기 (with httpx Restful API) : body-Raw-json 으로 데이터 저장 후 post 방식 전송
+
+/api/getStatus/{asset} : 설비별 진단 상태 요약 정보 가져오기 (with httpx Restful API)
+
+/api/fetchAssetData : Asset 설정 가져오기(with JSON File) - 임시
+
+/api/getAlarmStatus/{channel} : 채널별 알람 상태정보 가져오기 (with Redis)
+
+/api/getAlarmLog/{channel} : 채널별 알람 로그 정보 가져오기 (with Redis)
+
+/api/getAlarmLast/{channel} : 채널별 알람 상태 요약 정보 가져오기 (with Redis)
+
+/api/getEventLog/{channel} : 채널별 이벤트 로그 정보 가져오기 (with Redis)
+
+/api/getEn50160/{channel} : 채널별 EN50160 데이터 가져오기 (with Redis)
+
+/api/getMeterRedis/{channel} : 채널별 대시보드 계측 데이터 가져오기 (with Redis) by 2025.04.09
+
+/api/getAllMeterRedis/{channel} : 채널 계측 상세 데이터 가져오기 (with Redis) by 2025.04.09
+
+/api/getMeter/{channel} : 채널별 계측 데이터 가져오기 (with influxdb)
+
+/api/getMeterTrend/{channel} : 채널별 계측 트렌드 데이터 가져오기 (with influxdb)
+
+[master.py]
+
+/api/getSetup/{ip} : 지정한 IP 주소의 웹 서버에서 설정파일 정보 가져오기 (with httpx)
+
+/api/saveDevice : 장치 추가하기/정보 수정하기 (with JSON File)
+
+/api/deleteDevice/{id} : 장치 삭제 (with JSON File)
+
+/api/getDeviceInfo : 등록된 디바이스 실시간 정보 가져오기 (with redis, httpx)
+
+/api/getStatus/{ip}/{asset} : 자산별 진단 상태 가져오기(with httpx Restful API)
+
+
+
+[temp.py] : 주석처리된 예전 influxdb 코드
+
+/api/checkSetting : 설정에 저장된 값에 따른 Sidebar 동적 구성 적용(with DB)
+
+/api/getSetting/{channel} : 채널별 설정 가져오기 (with influxdb)
+
+
+
+[redismap.py] :Redis Data Structure 처리를 위한 클래스 
+
+RedisMapDetail, RedisMapped
+
+

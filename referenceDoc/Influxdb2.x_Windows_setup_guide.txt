@@ -1,0 +1,30 @@
+<<Windows Influxdb Setup Guide>>
+
+1. PowerShell 관리자 권한 실행
+wget https://download.influxdata.com/influxdb/releases/influxdb2-2.7.11-windows.zip -UseBasicParsing -OutFile influxdb2-2.7.11-windows.zip
+Expand-Archive .\influxdb2-2.7.11-windows.zip -DestinationPath 'C:\Program Files\InfluxData\influxdb\'
+
+2. C:\Program Files\InfluxData\influxdb 디렉토리 이동하여, 관리자 권한으로 CMD 실행
+start influxd.exe
+
+3. 웹 브라우저에서 localhost:8086 로 접속 후 설정한 뒤 토큰 저장할 것
+
+user : admin / pass : parkmi77
+org : ntek, bucket : ntek
+token : JXKxDWSf8jcKFy8th3EURW9u0yKmNHoMJlQqLrWiApn0qsH8TNznhgDOOUxNn60X2xWL0lUTgYD1KrSnOiIDiA==
+
+4. PowerSehll 관리자 권한 실행 - influxdb client 설치
+wget https://dl.influxdata.com/influxdb/releases/influxdb2-client-2.7.5-windows-amd64.zip -UseBasicParsing -OutFile influxdb2-client-2.7.5-windows-amd64.zip
+Expand-Archive .\influxdb2-client-2.7.5-windows-amd64.zip -DestinationPath 'C:\Program Files\InfluxData\influxdb2-client\'
+
+
+5. C:\Program Files\InfluxData\influxdb2-client 디렉토리 이동 
+influx config create --config-name <user_name> --host-url http://localhost:8086 --org <your-org> --token <your-auth-token> --active
+
+>> influx config create --config-name admin --host-url http://localhost:8086 --org ntek --token JXKxDWSf8jcKFy8th3EURW9u0yKmNHoMJlQqLrWiApn0qsH8TNznhgDOOUxNn60X2xWL0lUTgYD1KrSnOiIDiA== --active
+
+>> influx v1 shell
+
+6. 삭제 시, C:\Program Files\InfluxData 폴더 삭제 , C:\Users\ntek\.influxdbv2 폴더 삭제
+
+

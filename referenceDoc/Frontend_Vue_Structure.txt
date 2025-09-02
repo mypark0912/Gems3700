@@ -1,0 +1,113 @@
+[router2.js]
+"/" : Dashboard or Singin
+"/singin": Signin
+"/signup" : Signup
+"/dashboard" : Dashboard
+"/dashboard/:user" : Dashboard (Master)
+"/master" : MasterDashboard
+"/meter/:channel" : Meter
+"/powerq/:channel" : PowerQ
+"/diagnosis/:channel" : Diagnosis
+"/event/:channel" : Event
+"/report/:channel" : Report2
+"/trend/:channel" : Trend
+"/settings/:channel" : Setting
+
+[store.js]
+user : login username
+userRole : login userRole 0:User / 1:Operator / 2:Admin
+opMode : device / server (Master Status)
+logined : logined status
+langStr : select language by login
+setup : initial setup status
+applysetup : applying status for setup
+sessioncheckd : session status, login status
+MainDiagnosis : setup status for Main channel Diagnosis
+SubDiagnosis : setup status for Sub channel Diagnosis
+MainEnable : setup status for Main channel
+SubEnable : setup status for Sub channel
+assetType_main : assetType for main channel diagnosis
+assetName_main : assetName for main channel diagnosis
+assetType_sub : assetType for sub channel diagnosis
+assetName_sub : assetName for sub channel diagnosis
+setupFromFile : upload status for setup
+
+
+
+사이드바 : partials/SideBar3.vue // 채널정보를 props 로 넘겨서 Active 상태 관리
+  - partials/SidenarLinkGroup.vue
+ 
+헤더 : partials/Header.vue
+  - 헬프 아이콘 : components/DropdownHelp.vue
+  - 프로필 아이콘 : components/DropdownProfile.vue  //UserRole 에 따라 출력되는 Router-link 변경 
+						=> User 클릭 시 partials/settings/AccountPanel.vue 로 이동
+						=> Admin 클릭 시 partials/settings/BillingPanel.vue 로 이동
+
+대시보드 : pages/Dashboard.vue
+  - partials/dashboard/DashboarCard01.vue //Meter Card
+  - partials/dashboard/DashboarCard02.vue // Power Quality Card => DashboardCard02_New.vue 대체
+  - partials/dashboard/DashboardCard02_New.vue // Power Quality Card 2 - Redis Data 연동 및 UI 변경 by 2025.04.07
+  - partials/dashboard/DashboarCard04.vue // Diagnosis Card => DashboardCard_New.vue 대체
+  - partials/dashboard/DashboardCard_New.vue //Diagnosis 와 Alarm 상태 동시 출력하는 UI 구성 by 2025.04.07
+  - partials/job/StatusItem.vue //DashboardCard_New 에서 진단 상태 출력 by 2025.04.07
+  - partials/job/AlarmItem.vue  //DashboardCard_New 에서 알람 상태 출력 by 2025.04.07 
+  - partials/dashboard/DashboarCard_NotFound.vue // 기능 미 사용시 처리
+ 
+계측 : pages/Meter.vue
+  - partials/dashboard/DashboardCard07.vue // Voltage/Current Table => partials/community/MeterDetail2.vue 대체
+  - partials/dashboard/DashboardCard_table.vue // Frequency/Unbalance Table => partials/community/MeterDetail2.vue 대체
+  - partials/dashboard/DashboardCard_table2.vue // Energy/Power Table  => partials/community/MeterDetail2.vue 대체
+  - partials/CanvasAngle.vue   // voltage,current phase view
+  - partials/community/MeterDetail2.vue   // meter, power, thd Card Vue - Redis Data 연동 및 UI 변경  by 2025.04.09
+  - partials/community/MeterDetail3.vue   // Unbalance, Energy Card Vue - Redis Data 연동 및 UI 변경  by 2025.04.09
+  - partials/dashboard/MeterTable2.vue    // meter, power, thd Table Vue - Redis Data 연동 및 UI 변경  by 2025.04.09
+  
+전력 품질 : pages/PowerQ.vue
+  - charts/BarChart05.vue //Harmonics Chart
+  - charts/LineChart02.vue //Waveform Chart
+  - partials/dashboard/PowerQ_Table.vue // Harmonics Table
+  
+진단 : pages/Diagnosis2.vue
+   - partials/dashboard/Diagnosis_TreeTable.vue //Status Tree Table
+   - partials/dashboard/TreeRow.vue //Status/PQ Tree Table Row
+   - partials/dashboard/Diagnosis_Barchart.vue //Diagnosis Chart
+   - partials/dashboard/Diagnosis_Info.vue //Equipment Information
+   - charts/BarChart01.vue //Status Bar Chart
+   - charts/BarChart_PQ.vue //PQ Bar Chart
+   - charts/BarChart_FaultEvent.vue //Fault,Event Bar Chart
+   - partials/dashboard/Diagnosis_TreeTable2.vue //Power Quality Tree Table
+   - partials/dashboard/TreeRow_FaultEvent.vue //Falut,Event Tree Table Row
+
+이벤트 : pages/Event.vue // Alarm Status 와 Log 로 탭 구성 : Log 탭에서는 Alarm Log 와 Event Log 모두 출력 (Event/Alarm Status/Alarm Log 모두 최대 32개)
+   - partials/AlarmStatusTable.vue //Alarm Status (Tab 1)
+   - partials/EventTab.vue  //EventTable + AlarmTable (Tab 2)
+   - partials/AlarmTable.vue  
+   - partials/EventTable.vue 
+
+리포트 : pages/Report2.vue  // Diagnosis 기능 미 사용 시 Power Quality 리포트만 출력됨
+   - partials/dashboard/Report_Diagnosis.vue  // 진단 리포트 뷰
+   - partials/ReportComponent.vue  // PQ 리포트 뷰
+   - charts/LineChart_ITIC.vue // ITIC Chart  
+   - partials/dashboard/DashboardCard_table4.vue  //진단리포트 - 상태 정보
+   - partials/dashboard/Diagnosis_Info2.vue //진단리포트 - 설비 정보
+   - partials/dashboard/PdfView.vue //PDF 출력 뷰 추가
+
+트렌드 : pages/Trend.vue  //채널별 출력 처리, Meter/PQ/Diagnosis 탭 처리
+   - partials/TrendTab.vue //트렌드 탭
+   - partials/dashboard/Trend_treetable.vue  //Trend 트리테이블
+   - partials/dashboard/TreeRowTrend.vue //Trend 트리테이블 Row
+   - charts/LineChart01_Echart.vue //Echart 를 이용한 라인 차트
+   
+설정 : pages/Setting.vue
+   - partials/settings/PlansPanel.vue  //General : Alarm Setup 추가 (device 당 1개의 설정), Demand Interval 만 존재, Diagnosis Setup
+   - partials/settings/ChannelPanel.vue  // Main, Sub (Event 설정은 PT가 존재하는 채널에만 추가 -SV 500 은 둘다 잇음), Demand Target 은 채널별로 존재, Asset설정
+   - partials/settings/AccountPanel.vue // Profile
+   - partials/settings/BillingPanel.vue // Admin - User Management
+   - partials/settings/SettingSidebar.vue // Admin Sub Menu
+   - components/ModalBasic.vue // file upload, restore
+   - partials/TreeNode.vue //Diagnosis Modal Basic TreeView
+   
+로그인 : pages/Signin.vue
+   - components/ModalBasic.vue //비밀번호 리셋
+
+계정추가 : pages/Signup.vue

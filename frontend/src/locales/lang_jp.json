@@ -1,0 +1,373 @@
+{
+  "Title" : "SV-500スタート！",
+  "signin": {
+    "account": "アカウント",
+    "language": "言語",
+    "password": "パスワード",
+    "context": "パスワードをお忘れですか？",
+    "login": "ログイン"
+  },
+	"resetPass":{
+		"account":"アカウント",
+		"accountType":"アカウント種別",
+		"email": "メールアドレス",
+		"password":"パスワード",
+		"msg_success":"パスワードが初期化されました。",
+		"msg_fail":"パスワードのリセットに失敗しました",
+		"msg_undefined":"登録されていないメールアドレスです。",
+		"save":"保存",
+		"close":"閉じる"
+	},
+	"signup":{
+		"link":"登録",
+		"msg":"管理者アカウントを登録しますか？"
+	},
+  "header": {
+    "profile": "プロフィール",
+    "user": "ユーザー管理",
+    "signout": "ログアウト",
+    "link": {
+      "msg": "お困りですか？",
+      "catalog": "カタログ",
+      "manual": "ユーザーマニュアル"
+    }
+  },
+  "sidebar": {
+    "dashboard": "ダッシュボード",
+    "main": "メインチャンネル",
+    "meter": "計測状況",
+    "pq": "電力品質状況",
+    "sub": "サブチャンネル",
+    "diagnosis": "診断",
+    "event": "アラーム/イベント",
+    "report": "レポート",
+    "trend": "トレンド",
+    "config": "管理者",
+    "setup": "設定",
+    "general": "一般",
+    "service": "サービス",
+    "calibration":"較正",
+    "maintenance":"保守"
+  },
+  "dashboard": {
+    "sitemap": "ダッシュボード",
+    "meter": {
+      "title": "計測状況",
+      "subtitle_main":"メインチャンネル",
+      "subtitle_sub":"サブチャンネル",
+      "voltage": "電圧",
+      "current": "電流",
+      "activepower": "有効電力",
+      "activeenergy": "有効電力量",
+      "frequency": "周波数"
+    },
+    "pq": {
+      "title": "電力品質状況",
+      "subtitle_main":"メインチャンネル",
+      "subtitle_sub":"サブチャンネル",
+      "voltageunbalance": "電圧不平衡率",
+      "currentunbalance": "電流不平衡率",
+      "powerfactor": "力率",
+      "THD": "総合高調波歪み率"
+    },
+    "diagnosis": {
+      "title": "診断状況",
+      "subtitle_main":"メインチャンネル",
+      "subtitle_sub":"サブチャンネル",
+      "equipment": "設備",
+      "name": "設備名",
+      "type": "設備種別",
+      "st0": "データなし",
+      "st1": "正常",
+      "st2": "警告",
+      "st3": "点検",
+      "st4": "修理",
+      "ch_msg": "最後のアラーム",
+      "ch1": "アラームなし",
+      "ch2": "アラーム",
+      "noAlarm": "チャンネル 正常"
+    }
+  },
+  "meter": {
+    "sitemap": {
+      "title": "計測",
+      "main": "メインチャンネル",
+      "sub": "サブチャンネル"
+    },
+    "cardTitle":{
+      "title_meter": "計測",
+      "title_power": "電力",
+      "title_thd": "総高調波歪率",
+      "title_phase": "電圧／電流の位相",
+      "title_unbal": "不平衡率",
+      "title_energy": "電力量"
+    },
+    "Table": {
+        "th_tilte": "項目",
+        "th_subtitle": "分類",
+        "th_value": "現在値",
+        "th_min": "最小値",
+        "th_max": "最大値",
+        "Phase Voltage": "相電圧",
+        "Line Voltage": "線間電圧",
+        "Current": "電流",
+        "Frequency": "周波数",
+        "Active Power": "有効電力",
+        "Reactive Power": "無効電力",
+        "Apparent Power": "皮相電力",
+        "THD-U":"THD-U",
+        "THD-I":"THD-I",
+        "TDD-I":"TDD-I",
+        "PF" : "力率"
+    },
+    "cardContext":{
+      "Voltage": "電圧",
+      "Current": "電流",
+      "Import": "受電",
+      "Export": "発電"
+    }
+  },
+  "diagnosis": {
+    "sitemap": {
+        "title": "診断",
+        "main": "メインチャンネル",
+        "sub": "サブチャンネル"
+    },
+    "info": {
+        "name": "設備名",
+        "type": "設備種類",
+        "Rated Voltage": "定格電圧",
+        "Rated Frequency": "定格周波数",
+        "Rated Current": "定格電流"
+    },
+    "tabTitle": {
+        "Dignosis Status": "診断状態",
+        "Fault": "故障状態",
+        "PowerQuality": "電力品質状態",
+        "Event": "イベント状態"
+    },
+    "tabContext": {
+        "th_title": "項目",
+        "th_value": "値",
+        "th_status": "状態",
+        "th_description": "説明",
+        "st0": "データなし",
+        "st1": "正常",
+        "st2": "警告",
+        "st3": "点検",
+        "st4": "修理",
+        "pqfe0": "データなし",
+        "pqfe1": "正常",
+        "pqfe2": "低い",
+        "pqfe3": "中程度",
+        "pqfe4": "高い"
+    }
+  },
+  "report": {
+    "sitemap": {
+      "title": "レポート",
+      "main": "メインチャンネル",
+      "sub": "サブチャンネル"
+    },
+    "info": {
+      "ct_direction1": "CT1 方向",
+      "ct_direction2": "CT2 方向",
+      "ct_direction3": "CT3 方向",
+      "ct_inorminal": "定格電流",
+      "pt_wiringmode": "PT結線方式",
+      "pt_vnorminal": "定格電圧",
+      "pt_linefrequency": "定格周波数"
+    },
+    "cardTitle": {
+      "Channel": "チャンネル状態",
+      "PowerQuality": "電力品質",
+      "Diagnosis": "診断状態",
+      "Energy": "電力量"
+    },
+    "cardContext": {
+      "th_title": "項目",
+      "th_status": "状態",
+      "th_description": "説明",
+      "st0": "データなし",
+      "st1": "正常",
+      "st2": "警告",
+      "st3": "点検",
+      "st4": "修理",
+      "info": {
+        "equip": "設備情報",
+        "status": "状態情報",
+        "energy": "総電力量"
+      },
+      "pqInfo": {
+        "This Week": "今週",
+        "Last Week": "先週",
+        "parameter": "パラメータ",
+        "compliance": "遵守事項",
+        "RequiredQuality": "要求品質"
+      },
+      "energyInfo": {
+        "This Month": "今月",
+        "Last Month": "先月",
+        "Import": "受電",
+        "Export": "発電"
+      }
+    }
+  },
+  "pq": {
+    "sitemap": {
+      "title": "電力品質",
+      "main": "メインチャンネル",
+      "sub": "サブチャンネル"
+    },
+    "tabs": {
+      "harmonics": "高調波",
+      "waveform": "波形"
+    },
+    "options": {
+      "phaseVoltage": "相電圧",
+      "lineVoltage": "線間電圧",
+      "current": "電流"
+    },
+    "Button": {
+      "table": "テーブル",
+      "chart": "チャート"
+    }
+  },
+  "event": {
+    "sitemap": {
+      "title": "イベント",
+      "main": "メインチャンネル",
+      "sub": "サブチャンネル"
+    },
+    "search": {
+      "title": "検索オプション",
+      "period": "期間",
+      "parameter": "条件パラメータ"
+    },
+    "tabs": {
+      "alarmStatus": "アラーム状態",
+      "alarmLog": "アラーム履歴",
+      "eventLog": "イベント履歴"   
+    },
+    "table": {
+      "index": "番号",
+      "alarmChannel": "アラームチャンネル",
+      "state": "状態",
+      "count": "回数"
+    },
+    "alarmTable": {
+      "index": "番号",
+      "AlarmLog": "アラーム内容",
+      "Timestamp": "発生時刻",
+      "AlarmChannel": "アラームチャンネル",
+      "State": "状態",
+      "Value": "値"
+    },
+    "eventTable": {
+      "index": "番号",
+      "EventLog": "イベントログ",
+      "Type": "タイプ",
+      "StartTime": "開始時刻",
+      "Duration": "持続時間",
+      "Phase": "相",
+      "Level": "レベル"
+    }
+  },
+  "User": {
+      "sidebar": {
+          "title": "ユーザー管理",
+          "profile": "プロフィール",
+          "user": "ユーザー管理",
+          "api": "Restful API ユーザー管理"
+      },
+      "profile": {
+          "title": "アカウント情報",
+          "account": "アカウント",
+          "username": "ユーザー名",
+          "email": "メールアドレス",
+          "useAPI": "診断API使用可否",
+          "nowPass": "現在のパスワード",
+          "newPass": "新しいパスワード",
+          "cnfPass": "新しいパスワードの確認"
+      },
+      "user": {
+          "title": "ユーザー管理",
+          "msg": "アカウントを選択してください。",
+          "account": "アカウント",
+          "username": "ユーザー名",
+          "email": "メールアドレス",
+          "Pass": "パスワード",
+          "role": "アカウント権限",
+          "remove": "アカウント削除",
+          "btnAdd": "アカウント追加"
+      },
+      "api": {
+          "title": "Restful API アカウント管理",
+          "msg": "アカウントを選択してください。",
+          "noexist": "APIアカウントが存在しません。",
+          "account": "アカウント",
+          "role": "アカウント権限",
+          "remove": "アカウント削除",
+          "btnAdd": "アカウント追加"
+      },
+      "btnSave": "保存"
+  },
+  "trend": {
+    "sitemap": {
+      "title": "トレンド",
+      "main": "メインチャンネル",
+      "sub": "サブチャンネル"
+    },
+    "date": {
+      "StartDate": "開始日",
+      "EndDate": "終了日"
+    },
+    "TrendTab": {
+      "slot": "下からパラメータを選択して「グラフを描画」ボタンをクリックしてください",
+      "Plot": "グラフを描画"
+    },
+    "Linechart": {
+      "TrendChart": "トレンドチャート",
+      "nodata": "選択した期間のデータがありません"
+    },
+    "tabTitle": {
+      "Meter": "計測",
+      "Power Quality": "電力品質",
+      "Diagnosis": "診断"
+    },
+    "treetable": {
+      "Item": "項目",
+      "Select": "選択"
+    }
+  },
+  "config": {
+    "sitemap": {
+      "title": "設定",
+      "Main Channel": "メインチャンネル",
+      "Sub Channel": "サブチャンネル",
+      "General": "一般",
+      "User Management": "ユーザー管理",
+      "API User Management": "Restful API ユーザー管理",
+      "Account": "アカウント",
+      "Trend": "トレンド",
+      "Maintenance": "保守",
+      "Service": "サービス",
+      "Calibrate": "較正"
+    },
+    "maintenance": {
+      "header": "システム保守",
+      "Title": "タイトル",
+      "enterTitle": "タイトルを入力してください",
+      "Installation": "設置",
+      "Update": "更新",
+      "Replacement": "交換",
+      "FirmWare": "ファームウェア",
+      "App": "アプリ",
+      "Web": "ウェブ",
+      "Context": "内容",
+      "Save": "保存",
+      "Delete": "削除"
+  }
+    
+  }
+}

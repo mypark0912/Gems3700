@@ -1,0 +1,64 @@
+{
+    "tbdata": [
+        {
+            "parameter": "Frequency Variation 1",
+            "required": "(+1%~ 11%), 99.5% / Week"
+        },
+        {
+            "parameter": "Frequency Variation 2",
+            "required": "(+4%~ -6%), 100% / Week"
+        },
+        {
+            "parameter": "Voltage Variation 1",
+            "required": "(+10% ~ -10%), 95% / Week"
+        },
+        {
+            "parameter": "Voltage Variation 2",
+            "required": "(+10 ~ -15%), 100% / Week"
+        },
+        {
+            "parameter": "Voltage Unbalance",
+            "required": "(2% 미만), 100% / Week"
+        },
+        {
+            "parameter": "THD",
+            "required": "(8%미만), 95% / Week"
+        },
+        {
+            "parameter": "Harmonics",
+            "required": "(0.5%~6%), 95% / Week"
+        },
+        {
+            "parameter": "Pst",
+            "required": "(1), Info Only"
+        },
+        {
+            "parameter": "Plt",
+            "required": "(1), 95% / Week"
+        },
+        {
+            "parameter": "Signal Vol.",
+            "required": "(10%미만), 99% / Day"
+        },
+        {
+            "parameter": "Voltage Sag",
+            "required": "Info Only"
+        },
+        {
+            "parameter": "Voltage Swell",
+            "required": "Info Only"
+        },
+        {
+            "parameter": "Short Interruption",
+            "required": "Info Only"
+        },
+        {
+            "parameter": "Long Interruption",
+            "required": "Info Only"
+        },
+        {
+            "parameter": "Signaling Volt.",
+            "required": "Info Only"
+        }
+    ]
+}
