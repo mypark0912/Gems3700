@@ -59,10 +59,10 @@
               </div>
               </div>
 
-            <MeterDetail2 v-if="Object.keys(powerThd).length > 0 && powerThd.thdData" :data="powerThd.thdData" :channel="channel" :title="'THD'" />
+            <!--MeterDetail2 v-if="Object.keys(powerThd).length > 0 && powerThd.thdData" :data="powerThd.thdData" :channel="channel" :title="'THD'" /-->
             <!--MeterDetail2 v-if="Object.keys(powerThd).length > 0 && powerThd.demandDataP" :data="powerThd.demandDataP" :channel="channel" :title="'Demand'" /-->
             
-            <MeterDetail2 v-if="Object.keys(powerThd).length > 0 && powerThd.powerData" :data="powerThd.powerData" :channel="channel" :title="'Power'" />
+            <!--MeterDetail2 v-if="Object.keys(powerThd).length > 0 && powerThd.powerData" :data="powerThd.powerData" :channel="channel" :title="'Power'" /-->
             <!--MeterDetail2 v-if="Object.keys(powerThd).length > 0 && powerThd.demandDataI" :data="powerThd.demandDataI" :channel="channel" :title="'Demand I'" /-->
 
           </div>
@@ -80,7 +80,7 @@ import { reactive,ref, watch, computed, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
 
 import axios from 'axios'
-import Sidebar from '../common/SideBar3.vue'
+import Sidebar from '../common/SideBarGems.vue'
 import Header from '../common/Header.vue'
 import Footer from "../common/Footer.vue";
 
@@ -204,9 +204,9 @@ export default {
       if (updateInterval_fifthm) {
         clearInterval(updateInterval_fifthm);
       }
-      if (updateInterval_oneh) {
-        clearInterval(updateInterval_oneh);
-      }
+      // if (updateInterval_oneh) {
+      //   clearInterval(updateInterval_oneh);
+      // }
     };
     
     onUnmounted(() => {
@@ -399,11 +399,11 @@ export default {
           fetchRedisOnemData(channel.value);
         }, 60*1000);
 
-      if (updateInterval_fifthm) clearInterval(updateInterval_fifthm);
-      fetchRedisfifthmData(channel.value);
-        updateInterval_fifthm = setInterval(() => {
-          fetchRedisfifthmData(channel.value);
-        }, 15*60*1000);
+      // if (updateInterval_fifthm) clearInterval(updateInterval_fifthm);
+      // fetchRedisfifthmData(channel.value);
+      //   updateInterval_fifthm = setInterval(() => {
+      //     fetchRedisfifthmData(channel.value);
+      //   }, 15*60*1000);
 
       // if (updateInterval_oneh) clearInterval(updateInterval_oneh);
       // fetchRedisOnehData(channel.value);

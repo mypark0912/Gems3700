@@ -420,7 +420,7 @@ import SettingsSidebar from "../../partials/inners/setting/SettingsSidebar.vue";
 import { useRoute } from "vue-router";
 import { useAuthStore } from "@/store/auth"; // Pinia Store
 import { useSetupStore } from "@/store/setup"; // Pinia Store
-import Sidebar from "../common/SideBar3.vue";
+import Sidebar from "../common/SideBarGems.vue";
 import Header from "../common/Header.vue";
 import Footer from "../common/Footer.vue";
 import { useRouter } from "vue-router";

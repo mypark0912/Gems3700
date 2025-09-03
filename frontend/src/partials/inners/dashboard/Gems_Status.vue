@@ -177,7 +177,7 @@ import StatusItem from './StatusItem_Trans_Claude.vue'
               }
             }
           }
-          fetchAsset();
+          //fetchAsset();
           fetchPQData();
         },
         { immediate: true }
@@ -303,108 +303,83 @@ import StatusItem from './StatusItem_Trans_Claude.vue'
   }
   
   /* 사양 카드 컨테이너 - 한 줄 가로 배치 */
-  .spec-cards-container {
-    @apply flex gap-2;
-    @apply min-w-fit;
+ /* 사양 카드 래퍼 - 가로 스크롤 제거 */
+.spec-cards-wrapper {
+  @apply p-3;
+  /* overflow-x-auto 제거 */
+}
+
+/* 사양 카드 컨테이너 - 전체 너비 사용 */
+.spec-cards-container {
+  @apply flex gap-3;
+  @apply w-full; /* 전체 너비 사용 */
+  /* min-w-fit 제거 */
+}
+
+/* 개별 사양 카드 - 동일한 크기로 확장 */
+.spec-card {
+  @apply flex-1; /* 동일한 비율로 확장 */
+  @apply bg-gradient-to-br from-gray-50 to-white dark:from-gray-700/50 dark:to-gray-800/50;
+  @apply border border-gray-200 dark:border-gray-600;
+  @apply rounded-lg px-4 py-4; /* padding 증가 */
+  @apply text-center;
+  @apply transition-all duration-200;
+  @apply hover:shadow-md hover:border-blue-300 dark:hover:border-blue-500;
+  @apply cursor-default;
+  /* min-w-[100px] 제거 */
+}
+
+.spec-value {
+  @apply text-xl font-bold text-gray-900 dark:text-white; /* 텍스트 크기 증가 */
+  @apply mb-2; /* 마진 증가 */
+}
+
+.spec-label {
+  @apply text-sm font-medium text-gray-500 dark:text-gray-400; /* 텍스트 크기 증가 */
+  @apply leading-tight;
+  @apply whitespace-nowrap;
+}
+  /* 반응형 디자인 */
+@media (max-width: 768px) {
+  .equipment-info {
+    @apply flex-col text-center gap-2;
   }
   
-  /* 개별 사양 카드 */
+  .spec-cards-container {
+    @apply gap-2; /* 모바일에서 간격 줄임 */
+  }
+  
   .spec-card {
-    @apply flex-shrink-0;
-    @apply bg-gradient-to-br from-gray-50 to-white dark:from-gray-700/50 dark:to-gray-800/50;
-    @apply border border-gray-200 dark:border-gray-600;
-    @apply rounded-lg px-4 py-3;
-    @apply text-center;
-    @apply transition-all duration-200;
-    @apply hover:shadow-md hover:border-blue-300 dark:hover:border-blue-500;
-    @apply cursor-default;
-    @apply min-w-[100px];
+    @apply px-3 py-3; /* 패딩 조정 */
   }
   
   .spec-value {
-    @apply text-lg font-bold text-gray-900 dark:text-white;
-    @apply mb-1;
+    @apply text-lg; /* 모바일에서 텍스트 크기 조정 */
   }
   
   .spec-label {
-    @apply text-xs font-medium text-gray-500 dark:text-gray-400;
-    @apply leading-tight;
-    @apply whitespace-nowrap;
+    @apply text-xs;
+  }
+}
+
+@media (max-width: 480px) {
+  .spec-cards-container {
+    @apply flex-col gap-2; /* 아주 작은 화면에서는 세로 배치 */
   }
   
-  /* 추가 콘텐츠 영역 */
-  .additional-content {
-    @apply flex-1;
-    /* 여기에 추가 콘텐츠 스타일 */
+  .spec-card {
+    @apply px-3 py-3;
+    @apply w-full; /* 세로 배치 시 전체 너비 */
   }
   
-  /* 스크롤바 스타일 */
-  .spec-cards-wrapper::-webkit-scrollbar {
-    @apply h-2;
+  .spec-value {
+    @apply text-base;
   }
   
-  .spec-cards-wrapper::-webkit-scrollbar-track {
-    @apply bg-gray-100 dark:bg-gray-700;
-    @apply rounded-full;
+  .spec-label {
+    @apply text-sm; /* 세로 배치 시 텍스트 크기 복원 */
   }
-  
-  .spec-cards-wrapper::-webkit-scrollbar-thumb {
-    @apply bg-gray-400 dark:bg-gray-500;
-    @apply rounded-full;
-    @apply hover:bg-gray-500 dark:hover:bg-gray-400;
-  }
-  
-  /* 호버 효과 색상 */
-  .spec-card:nth-child(4n+1):hover {
-    @apply bg-gradient-to-br from-blue-50 to-white dark:from-blue-900/20 dark:to-gray-800/50;
-  }
-  
-  .spec-card:nth-child(4n+2):hover {
-    @apply bg-gradient-to-br from-green-50 to-white dark:from-green-900/20 dark:to-gray-800/50;
-  }
-  
-  .spec-card:nth-child(4n+3):hover {
-    @apply bg-gradient-to-br from-orange-50 to-white dark:from-orange-900/20 dark:to-gray-800/50;
-  }
-  
-  .spec-card:nth-child(4n):hover {
-    @apply bg-gradient-to-br from-purple-50 to-white dark:from-purple-900/20 dark:to-gray-800/50;
-  }
-  
-  /* 반응형 디자인 */
-  @media (max-width: 768px) {
-    .equipment-info {
-      @apply flex-col text-center gap-2;
-    }
-    
-    .spec-cards-container {
-      @apply gap-2;
-    }
-    
-    .spec-card {
-      @apply px-3 py-2;
-      @apply min-w-[90px];
-    }
-    
-    .spec-value {
-      @apply text-base;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .spec-card {
-      @apply px-2 py-2;
-      @apply min-w-[80px];
-    }
-    
-    .spec-value {
-      @apply text-sm;
-    }
-    
-    .spec-label {
-      @apply text-xs;
-    }
-  }
+}
   
   /* 호버 효과 */
   .equipment-card:hover .avatar-image {

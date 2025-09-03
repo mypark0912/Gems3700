@@ -53,7 +53,7 @@ import MeterTable3 from './MeterTable3.vue';
 
         const widCss = computed(() => {
           if (props.title === 'Meter') return 'col-span-full xl:col-span-7';
-          if (props.title === 'THD' || props.title === 'Power') return 'col-span-full xl:col-span-7';
+          if (props.title === 'THD' || props.title === 'Power') return 'col-span-full xl:col-span-6';
           if (props.title === 'Demand' || props.title === 'Demand I') return 'col-span-full xl:col-span-5';
           return 'col-span-full xl:col-span-12';
         });

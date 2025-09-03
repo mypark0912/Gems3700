@@ -72,7 +72,7 @@ import { ref, watch, computed, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useSetupStore } from '@/store/setup'; // Pinia Store 
 import axios from 'axios'
-import Sidebar from '../common/SideBar3.vue'
+import Sidebar from '../common/SideBarGems.vue'
 import Header from '../common/Header.vue'
 import Footer from "../common/Footer.vue";
 //import DiagnosisTab from '../../partials/dashboard/DiagnosisTab_Trans.vue'
