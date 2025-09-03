@@ -1,9 +1,0 @@
-<<Influxdb>>
-
-username : admin / pass : ntek9135
-org : ntek, initBucket : ntek
-
-key : hUAL11sOAL93uD8138F4FQgSULmG1sgpTYgUb8pd_i1HLnqoa46iGSQ7T43VL30PzaXQPOrHBkzi-dsKR-Rrgg==
-
-<<Redis>>
-password : ntek
