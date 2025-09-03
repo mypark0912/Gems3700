@@ -26,37 +26,7 @@
   
             <!-- Cards -->
             <div class="md:col-span-12 bg-white dark:bg-gray-800 shadow-md rounded-lg p-4 w-full">
-
-              <!-- Tab Navigation -->
-              <div class="px-4">
-                <ul class="text-sm font-medium flex flex-nowrap overflow-x-auto no-scrollbar w-full">
-                  <li v-for="(tab, index) in tabs" :key="index" class="mr-4 last:mr-0 relative">
-                    <button
-                      @click="changeTab(tab.name)"
-                      class="px-4 py-2 whitespace-nowrap transition duration-200 ease-in-out"
-                      :class="activeTab === tab.name
-                        ? 'text-violet-500 border-b-2 border-violet-500'
-                        : 'text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300'">
-                      {{ tab.label }}
-                    </button>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- Tab Content -->
-              <div v-for="(tab, index) in tabs" :key="index">
-                <div v-if="activeTab === tab.name" class="text-gray-700 dark:text-gray-300 text-left pt-3 px-4">
-                
-                  <!-- 차트 컨테이너 -->
-                  <div class="flex flex-col space-y-2">
-                    <GemsDashCard v-if="activeTab === 'A' && Object.keys(subDataA).length > 0" :data="subDataA" :channel="'A'"/>
-                    <GemsDashCard v-if="activeTab === 'C' && Object.keys(subDataC).length > 0" :data="subDataC" :channel="'C'"/>
-                    <GemsDashCard v-if="activeTab === 'B' && Object.keys(subDataB).length > 0" :data="subDataB" :channel="'B'"/>
-                  </div>
-
-                </div>
-              </div>
-
+              <GemsSubCard v-if="Object.keys(subDataA).length > 0" :data="subDataA" :channel="'A'" />
               </div>
             <!--div class="grid grid-cols-12 gap-6">
 
@@ -82,7 +52,7 @@
   import axios from 'axios'
   import { useAuthStore } from '@/store/auth'; // ✅ Pinia Store 사용
   import GemsDashCard from '../../partials/inners/dashboard/GemsDashCard.vue'
-  //import GemsDashCard_sub from '../partials/dashboard/GemsDashCard_sub.vue'
+  import GemsSubCard from '../../partials/inners/dashboard/GemsSubCard.vue'
   
   export default {
     name: 'GemsDashboard',
@@ -92,6 +62,7 @@
       Header,
       Footer,
       GemsDashCard,
+      GemsSubCard,
       //GemsDashCard_sub,
     },
     setup(props) {
@@ -103,24 +74,24 @@
       const langset = computed(() => authStore.getLang);
       const opMode = computed(() => authStore.getOpMode);
 
-      const activeTab = ref('A');
-      const tabs = ref([
-        { name: 'A', label: '1-12'},
-        { name: 'C', label: '13-24' },
-        { name: 'B', label: '25-36' },
-        // { name: 'EN50160', label: 'EN50160', options: ['Voltage Variations', 'Flicker', 'Harmonic Distortion'] },
-        // { name: 'ITIC', label: 'ITIC', options: ['Voltage Sag', 'Overvoltage', 'Short Interruptions'] },
-      ]);
+      // const activeTab = ref('A');
+      // const tabs = ref([
+      //   { name: 'A', label: '1-12'},
+      //   { name: 'C', label: '13-24' },
+      //   { name: 'B', label: '25-36' },
+      //   // { name: 'EN50160', label: 'EN50160', options: ['Voltage Variations', 'Flicker', 'Harmonic Distortion'] },
+      //   // { name: 'ITIC', label: 'ITIC', options: ['Voltage Sag', 'Overvoltage', 'Short Interruptions'] },
+      // ]);
 
-      const changeTab = (tabName) => {
-      activeTab.value = tabName;
-      nextTick(() => {
-        fetchData(activeTab.value);
-      });
-    };
+      // const changeTab = (tabName) => {
+      // activeTab.value = tabName;
+      // nextTick(() => {
+      //   fetchData(activeTab.value);
+      // });
+      //};
 
     onMounted(()=>{
-      activeTab.value = 'A';
+      // activeTab.value = 'A';
       fetchData('A');
     })
       //const subEnable = computed(() => authStore.getSubEnable);
@@ -165,9 +136,9 @@
         subDataA,
         subDataB,
         subDataC,
-        changeTab,
-        activeTab,
-        tabs,
+        //changeTab,
+        //activeTab,
+        //tabs,
         //subEnable,
         //user,
         // stdata,

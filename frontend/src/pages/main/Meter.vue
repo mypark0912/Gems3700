@@ -38,7 +38,7 @@
                   />
                 </div>
                 <div class="flex gap-4">
-                <div class="basis-1/2">
+                <!--div class="basis-1/2">
                   <MeterKwh
                     v-if="Object.keys(meterDatas).length > 0"
                     :data="energyData"
@@ -55,15 +55,15 @@
                     :title="'Energy'"
                     :mode="'export'"
                   />
-                </div>
+                </div-->
               </div>
               </div>
 
             <MeterDetail2 v-if="Object.keys(powerThd).length > 0 && powerThd.thdData" :data="powerThd.thdData" :channel="channel" :title="'THD'" />
-            <MeterDetail2 v-if="Object.keys(powerThd).length > 0 && powerThd.demandDataP" :data="powerThd.demandDataP" :channel="channel" :title="'Demand'" />
+            <!--MeterDetail2 v-if="Object.keys(powerThd).length > 0 && powerThd.demandDataP" :data="powerThd.demandDataP" :channel="channel" :title="'Demand'" /-->
             
             <MeterDetail2 v-if="Object.keys(powerThd).length > 0 && powerThd.powerData" :data="powerThd.powerData" :channel="channel" :title="'Power'" />
-            <MeterDetail2 v-if="Object.keys(powerThd).length > 0 && powerThd.demandDataI" :data="powerThd.demandDataI" :channel="channel" :title="'Demand I'" />
+            <!--MeterDetail2 v-if="Object.keys(powerThd).length > 0 && powerThd.demandDataI" :data="powerThd.demandDataI" :channel="channel" :title="'Demand I'" /-->
 
           </div>
 
@@ -259,7 +259,7 @@ export default {
         const response = await axios.get(`/api/getOnesfromRedis/${ch}/${unbal.value}`);
         if (response.data.success) {
           Object.assign(meterDatas.value, response.data.retData.retData);
-          //console.log(meterDatas.value);
+
         }
       } catch (error) {
         console.log("데이터 가져오기 실패:", error);
@@ -267,10 +267,13 @@ export default {
     };
 
     const fetchRedisOnemData = async (ch) => {
+      console.log('Channel:', ch);
       try {
         const response = await axios.get(`/api/getonemfromRedis/${ch}`);
+        console.log(response.status);
         if (response.data.success) {
           phaseDict.value = response.data.retData.retData.angleData;
+          
         }
       } catch (error) {
         console.log("데이터 가져오기 실패:", error);
@@ -402,11 +405,11 @@ export default {
           fetchRedisfifthmData(channel.value);
         }, 15*60*1000);
 
-      if (updateInterval_oneh) clearInterval(updateInterval_oneh);
-      fetchRedisOnehData(channel.value);
-        updateInterval_oneh = setInterval(() => {
-          fetchRedisOnehData(channel.value);
-        }, 60*60*1000);
+      // if (updateInterval_oneh) clearInterval(updateInterval_oneh);
+      // fetchRedisOnehData(channel.value);
+      //   updateInterval_oneh = setInterval(() => {
+      //     fetchRedisOnehData(channel.value);
+      //   }, 60*60*1000);
 
       // Demand 데이터도 주기적으로 가져오기
       // fetchDemandData(channel.value);

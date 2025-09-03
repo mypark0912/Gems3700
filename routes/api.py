@@ -2877,7 +2877,7 @@ def get_onemfromRedis(channel):
                 }
             }
         }
-        # print(result)
+        print(result)
         return {"success": True, "retData": result}
     except Exception as e:
         return {"success": False, "error": str(e)}
@@ -4504,15 +4504,70 @@ def get_heatmap_load_factor_data(channel: str, weeks: int = 4):
             "heatmapData": []
         }
 
-@router.get('/getSubData/{channel}')
-def get_subdata(channel):
-    redis_state.client.execute_command('SELECT', 8)
+
+@router.get("/getSubData/{channel}")
+def get_sub_data(channel: str):
+    # Redis에서 hgetall로 데이터 가져오기
+    redis_state.client.select(8)
     if channel == 'A':
-        key = 'tblist1'
+        rediskey = 'tblist1'
     elif channel == 'B':
-        key = 'tblist3'
+        rediskey = 'tblist3'
     elif channel == 'C':
-        key = 'tblist4'
-    hash_data = redis_state.client.hgetall(key)
-    subData = dict(hash_data)
-    return {"success" : True, "data":subData}
+        rediskey = 'tblist4'
+    raw_data = redis_state.client.hgetall(rediskey)
+
+    # 가공된 데이터 구조
+    processed_data = {}
+
+    for key, value in raw_data.items():
+        cb_data = json.loads(value)
+
+        # cblist가 있고 첫 번째 데이터가 있는 경우만 처리
+        if cb_data.get("cblist") and len(cb_data["cblist"]) > 0:
+            first_cb = cb_data["cblist"][0]
+            cbtype = first_cb["cbtype"]
+
+            # CB 타입 텍스트 변환
+            cb_type_text = {
+                1: "L1",
+                2: "L2",
+                3: "L3",
+                4: "3P3W",
+                5: "3P4W",
+                6: "L1+Z",
+                7: "L2+Z",
+                8: "L3+Z"
+            }.get(cbtype, "Unknown")
+
+            # 전류 합계 계산 (디스플레이용)
+            if cbtype > 5:
+                current_total = first_cb["irms"][cbtype % 3]
+            elif cbtype in [4, 5]:
+                current_total = sum(first_cb["irms"])
+            else:
+                current_total = first_cb["irms"][0]
+
+            # 간소화된 데이터 구조
+            processed_data[key] = {
+                # 메타 정보
+                "id": key,
+                "updateTime": cb_data["updateTime"],
+                "status": cb_data["status"],
+                "temp": cb_data["temp"],
+                "cbtype": cbtype,
+                "cbtype_text": cb_type_text,
+
+                # 출력할 데이터들 (cblist[0]에서)
+                "irms": first_cb["irms"],  # 전류 (배열)
+                "pthd": first_cb["pthd"],  # THD
+                "ig": first_cb["ig"],  # 접지 전류
+                "power": first_cb["power"],  # 전력 (배열)
+                "iunbal": first_cb.get("iunbal", 0),  # 전류 불평형
+                "kwh": first_cb["kwh"],  # 전력량
+                "pf": first_cb["pf"],  # 역률
+
+                # 디스플레이용 계산값
+                "current_total": round(current_total, 2)
+            }
+    return {"success": True, "data": processed_data}

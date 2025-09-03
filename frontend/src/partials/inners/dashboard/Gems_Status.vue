@@ -63,11 +63,15 @@ import StatusItem from './StatusItem_Trans_Claude.vue'
       const setupStore = useSetupStore()
       const router = useRouter()
       const AssetInfo = computed(() => setupStore.getAssetConfig)
-      const rawdata = ref([]);
+
       // 반응형 데이터
       const channel = ref(props.channel)
       const stData = ref(props.data);
-      const transData = ref({})
+      const rawdata = ref([
+        {Name:'Temperature',Value:stData.value.Temp, Unit:'℃'},
+        {Name:'PowerFactor',Value:stData.value.PF4, Unit:'%'},
+        {Name:'Ig',Value:stData.value.Ig, Unit:'A'}
+      ]);
       const LoadRate = ref(0)
       const LoadFactor = ref(-1)
       const pqData = ref({
@@ -86,47 +90,54 @@ import StatusItem from './StatusItem_Trans_Claude.vue'
       
   
   
-      const fetchAsset = async () => {
-        if (!AssetInfo.value) {
-          await setupStore.checkSetting()
-        }
+      // const fetchAsset = async () => {
+      //   if (!AssetInfo.value) {
+      //     await setupStore.checkSetting()
+      //   }
   
-        const chName = channel.value.toLowerCase() === 'main' 
-          ? AssetInfo.value.assetName_main 
-          : AssetInfo.value.assetName_sub
+      //   const chName = channel.value.toLowerCase() === 'main' 
+      //     ? AssetInfo.value.assetName_main 
+      //     : AssetInfo.value.assetName_sub
   
-        if (chName === '') {
-          alert('등록된 설비가 없습니다.')
-          return
-        }
+      //   if (chName === '') {
+      //     alert('등록된 설비가 없습니다.')
+      //     return
+      //   }
   
-        const chType = channel.value.toLowerCase() === 'main' 
-          ? AssetInfo.value.assetType_main 
-          : AssetInfo.value.assetType_sub
+      //   const chType = channel.value.toLowerCase() === 'main' 
+      //     ? AssetInfo.value.assetType_main 
+      //     : AssetInfo.value.assetType_sub
   
-        try {
-          const response = await axios.get(`/api/getAsset/${chName}`)
+      //   try {
+      //     const response = await axios.get(`/api/getAsset/${chName}`)
           
-          if (response.data.success) {
-            rawdata.value = response.data.data
+      //     if (response.data.success) {
+      //       rawdata.value = response.data.data
             
-            if(chType == 'Transformer'){
-              const ratedKVAItem = rawdata.value.find(item => item.Name === "RatedKVA")
-              if (ratedKVAItem) {
-                LoadFactor.value = parseFloat(ratedKVAItem.Value)
-              }
-              // 부하율 계산
-              if (LoadFactor.value > 0 && transData.value?.Stotal) {
-                LoadRate.value = ((transData.value.Stotal / LoadFactor.value) * 100).toFixed(2)
-              }
-            }
-          } else {
-            console.log('No Data')
-          }
-        } catch (error) {
-          console.log("데이터 가져오기 실패:", error)
-        }
-      };
+      //       if(chType == 'Transformer'){
+      //         const ratedKVAItem = rawdata.value.find(item => item.Name === "RatedKVA")
+      //         if (ratedKVAItem) {
+      //           LoadFactor.value = parseFloat(ratedKVAItem.Value)
+      //         }
+      //         // 부하율 계산
+      //         if (LoadFactor.value > 0 && transData.value?.Stotal) {
+      //           LoadRate.value = ((transData.value.Stotal / LoadFactor.value) * 100).toFixed(2)
+      //         }
+      //       }else{
+      //         transData.value = {
+      //           Temp: stData.value.Temp,
+      //           Ig: stData.value.Ig,
+      //           Stotal: stData.value.S4,
+      //           PF: stData.value.PF4,
+      //         }
+      //       }
+      //     } else {
+      //       console.log('No Data')
+      //     }
+      //   } catch (error) {
+      //     console.log("데이터 가져오기 실패:", error)
+      //   }
+      // };
 
       const fetchPQData = async () => {
           if (!AssetInfo.value || (!AssetInfo.value.assetName_main && !AssetInfo.value.assetName_sub)) {
@@ -175,7 +186,7 @@ import StatusItem from './StatusItem_Trans_Claude.vue'
       return {
         // 데이터
         stData,
-        transData,
+        //transData,
         computedChannel,
         rawdata,
         LoadFactor,
