@@ -3,7 +3,7 @@
     <!-- 헤더 -->
     <div class="card-header">
       <header class="header-content">
-        <h2 class="card-title"> Event & Fault</h2>
+        <h2 class="card-title">{{ t('dashboard.event.title') }}</h2>
         <div class="channel-info">
           <span class="channel-text">
             {{ channel == 'main' ? t('dashboard.diagnosis.subtitle_main') : t('dashboard.diagnosis.subtitle_sub') }}
@@ -18,7 +18,7 @@
         <!-- 첫 번째 이벤트 카드 -->
         <div class="event-card">
           <div class="event-card-header">
-            <h3 class="event-card-title">Event Status</h3>
+            <h3 class="event-card-title">{{ t('dashboard.event.eventstatus') }}</h3>
           </div>
           <div class="event-card-body">
             <div class="event-list">
@@ -38,7 +38,7 @@
         <!-- 두 번째 이벤트 카드 -->
         <div class="event-card">
           <div class="event-card-header">
-            <h3 class="event-card-title"> Fault Status</h3>
+            <h3 class="event-card-title">{{ t('dashboard.event.faultstatus') }}</h3>
           </div>
           <div class="event-card-body">
             <div class="event-list">

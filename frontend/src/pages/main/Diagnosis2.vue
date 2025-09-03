@@ -18,7 +18,7 @@
   
               <!-- Left: Title -->
               <div class="mb-4 sm:mb-0">
-                <h2 class="text-xl md:text-2xl text-gray-800 dark:text-gray-100 font-bold">  {{ channel == 'Main' ? t('diagnosis.sitemap.main'):t('diagnosis.sitemap.sub') }} > 전력품질 진단 </h2>
+                <h2 class="text-xl md:text-2xl text-gray-800 dark:text-gray-100 font-bold">  {{ channel == 'Main' ? t('diagnosis.sitemap.main'):t('diagnosis.sitemap.sub') }} > {{ t("sidebar.powerQuality") }} </h2>
               </div>
   
   

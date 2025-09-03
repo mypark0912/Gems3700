@@ -3,10 +3,10 @@
       <!-- 헤더 -->
       <div class="card-header">
         <header class="header-content">
-          <h2 class="card-title">Channel Status</h2>
+          <h2 class="card-title">{{ t('dashboard.channel.title') }}</h2>
           <div class="channel-info">
             <span class="channel-text">
-              {{ computedChannel }} channel
+              {{ computedChannel }} {{ t('dashboard.channel.channel') }}
             </span>
           </div>
         </header>
@@ -17,7 +17,7 @@
         <!-- 설비 사양 - 한 줄 가로 배치 -->
         <div class="specification-section">
           <div class="section-header">
-            <h4 class="section-title">Channel Information</h4>
+            <h4 class="section-title">{{ t('dashboard.channel.channelinfo') }}</h4>
           </div>
           <div class="spec-cards-wrapper">
             <div class="spec-cards-container">

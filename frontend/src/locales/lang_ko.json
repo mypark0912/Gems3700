@@ -84,7 +84,8 @@
     "system":"시스템",
     "service": "서비스",
     "calibration": "캘리브레이션",
-    "maintenance": "유지보수"
+    "maintenance": "유지보수",
+    "powerQuality": "전력 품질 진단"
   },
   "dashboard": {
     "singleinfo": {
@@ -165,6 +166,16 @@
       "RatedVoltage": "정격 전압",
       "RatedFrequency": "정격 주파수",
       "RatedCurrent": "정격 전류"
+    },
+    "event":{
+      "title":"이벤트 및 고장",
+      "eventstatus":"이벤트 상태",
+      "faultstatus":"고장 상태"
+    },
+    "channel":{
+      "title":"채널 상태",
+      "channelinfo":"채널 정보",
+      "channel":"채널"
     }
   },
   "meter": {

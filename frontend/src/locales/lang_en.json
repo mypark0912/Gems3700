@@ -84,7 +84,8 @@
         "system":"System",
         "service": "Service",
         "calibration": "Calibration",
-        "maintenance": "Maintenance"
+        "maintenance": "Maintenance",
+        "powerQuality": "Power Quality Diagnosis"
     },
     "dashboard": {
        "singleinfo":{
@@ -165,6 +166,16 @@
             "RatedVoltage": "Rated Voltage",
             "RatedFrequency": "Rated Frequency",
             "RatedCurrent": "Rated Current"
+        },
+        "event":{
+            "title":"Event & Fault",
+            "eventstatus":"Event Status",
+            "faultstatus":"Fault Status"
+        },
+        "channel":{
+            "title":"Channel Status",
+            "channelinfo":"Channel Information",
+            "channel":"channel"
         }
     },
     "meter": {
