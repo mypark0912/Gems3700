@@ -1,11 +1,11 @@
 <template>
-    <tr class="hover:bg-gray-50">
+    <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white transition-colors duration-200">
     <td class="px-4 py-1">
         <div :style="{ paddingLeft: level * 20 + 'px' }" class="flex items-center text-sm" :class="{'font-bold': isParent}">
         <button
             v-if="item.children"
             @click="expanded = !expanded"
-            class="mr-1 text-gray-500 hover:text-gray-800"
+            class="mr-1 text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200 transition-colors duration-200"
         >
             <component
             :is="expanded ? ChevronDownIcon : ChevronRightIcon"
@@ -140,4 +140,3 @@
   //     }
   
   </script>
-  
