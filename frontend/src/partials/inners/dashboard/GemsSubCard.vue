@@ -83,7 +83,7 @@
             </div>
 
             <!-- 기타 측정값들 -->
-            <div class="grid grid-cols-2 gap-2">
+            <div class="grid grid-cols-4 gap-2">
               <div>
                 <div class="text-xs font-bold text-black-400 dark:text-black-500 uppercase mb-1">THD</div>
                 <div class="text-sm font-bold text-gray-800 dark:text-gray-100">{{ group.items[0].data.pthd.toFixed(2) }} %</div>
@@ -96,18 +96,18 @@
                 <div class="text-xs font-bold text-black-400 dark:text-black-500 uppercase mb-1">Unbalance</div>
                 <div class="text-sm font-bold text-gray-800 dark:text-gray-100">{{ ((group.items[0].data.iunbal || 0) / 100).toFixed(1) }} %</div>
               </div>
-              <div>
+              <!--div>
                 <div class="text-xs font-bold text-black-400 dark:text-black-500 uppercase mb-1">Temperature</div>
                 <div class="text-sm font-bold text-gray-800 dark:text-gray-100">{{ group.items[0].data.temp.toFixed(1) }} ℃</div>
-              </div>
+              </div-->
               <div>
                 <div class="text-xs font-bold text-black-400 dark:text-black-500 uppercase mb-1">Total Energy</div>
                 <div class="text-sm font-bold text-gray-800 dark:text-gray-100">{{ (group.items[0].data.kwh / 1000).toFixed(2) }} kWh</div>
               </div>
-              <div v-if="group.items[0].data.cbtype === 5">
+              <!--div v-if="group.items[0].data.cbtype === 5">
                 <div class="text-xs font-bold text-black-400 dark:text-black-500 uppercase mb-1">Ground</div>
                 <div class="text-sm font-bold text-gray-800 dark:text-gray-100">{{ group.items[0].data.ig.toFixed(2) }} mA</div>
-              </div>
+              </div-->
             </div>
           </div>
 
@@ -144,7 +144,7 @@
             </div>
 
             <!-- 측정값들 -->
-            <div class="grid grid-cols-2 gap-2">
+            <div class="grid grid-cols-4 gap-2">
               <div>
                 <div class="text-xs font-bold text-black-400 dark:text-black-500 uppercase mb-1">THD</div>
                 <div class="text-sm font-bold text-gray-800 dark:text-gray-100">{{ group.items[0].data.pthd.toFixed(2) }} %</div>
@@ -157,10 +157,10 @@
                 <div class="text-xs font-bold text-black-400 dark:text-black-500 uppercase mb-1">Unbalance</div>
                 <div class="text-sm font-bold text-gray-800 dark:text-gray-100">{{ ((group.items[0].data.iunbal || 0) / 100).toFixed(1) }} %</div>
               </div>
-              <div>
+              <!--div>
                 <div class="text-xs font-bold text-black-400 dark:text-black-500 uppercase mb-1">Temperature</div>
                 <div class="text-sm font-bold text-gray-800 dark:text-gray-100">{{ group.items[0].data.temp.toFixed(1) }} ℃</div>
-              </div>
+              </div-->
               <div>
                 <div class="text-xs font-bold text-black-400 dark:text-black-500 uppercase mb-1">Energy</div>
                 <div class="text-sm font-bold text-gray-800 dark:text-gray-100">{{ (group.items[0].data.kwh / 1000).toFixed(2) }} kWh</div>
