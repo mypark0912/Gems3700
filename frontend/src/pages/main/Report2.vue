@@ -69,7 +69,7 @@
             <!-- Cards -->
             
             <div class="grid grid-cols-12 gap-6">
-              <Report_Info v-if="mode" :channel="channelComputed" :mode="mode" :key="`info-${channelComputed}`" />
+              <!--Report_Info v-if="mode" :channel="channelComputed" :mode="mode" :key="`info-${channelComputed}`" /-->
                           <div class="md:col-span-12 bg-white dark:bg-gray-800 shadow-md rounded-lg p-4 w-full">
 
               <!-- Tab Navigation -->
@@ -119,7 +119,7 @@
   import { useRoute } from 'vue-router'
   import { useSetupStore } from '@/store/setup'; // Pinia Store 
   import axios from 'axios'
-  import Sidebar from '../common/SideBar3.vue'
+  import Sidebar from '../common/SideBarGems.vue'
   import Header from '../common/Header.vue'
   import Footer from "../common/Footer.vue";
   import Report_table from '../../partials/inners/report/Report_table.vue';
@@ -177,17 +177,21 @@
     });
 
     const tabs = computed(()=>{
-        if (mode.value){
-          activeTab.value = 'Equipment';
-          return [
-            {name:"Equipment", label:"Diagnosis"}, {name:"PowerQuality", label:"PowerQuality"}, {name:"Energy", label:"Energy"}
-          ]
-        }else{
           activeTab.value = 'PowerQuality';
           return [
             {name:"PowerQuality", label:"PowerQuality"}, {name:"Energy", label:"Energy"}
           ]
-        }
+        // if (mode.value){
+        //   activeTab.value = 'Equipment';
+        //   return [
+        //     {name:"Equipment", label:"Diagnosis"}, {name:"PowerQuality", label:"PowerQuality"}, {name:"Energy", label:"Energy"}
+        //   ]
+        // }else{
+        //   activeTab.value = 'PowerQuality';
+        //   return [
+        //     {name:"PowerQuality", label:"PowerQuality"}, {name:"Energy", label:"Energy"}
+        //   ]
+        // }
     }
   );
   
