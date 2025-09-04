@@ -32,7 +32,7 @@
               <path d="M31.956 14.8C31.372 6.92 25.08.628 17.2.044V5.76a9.04 9.04 0 0 0 9.04 9.04h5.716ZM14.8 26.24v5.716C6.92 31.372.63 25.08.044 17.2H5.76a9.04 9.04 0 0 1 9.04 9.04Zm11.44-9.04h5.716c-.584 7.88-6.876 14.172-14.756 14.756V26.24a9.04 9.04 0 0 1 9.04-9.04ZM.044 14.8C.63 6.92 6.92.628 14.8.044V5.76a9.04 9.04 0 0 1-9.04 9.04H.044Z" />
             </svg-->
             <!--img src="../images/logo2.png" alt="LOGO" width="64" height="64" /-->
-            <img :src="logoSrc" alt="LOGO" width="132" height="132" />
+            <img :src="logoSrc" alt="LOGO" width="84" height="84" />
           </router-link>
         </div>
   
@@ -416,8 +416,8 @@
   import { useSetupStore } from '@/store/setup'; // ✅ Pinia Store 사용
   import { useDark } from '@vueuse/core'
   import { useI18n } from 'vue-i18n'  // ✅ 추가
-  import logoLight from '@/images/CI_logo.png'
- import logoDark from '@/images/ci_logo_light.png'
+  import logoLight from '@/images/gems3700_logo.png'
+ import logoDark from '@/images/gems3700_logo.png'
   
   export default {
     name: 'Sidebar',
