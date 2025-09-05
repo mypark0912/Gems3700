@@ -173,8 +173,8 @@
             "faultstatus":"Fault Status"
         },
         "channel":{
-            "title":"Channel Status",
-            "channelinfo":"Channel Information",
+            "title":"Meter and Status",
+            "channelinfo":"Meter",
             "channel":"channel"
         }
     },

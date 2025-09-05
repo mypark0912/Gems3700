@@ -18,12 +18,12 @@
         <!-- 금일 -->
         <div class="summary-item">
           <div class="summary-content">
-            <div class="summary-label">금일</div>
+            <div class="summary-label">{{t('dashboard.kwh_realtime.today')}}</div>
             <div class="summary-value-container">
               <div class="summary-value">24.7 <span class="summary-unit">kWh</span></div>
             </div>
             <div class="summary-change">
-              <span class="change-label">전일대비</span>
+              <span class="change-label">{{ t('dashboard.kwh_realtime.comparetoyesterday') }}</span>
               <span class="change-value positive">+49%</span>
             </div>
           </div>
@@ -32,12 +32,12 @@
         <!-- 금주 -->
         <div class="summary-item">
           <div class="summary-content">
-            <div class="summary-label">금주</div>
+            <div class="summary-label">{{t('dashboard.kwh_realtime.thisweek')}}</div>
             <div class="summary-value-container">
               <div class="summary-value">56.9 <span class="summary-unit">kWh</span></div>
             </div>
             <div class="summary-change">
-              <span class="change-label">전주대비</span>
+              <span class="change-label">{{t('dashboard.kwh_realtime.comparetolastweek')}}</span>
               <span class="change-value positive">+47%</span>
             </div>
           </div>
@@ -46,12 +46,12 @@
         <!-- 금월 -->
         <div class="summary-item">
           <div class="summary-content">
-            <div class="summary-label">금월</div>
+            <div class="summary-label">{{t('dashboard.kwh_realtime.thismonth')}}</div>
             <div class="summary-value-container">
               <div class="summary-value">80.9 <span class="summary-unit">kWh</span></div>
             </div>
             <div class="summary-change">
-              <span class="change-label">전월대비</span>
+              <span class="change-label">{{t('dashboard.kwh_realtime.comparetolastmonth')}}</span>
               <span class="change-value negative">-7%</span>
             </div>
           </div>
@@ -60,12 +60,12 @@
         <!-- 연간 -->
         <div class="summary-item">
           <div class="summary-content">
-            <div class="summary-label">연간</div>
+            <div class="summary-label">{{t('dashboard.kwh_realtime.thisyear')}}</div>
             <div class="summary-value-container">
               <div class="summary-value">11,340 <span class="summary-unit">kWh</span></div>
             </div>
             <div class="summary-change">
-              <span class="change-label">전년대비</span>
+              <span class="change-label">{{t('dashboard.kwh_realtime.comparetolastyyear')}}</span>
               <span class="change-value negative">-17%</span>
             </div>
           </div>

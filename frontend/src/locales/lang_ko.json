@@ -173,8 +173,8 @@
       "faultstatus":"고장 상태"
     },
     "channel":{
-      "title":"채널 상태",
-      "channelinfo":"채널 정보",
+      "title":"계측과 상태",
+      "channelinfo":"계측 정보",
       "channel":"채널"
     }
   },
