@@ -943,10 +943,6 @@ export default {
   @apply flex justify-between items-center;
 }
 
-.card-title {
-  @apply text-sm font-semibold text-gray-900 dark:text-gray-100;
-  @apply flex items-center gap-2;
-}
 
 /* StatusItem의 status-section 스타일 적용 */
 .status-section {
