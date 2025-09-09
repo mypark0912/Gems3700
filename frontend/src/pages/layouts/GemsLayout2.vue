@@ -1,18 +1,10 @@
 <template>
     <div class="grid grid-cols-12 gap-6">
       <!-- 1채널 전용 레이아웃 - 카드들이 더 크게 표시 -->
-      <DashboardCard_Meter_Claude 
-        v-if="Object.keys(mainData).length > 0 && channelState.MainEnable" 
-        :channel="channel" 
-        :data="mainData" 
-      />
       
-      <DashboardCard_PQ_Claude 
-        v-if="Object.keys(mainData).length > 0 && channelState.MainEnable" 
-        :channel="channel" 
-        :data="mainData" 
-      />
-      
+      <Dashboard_Gems_Meter v-if="channelState.MainEnable" 
+      :channel="'main'" 
+      :data="mainData" />
       <Dashboard_TransInfo_final v-if="opMode === 'device2' && channelState.MainDiagnosis"
         :channel="channel" 
         :data="mainData" 
@@ -42,6 +34,7 @@
   import Gems_Event from '../../partials/inners/dashboard/Gems_Event.vue'
   import DashboardCard_kwh from '../../partials/inners/dashboard/DashboardCard_kwh_realtime.vue'
   import DashboardCard_Diagnosis from '../../partials/inners/dashboard/DashboardCard_Diagnosis.vue'
+  import Dashboard_Gems_Meter from '../../partials/inners/dashboard/Dashboard_Gems_Meter.vue'
   import { useAuthStore } from '@/store/auth'
   import { computed } from 'vue'
   
@@ -56,6 +49,7 @@
       Dashboard_Single_Info,
       Gems_Status,
       Gems_Event,
+      Dashboard_Gems_Meter
     },
     props: {
       mainData: {
