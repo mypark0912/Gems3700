@@ -15,7 +15,7 @@
       <!-- 데이터 섹션 -->  
       <div class="data-section">
         <!-- 설비 사양 - 한 줄 가로 배치 -->
-        <div class="specification-section">
+        <!--div class="specification-section">
           <div class="section-header">
             <h4 class="section-title">{{ t('dashboard.channel.channelinfo') }}</h4>
           </div>
@@ -31,7 +31,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div-->
   
         <!-- 여기에 다른 컴포넌트들을 추가할 수 있습니다 -->
         <div class="additional-content">

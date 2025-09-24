@@ -173,7 +173,7 @@
       "faultstatus":"고장 상태"
     },
     "channel":{
-      "title":"계측과 상태",
+      "title":"전력 품질 진단",
       "channelinfo":"계측 정보",
       "channel":"채널"
     }
