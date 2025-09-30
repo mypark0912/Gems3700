@@ -26,7 +26,7 @@
   
             <!-- Cards -->
             <div class="md:col-span-12 bg-white dark:bg-gray-800 shadow-md rounded-lg p-4 w-full">
-              <GemsSubCard v-if="Object.keys(subDataA).length > 0" :data="subDataA" :channel="'A'" />
+              <SubDashboard_idpm300 v-if="Object.keys(subDataA).length > 0" :data="subDataA" :channel="'A'" />
               </div>
             <!--div class="grid grid-cols-12 gap-6">
 
@@ -52,7 +52,8 @@
   import axios from 'axios'
   import { useAuthStore } from '@/store/auth'; // ✅ Pinia Store 사용
   import GemsDashCard from '../../partials/inners/dashboard/GemsDashCard.vue'
-  import GemsSubCard from '../../partials/inners/dashboard/GemsSubCard.vue'
+  //import GemsSubCard from '../../partials/inners/dashboard/GemsSubCard.vue'
+  import SubDashboard_idpm300 from '../../partials/inners/dashboard/SubDashboard_idpm300.vue'
   
   export default {
     name: 'GemsDashboard',
@@ -62,7 +63,7 @@
       Header,
       Footer,
       GemsDashCard,
-      GemsSubCard,
+      SubDashboard_idpm300,
       //GemsDashCard_sub,
     },
     setup(props) {

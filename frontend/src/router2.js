@@ -57,7 +57,7 @@ const router = createRouter({
       props: true  // 🔹 params를 props로 자동 전달
     },
     {
-      path: '/Sub',
+      path: '/Sub/:channel',
       component: GemsSubDashboard,
       name : 'GemsSubDashboard',
       props: true  // 🔹 params를 props로 자동 전달

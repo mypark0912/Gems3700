@@ -277,7 +277,7 @@
 
 <style scoped>
 .premium-dashboard-card {
-  @apply flex flex-col col-span-full sm:col-span-6 xl:col-span-5;
+  @apply flex flex-col col-span-full sm:col-span-6 xl:col-span-6;
   @apply bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900;
   @apply shadow-lg rounded-xl border border-gray-200/50 dark:border-gray-700/50;
   @apply backdrop-blur-sm;
