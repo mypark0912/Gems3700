@@ -141,9 +141,9 @@
             "item": "Item",
             "pqfe0": "Stop",
             "pqfe1": "OK",
-            "pqfe2": "Low",
-            "pqfe3": "Medium",
-            "pqfe4": "High"
+            "pqfe2": "Warning",
+            "pqfe3": "Inspect",
+            "pqfe4": "Repair"
         },
         "kwh": "Total power consumption",
         "kwh_realtime": {
@@ -274,9 +274,9 @@
             "st4": "Repair",
             "pqfe0": "Stop",
             "pqfe1": "OK",
-            "pqfe2": "Low",
-            "pqfe3": "Medium",
-            "pqfe4": "High"
+            "pqfe2": "Warning",
+            "pqfe3": "Inspect",
+            "pqfe4": "Repair"
         }
     },
 
