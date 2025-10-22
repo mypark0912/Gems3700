@@ -171,11 +171,11 @@ export default {
                 },
                 callback: (value) => {
                   const textstr = [
-                    t('diagnosis.tabContext.st0'),
-                    t('diagnosis.tabContext.st1'),
-                    t('diagnosis.tabContext.st2'),
-                    t('diagnosis.tabContext.st3'),
-                    t('diagnosis.tabContext.st4')
+                    t('diagnosis.tabContext.pqfe0'),
+                    t('diagnosis.tabContext.pqfe1'),
+                    t('diagnosis.tabContext.pqfe2'),
+                    t('diagnosis.tabContext.pqfe3'),
+                    t('diagnosis.tabContext.pqfe4')
                   ]
                   return textstr[Math.floor(value)]
                 }, 

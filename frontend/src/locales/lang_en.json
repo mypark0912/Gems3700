@@ -140,10 +140,10 @@
             "noAlarm": "The channel is normal",
             "item": "Item",
             "pqfe0": "Stop",
-            "pqfe1": "OK",
-            "pqfe2": "Warning",
-            "pqfe3": "Inspect",
-            "pqfe4": "Repair"
+            "pqfe1": "Normal",
+            "pqfe2": "Alert",
+            "pqfe3": "Warning",
+            "pqfe4": "Critical"
         },
         "kwh": "Total power consumption",
         "kwh_realtime": {
@@ -273,10 +273,10 @@
             "st3": "Inspect",
             "st4": "Repair",
             "pqfe0": "Stop",
-            "pqfe1": "OK",
-            "pqfe2": "Warning",
-            "pqfe3": "Inspect",
-            "pqfe4": "Repair"
+            "pqfe1": "Normal",
+            "pqfe2": "Alert",
+            "pqfe3": "Warning",
+            "pqfe4": "Critical"
         }
     },
 
