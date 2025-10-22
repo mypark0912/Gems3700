@@ -17,7 +17,7 @@
               <h2 class="text-xl md:text-2xl text-gray-800 dark:text-gray-100 font-bold">
                 {{
                   channel == "Main" ? t("pq.sitemap.main") : t("pq.sitemap.sub")
-                }} 
+                }} {{ assetName }}
                 > {{ t("pq.sitemap.title") }}
               </h2>
             </div>
@@ -297,17 +297,17 @@ export default {
       }
       else if (tab === "Harmonics") {
         if (!tbdataH.value) return;
-
+        //tbdataH.value = tbdataH.value.slice(2);
         const [k1, k2, k3] = harmonicsMap[option] || [];
         //console.log('Harmonics keys:', k1, k2, k3);
         //console.log('Data available:', !!tbdataH.value[k1], !!tbdataH.value[k2], !!tbdataH.value[k3]);
 
         chartData.value = {
-          labels: Array.from({ length: 64 }, (_, i) => i + 1),
+          labels: Array.from({ length: 62 }, (_, i) => i + 2),
           datasets: [
             {
               label: "L1",
-              data: tbdataH.value[k1] || [],
+              data: tbdataH.value[k1].slice(2) || [],
               backgroundColor: tailwindConfig().theme.colors.violet[500],
               borderRadius: 4,
             },
@@ -315,11 +315,11 @@ export default {
         };
         
         chartData2.value = {
-          labels: Array.from({ length: 64 }, (_, i) => i + 1),
+          labels: Array.from({ length: 62 }, (_, i) => i + 2),
           datasets: [
             {
               label: "L2",
-              data: tbdataH.value[k2] || [],
+              data: tbdataH.value[k2].slice(2) || [],
               backgroundColor: tailwindConfig().theme.colors.sky[500],
               borderRadius: 4,
             },
@@ -327,11 +327,11 @@ export default {
         };
         
         chartData3.value = {
-          labels: Array.from({ length: 64 }, (_, i) => i + 1),
+          labels: Array.from({ length: 62 }, (_, i) => i + 2),
           datasets: [
             {
               label: "L3",
-              data: tbdataH.value[k3] || [],
+              data: tbdataH.value[k3].slice(2) || [],
               backgroundColor: tailwindConfig().theme.colors.lime[500],
               borderRadius: 4,
             },

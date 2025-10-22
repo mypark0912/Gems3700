@@ -20,12 +20,14 @@
             </thead>
             <!-- Table body -->
             <tbody class="text-sm font-medium divide-y divide-gray-100 dark:divide-gray-700/60">
-              <tr v-for="(row, index) in convertedData" :key="index">
-                <td class="p-2 text-left">{{ index+1 }}</td>
-                <td class="p-2 text-center">{{row.L1}}</td>
-                <td class="p-2 text-center">{{row.L2}}</td>
-                <td class="p-2 text-center">{{row.L3}}</td>
-              </tr>
+              <template v-for="(row, index) in convertedData" :key="index">
+                <tr v-if="index > 1">
+                  <td class="p-2 text-left">{{ index }}</td>
+                  <td class="p-2 text-center">{{row.L1}}</td>
+                  <td class="p-2 text-center">{{row.L2}}</td>
+                  <td class="p-2 text-center">{{row.L3}}</td>
+                </tr>
+              </template>
             </tbody>
           </table>
         </div>
