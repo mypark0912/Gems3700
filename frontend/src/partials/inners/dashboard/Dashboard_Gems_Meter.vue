@@ -4,7 +4,11 @@
     <div class="card-header">
       <div class="header-content">
         <h2 class="card-title">{{t("dashboard.meter.title")}}</h2>
-   
+        <div class="channel-info">
+          <span class="channel-text">
+            Main channel
+          </span>
+        </div>
       </div>
     </div>
 
@@ -605,7 +609,8 @@ export default {
 
 /* 헤더 섹션 */
 .card-header {
-  @apply px-5 py-4 bg-gradient-to-r from-blue-50/50 to-purple-50/50 dark:from-blue-900/20 dark:to-purple-900/20;
+  @apply p-3 border-b border-gray-200/50 dark:border-gray-700/50;
+  @apply bg-gradient-to-r from-blue-50/50 to-purple-50/50 dark:from-blue-900/20 dark:to-purple-900/20;
   @apply rounded-t-xl;
 }
 
@@ -716,7 +721,9 @@ export default {
 .detail-badge.chart-badge {
   @apply bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400;
 }
-
+.channel-badge {
+  @apply text-xs font-semibold text-gray-400 dark:text-white uppercase;
+}
 /* 전압 상세 - 패딩과 간격 증가 */
 .voltage-grid {
   @apply p-4 space-y-3;
@@ -891,6 +898,7 @@ export default {
   .summary-value {
     @apply text-xl;
   }
+  
 }
 
 @media (max-width: 640px) {
@@ -898,9 +906,7 @@ export default {
     @apply col-span-full;
   }
 
-  .card-header {
-    @apply px-3 py-2;
-  }
+
 
   .summary-section {
     @apply px-3 py-2;
@@ -938,10 +944,7 @@ export default {
   @apply mb-2;
 }
 
-.card-header {
-  @apply p-3 bg-gray-50 dark:bg-gray-700/50 border-b border-gray-200 dark:border-gray-600;
-  @apply flex justify-between items-center;
-}
+
 
 
 /* StatusItem의 status-section 스타일 적용 */
@@ -984,10 +987,7 @@ export default {
     @apply col-span-full;
   }
   
-  .card-header {
-    @apply p-2;
-  }
-  
+
   .status-section {
     @apply p-3;
   }

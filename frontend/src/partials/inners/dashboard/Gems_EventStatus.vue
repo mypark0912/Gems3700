@@ -5,7 +5,7 @@
       <div class="section-header">
         <h3 class="section-title">{{ t('dashboard.channel.title') }}</h3>
         <span class="channel-badge">
-          {{ computedChannel }} {{ t('dashboard.channel.channel') }}
+          Main channel
         </span>
       </div>
       
