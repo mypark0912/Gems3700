@@ -1,7 +1,7 @@
 <template>
       <div class="col-span-full xl:col-span-12 bg-white dark:bg-gray-800 shadow-sm rounded-xl mt-4">
             <!-- Tab 1 -->
-            <Report_PQ v-if="mode && devMode=='device0'" :channel="channel" />
+            <Report_PQ v-if="mode" :channel="channel" />
             <div
               class="relative col-span-full xl:col-span-12 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700/60 shadow-sm rounded-b-lg mb-6 mt-6"
             >
@@ -189,7 +189,7 @@
   import Report_PQ_detail from './Report_PQ_detail.vue'
   import axios from 'axios'
   import { useI18n } from 'vue-i18n'
-  import { useAuthStore } from '@/store/auth'; // ✅ Pinia Store 사용
+  
   export default {
     name: 'ReportComponent',
     components:{
@@ -218,13 +218,13 @@
       const selectedX = ref(null);
       const iticDataList = ref([]);
       const selectedOption2 = ref('voltage_sag')
-      const authStore = useAuthStore();
+
       const options2 = ref([
         { label: "Voltage Sag", value: "voltage_sag" },
         { label: "Over Voltage", value: "over_voltage" },
         { label: "Short Interruptions", value: "short_interruptions" },
       ]);
-      const devMode = computed(()=> authStore.getOpMode);
+      
       const tbdata = ref(null);
       
       const COMPLIANCE_BITS = {
@@ -478,7 +478,6 @@
         selectedX,
         t,
         iticDataList,
-        devMode,
       }
     }
   }

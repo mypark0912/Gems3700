@@ -91,7 +91,7 @@
                         </a>
                       </li>
                     </router-link>
-                    <router-link v-if="devMode =='device0'" to="/diagnosis/Main" custom v-slot="{ href, navigate, isExactActive }">
+                    <router-link to="/diagnosis/Main" custom v-slot="{ href, navigate, isExactActive }">
                       <li class="mb-1 last:mb-0">
                         <a class="block transition truncate" :class="isExactActive ? 'text-violet-500' : 'text-gray-500/90 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'" :href="href" @click="navigate">
                           <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">{{ t("sidebar.powerQuality") }}</span>
@@ -102,43 +102,18 @@
                 </div>
               </SidebarLinkGroup>            
               <!-- E-Commerce  -->
-            <SidebarLinkGroup v-if="setupMenu.MainEnable" v-slot="parentLink" :activeCondition="isMainActive">
-                <a class="block text-gray-800 dark:text-gray-100 truncate transition" :class="isMainActive ? '' : 'hover:text-gray-900 dark:hover:text-white'" href="#0" @click.prevent="parentLink.handleClick(); sidebarExpanded = true">
-                  <div class="flex items-center justify-between">
-                    <div class="flex items-center">
-                      <svg class="shrink-0 fill-current" :class="isSubActive ? 'text-violet-500' : 'text-gray-400 dark:text-gray-500'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+              <router-link to="/Sub" custom v-slot="{ href, navigate, isExactActive }">
+              <li class="pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-[linear-gradient(135deg,var(--tw-gradient-stops))]" :class="isExactActive && 'from-violet-500/[0.12] dark:from-violet-500/[0.24] to-violet-500/[0.04]'">
+                <a class="block text-gray-800 dark:text-gray-100 truncate transition" :class="isExactActive ? '' : 'hover:text-gray-900 dark:hover:text-white'" :href="href" @click="navigate">
+                  <div class="flex items-center">
+                    <svg class="shrink-0 fill-current" :class="isSubActive ? 'text-violet-500' : 'text-gray-400 dark:text-gray-500'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                         <path d="M12 1a1 1 0 1 0-2 0v2a3 3 0 0 0 3 3h2a1 1 0 1 0 0-2h-2a1 1 0 0 1-1-1V1ZM1 10a1 1 0 1 0 0 2h2a1 1 0 0 1 1 1v2a1 1 0 1 0 2 0v-2a3 3 0 0 0-3-3H1ZM5 0a1 1 0 0 1 1 1v2a3 3 0 0 1-3 3H1a1 1 0 0 1 0-2h2a1 1 0 0 0 1-1V1a1 1 0 0 1 1-1ZM12 13a1 1 0 0 1 1-1h2a1 1 0 1 0 0-2h-2a3 3 0 0 0-3 3v2a1 1 0 1 0 2 0v-2Z" />
-                      </svg> 
-                      <span class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">{{ t('sidebar.sub') }}</span>
-                    </div>
-                    <!-- Icon -->
-                    <div class="flex shrink-0 ml-2">
-                      <svg class="w-3 h-3 shrink-0 ml-1 fill-current text-gray-400 dark:text-gray-500" :class="parentLink.expanded && 'rotate-180'" viewBox="0 0 12 12">
-                        <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
                       </svg>
-                    </div>
+                    <span class="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">{{ t("sidebar.sub") }}</span>
                   </div>
                 </a>
-                <div class="lg:hidden lg:sidebar-expanded:block 2xl:block">
-                  <ul class="pl-8 mt-1" :class="!parentLink.expanded && 'hidden'">
-                    <router-link to="/Sub/Main" custom v-slot="{ href, navigate, isExactActive }">
-                      <li class="mb-1 last:mb-0">
-                        <a class="block transition truncate" :class="isExactActive ? 'text-violet-500' : 'text-gray-500/90 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'" :href="href" @click="navigate">
-                          <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">IPSM72 #1</span>
-                        </a>
-                      </li>
-                    </router-link>
-                    <router-link to="/Sub/Sub" custom v-slot="{ href, navigate, isExactActive }">
-                      <li class="mb-1 last:mb-0">
-                        <a class="block transition truncate" :class="isExactActive ? 'text-violet-500' : 'text-gray-500/90 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'" :href="href" @click="navigate">
-                          <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">IPSM72 #2</span>
-                        </a>
-                      </li>
-                    </router-link>                            
-                  </ul>
-                </div>
-              </SidebarLinkGroup>
-
+              </li>
+            </router-link>
               <!-- 알람/이벤트 -->
               <SidebarLinkGroup v-slot="parentLink" :activeCondition="currentRoute.fullPath.includes('event')">
                 <a class="block text-gray-800 dark:text-gray-100 truncate transition" :class="currentRoute.fullPath.includes('event') ? '' : 'hover:text-gray-900 dark:hover:text-white'" href="#0" @click.prevent="parentLink.handleClick(); sidebarExpanded = true">
@@ -443,7 +418,7 @@
   import { useI18n } from 'vue-i18n'  // ✅ 추가
   import logoLight from '@/images/gems3700_logo.png'
  import logoDark from '@/images/gems3700_logo.png'
-  import logoIDPM from '@/images/idpm300_logo.png'
+  
   export default {
     name: 'Sidebar',
     props: [
@@ -465,14 +440,7 @@
       const authStore = useAuthStore(); // ✅ Pinia Store 사용
       const setupStore = useSetupStore(); // ✅ Pinia Store 사용
       const setupMenu = ref({});
-      const logoSrc = computed(() => {
-        const devMode = authStore.getOpMode;
-        if(devMode == 'device0'){
-          return isDark.value ? logoDark : logoLight
-        }else{
-          return logoIDPM;
-        }
-      });
+      const logoSrc = computed(() => isDark.value ? logoDark : logoLight)
 
   
       const storedSidebarExpanded = localStorage.getItem('sidebar-expanded')

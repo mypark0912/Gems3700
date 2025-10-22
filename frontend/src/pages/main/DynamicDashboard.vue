@@ -111,12 +111,12 @@ export default {
 
     // 동적 레이아웃 선택
     const dashboardLayout = computed(() => {
-      //return 'GemsLayout'
-      if (opMode.value === 'device0') {
-        return 'GemsLayout'
-      } else {
-        return 'SingleChannelLayout'
-      }
+      return 'GemsLayout'
+      // if (opMode.value === 'device2') {
+      //   return 'DualChannelLayout'
+      // } else {
+      //   return ChannelState.value?.SubEnable ? 'DualChannelLayout' : 'SingleChannelLayout'
+      // }
     })
 
     // 데이터 준비 완료 상태 확인
