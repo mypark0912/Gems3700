@@ -1,0 +1,124 @@
+================================================================================
+  IDPM300 Backend: Python(FastAPI) → Go(Gin) 변환 작업 요약
+  작업일: 2026-04-06
+================================================================================
+
+■ 프로젝트 위치
+  /webserver/serverGO/
+
+■ 기술 스택
+  - HTTP Framework: gin-gonic/gin
+  - Redis: github.com/redis/go-redis/v9
+  - InfluxDB: github.com/influxdata/influxdb-client-go/v2 (lazy-connect, 쿼리 미구현)
+  - SQLite: modernc.org/sqlite (순수 Go, CGO 불필요)
+  - Session: github.com/gin-contrib/sessions (cookie store)
+  - Password: golang.org/x/crypto/bcrypt
+  - Binary Parsing: encoding/binary (Go 표준 라이브러리)
+
+■ 디렉토리 구조 (30개 Go 파일)
+  serverGO/
+  ├── cmd/server/main.go                    # 엔트리포인트
+  ├── go.mod / go.sum
+  └── internal/
+      ├── config/config.go                  # OS감지, Redis/InfluxDB IP, 경로설정
+      ├── crypto/aes.go                     # AES-256-CBC 암복호화
+      ├── infra/
+      │   ├── deps.go                       # Dependencies 컨테이너
+      │   ├── redis.go                      # Redis 3개 클라이언트
+      │   ├── influx.go                     # InfluxDB lazy-connect
+      │   └── sqlite.go                     # SQLite 헬퍼 (user.db, log.db)
+      ├── middleware/
+      │   ├── cors.go                       # CORS
+      │   ├── nocache.go                    # Cache-Control
+      │   └── session.go                    # 쿠키 세션 + 리프레시
+      ├── auth/
+      │   ├── handler.go                    # 17개 라우트
+      │   ├── models.go                     # 요청 모델 6개
+      │   └── store.go                      # user.db CRUD + bcrypt
+      ├── setting/
+      │   ├── handler_setup.go              # 핵심 설정 CRUD (9개 라우트)
+      │   ├── handler_network.go            # applyNetwork, setDefaultIP
+      │   ├── handler_service.go            # SysService, SysCheck, ServiceStatus, command, checkFrp
+      │   ├── handler_backup.go             # Reset, restoreSetting, upload
+      │   ├── handler_mqtt.go               # checkMQTT, uploadCerts, listCerts, deleteCert
+      │   └── redis_setup.go               # InitSetup, SaveRedisSetup, compareChannelChanges
+      ├── binary/
+      │   ├── harmonics.go                  # 896바이트 하모닉스/인터하모닉스 파싱
+      │   ├── waveform.go                   # 3584바이트 파형 파싱 (256샘플 x 7채널)
+      │   ├── maxmin.go                     # MaxMin 파싱 + Redis fetch
+      │   ├── demand.go                     # 디멘드 파싱 + 포맷팅
+      │   └── command.go                    # Command 바이너리 인코딩/디코딩
+      ├── metermap/
+      │   └── redismap.go                   # 미터 필드 매핑 정의 + GetDataDict
+      ├── api/
+      │   ├── handler_meter.go              # Redis 기반 미터 읽기 + 라우트 등록
+      │   ├── handler_pq.go                 # 하모닉스, 파형, 파형캡처
+      │   ├── handler_alarmlog.go           # SQLite 알람로그 조회/검색
+      │   └── helpers.go                    # Redis 로더, 채널설정 조회
+      ├── cfgroute/
+      │   ├── handler.go                    # 유지보수, 로그, 시간설정
+      │   └── store.go                      # maintenance.db, log.db CRUD
+      ├── master/                           # (미구현 - 불필요)
+      └── report/                           # (미구현 - 추후 결정)
+
+================================================================================
+■ 라우트 매핑 (Python → Go)
+================================================================================
+
+[/auth] — 17개 라우트 ✅
+  GET  /getInfluxdb, /checkInstall, /checkDBMS, /checkSession
+  GET  /getUser, /getUserList, /checkAccount
+  GET  /saveUser/:account/:role, /removeUser/:username, /logout
+  GET  /checkRemote/:user
+  POST /joinAdmin, /join, /checkLogins, /resetPassword
+  POST /updateProfile, /verify-admin
+
+[/setting] — 23개 라우트 ✅
+  GET  /getMac, /getSetting, /getSettingData/:channel, /getMode, /checkSettingFile
+  GET  /apply, /releaseSetupMode, /checkSetupMode
+  GET  /applyNetwork, /checkFrp
+  GET  /SysService/:cmd/:item, /SysCheck, /ServiceStatus
+  GET  /Reset, /checkMQTT, /listCerts
+  POST /savefileNew, /setDefaultIP, /command
+  POST /restoreSetting, /upload, /uploadCerts
+  DELETE /deleteCert/:filename
+
+[/api] — 8개 라우트 ✅ (Redis/SQLite 기반)
+  GET  /getMeterRedisNew/:channel/:mode
+  GET  /getChannelSetting/:channel
+  GET  /getHarmonics/:channel, /getWave/:channel, /setWave/:channel/:state
+  GET  /getAlarmStatus/:channel (stub)
+  GET  /getSystemStatus, /getTrendParameters/:channel
+  GET  /getAlarmLog/:page, /getRecentAlarmLog
+  POST /getAlarmLogSearch/:page
+
+[/config] — 7개 라우트 ✅
+  GET  /getPost, /getLastPost, /deletePost/:idx, /getLog
+  GET  /calibrate/gettime
+  POST /savePost/:mode/:idx, /calibrate/setSystemTime, /checktime
+
+================================================================================
+■ 제외된 기능
+================================================================================
+
+  - InfluxDB 초기화 (initDB, checkInfluxStatus, setup-downsampling 등)
+  - InfluxDB 쿼리 (트렌드, 에너지, 알람/이벤트, 로드팩터, CSV 다운로드)
+  - Asset/SmartSystem 관련 기능
+  - restartdevice, restartCore
+  - master 라우트 (device.db 관리)
+  - report 모듈 (Parquet/PDF — 추후 결정)
+
+================================================================================
+■ 빌드 방법
+================================================================================
+
+  cd /webserver/serverGO
+  go build ./cmd/server/
+
+  # 실행
+  ./server    # 포트 4000
+
+  # 환경변수
+  SV500_MODE=1    # 1: 개발모드(기본), 0: 운영모드
+
+================================================================================

@@ -1,0 +1,161 @@
+============================================================
+SV500_Cores Python -> Go 변환 요약 (최종)
+============================================================
+
+프로젝트 위치: /Users/mypark/Documents/GitHub/SV500_Core_GO/
+총 파일 수: 30개 Go 파일, 11,424 줄
+빌드 상태: 성공 (go build ./...)
+
+============================================================
+프로젝트 구조
+============================================================
+
+SV500_Core_GO/
+├── go.mod / go.sum
+├── main.go                              (706줄) - 엔트리포인트
+├── handlers/
+│   ├── util.go                          (56줄)  - Redis 연결 풀 관리
+│   ├── redis_handler.go                 (190줄) - Redis 핸들러
+│   └── influx_handler.go               (618줄) - InfluxDB 커넥션 풀 + 핸들러
+├── data/
+│   ├── binary_parser.go                 (371줄) - 바이너리 파서 (Energy, Alarm, Event)
+│   ├── channel.go                       (44줄)  - Channel 구조체
+│   ├── demand.go                        (202줄) - Demand 124바이트 바이너리 파서
+│   ├── diagnosis_data.go                (793줄) - 진단 데이터 타입들 (10종 장비)
+│   ├── diagnosis_binary.go              (196줄) - uint8 바이너리 패커 (8종 장비)
+│   ├── diagnosis_map.go                 (182줄) - 알람 상태 매칭
+│   ├── energy_logic.go                  (135줄) - 에너지 소비량 계산
+│   ├── setup_info.go                    (282줄) - Redis에서 설정 로드
+│   ├── setting_map.go                   (550줄) - 설정 맵 업데이트 (General/Channel/Event)
+│   └── trend.go                         (275줄) - 트렌드 데이터 수집/저장
+└── processors/
+    ├── generic_processor.go             (224줄) - 범용 프로세서 베이스
+    ├── data_processor_manager.go        (228줄) - 프로세서 통합 관리
+    ├── energy_processor.go              (446줄) - 에너지 프로세서
+    ├── alarm_processor.go               (351줄) - 알람 프로세서
+    ├── event_processor.go               (321줄) - 이벤트 프로세서
+    ├── demand_processor.go              (186줄) - Demand 프로세서
+    ├── en50160_processor.go             (458줄) - EN50160 리포트 프로세서 (104바이트)
+    ├── endata_processor.go              (580줄) - PQ 10분 데이터 프로세서 (~1180바이트)
+    ├── diagnosis_processor.go           (690줄) - 진단 API 프로세서
+    ├── trend_processor.go               (168줄) - 트렌드 프로세서
+    ├── setting_processor.go             (545줄) - 설정 1280바이트 바이너리 파서
+    ├── en50160_weekly.go                (609줄) - PQ 10분 주간 Parquet 생성
+    ├── diagnosis_weekly.go              (721줄) - 진단 Parquet + 트렌드 학습 데이터
+    ├── ftp_processor.go                 (687줄) - FTP 파일 업로드
+    ├── upload_manager.go                (256줄) - FTP 업로드 매니저
+    └── archive_manager.go              (354줄) - 데이터 아카이빙
+
+============================================================
+파일별 매핑 (Python -> Go)
+============================================================
+
+Python                               -> Go
+------------------------------------------------------------
+main.py                              -> main.go
+handlers/util.py                     -> handlers/util.go
+handlers/redis_handler.py            -> handlers/redis_handler.go
+handlers/influx_handler.py           -> handlers/influx_handler.go
+data/SetupInfo.py                    -> data/setup_info.go
+data/channel.py                      -> data/channel.go
+data/settingMap.py                   -> data/setting_map.go
+data/binary_parser.py                -> data/binary_parser.go
+data/binary_collector.py             -> data/demand.go
+data/diagnosis_data.py               -> data/diagnosis_data.go
+data/diagnosis_binary.py             -> data/diagnosis_binary.go
+data/diagnosis_map.py                -> data/diagnosis_map.go
+data/energy_logic.py                 -> data/energy_logic.go
+processors/generic_processor.py      -> processors/generic_processor.go
+processors/data_processor_manager.py -> processors/data_processor_manager.go
+processors/energy_processor.py       -> processors/energy_processor.go
+processors/alarm_processor.py        -> processors/alarm_processor.go
+processors/event_processor.py        -> processors/event_processor.go
+processors/demand_processor.py       -> processors/demand_processor.go
+processors/en50160_processor2.py     -> processors/en50160_processor.go
+processors/enData_processsor.py      -> processors/endata_processor.go
+processors/diagnosis_processor.py    -> processors/diagnosis_processor.go
+processors/trend_processor.py        -> processors/trend_processor.go + data/trend.go
+processors/setting_processor.py      -> processors/setting_processor.go
+processors/en50160_weekly.py         -> processors/en50160_weekly.go
+processors/diagnosis_weekly.py       -> processors/diagnosis_weekly.go
+processors/UploadManager.py          -> processors/upload_manager.go
+processors/ftp_processor.py          -> processors/ftp_processor.go
+processors/archive_manager.py        -> processors/archive_manager.go
+
+============================================================
+Python -> Go 주요 변환 포인트
+============================================================
+
+1. 동시성 모델
+   - threading.Thread          -> goroutine + context.Context
+   - asyncio                   -> goroutine + context cancellation
+   - threading.Event           -> context.WithCancel
+   - time.sleep(interruptible) -> select { case <-ctx.Done(): case <-time.After(): }
+
+2. 바이너리 파싱
+   - struct.unpack             -> encoding/binary.LittleEndian
+   - struct.calcsize           -> 직접 크기 계산
+   - struct.pack (uint8)       -> []byte 직접 조립
+
+3. 외부 라이브러리
+   - influxdb_client (Python)  -> github.com/influxdata/influxdb-client-go/v2
+   - redis (Python)            -> github.com/redis/go-redis/v9
+   - httpx (Python)            -> net/http (Go 표준 라이브러리)
+   - PyCryptodome (AES)        -> crypto/aes, crypto/cipher, crypto/sha256
+   - pyarrow/parquet (Python)  -> github.com/parquet-go/parquet-go
+   - ftplib (Python)           -> github.com/jlaffaye/ftp + net/textproto
+
+4. 설계 패턴 변환
+   - 클래스 상속               -> 구조체 임베딩 (struct embedding)
+   - 추상 클래스               -> 인터페이스 (interface)
+   - 데코레이터                -> 함수 래퍼
+   - atexit 등록               -> defer + os.Signal 처리
+
+5. 에러 처리
+   - try/except                -> error 반환값 체크
+   - logging.error             -> log.Printf
+
+============================================================
+의존성 (go.mod)
+============================================================
+
+- github.com/redis/go-redis/v9
+- github.com/influxdata/influxdb-client-go/v2
+- github.com/parquet-go/parquet-go
+- github.com/jlaffaye/ftp
+
+============================================================
+빌드 및 실행
+============================================================
+
+# 빌드
+cd /Users/mypark/Documents/GitHub/SV500_Core_GO
+go build -o sv500_core ./main.go
+
+# 실행
+./sv500_core
+
+# 참고: 실행 시 아래 서비스가 필요합니다
+# - Redis (127.0.0.1:6379)
+# - InfluxDB (설정파일: /home/root/config/influx.json)
+# - SmartSystems API (127.0.0.1:5000) - 진단 기능용
+
+============================================================
+전체 감사 결과 요약 (Python 원본 대조)
+============================================================
+
+모든 29개 Python 파일에 대해 Go 대응 파일 존재.
+전체 빌드 성공 (go build ./...).
+
+감사 통과:
+  - 바이너리 포맷: Energy(32B), Alarm(24B), Event(28B), EN50160(104B),
+    PQ10min(~1180B), Demand(124B), Settings(1280B) 모두 Python 일치
+  - Redis 키: energy_log, alarm_log, event_log, en50160_report,
+    en10min_data, alarm_status:{ch}, SmartSystem:{ch}, DOStatus 등 일치
+  - InfluxDB: measurement명, tag/field 구조, bucket(ntek/ntek30) 일치
+  - API 엔드포인트: getBarGraphs, getDiagnostic, getPQ, getFaults,
+    getEvents, getRealTimeData 모두 일치
+  - 장비 타입: 8종(Compressor~PrimaryTransformer) 필드명 모두 일치
+  - 설정 업데이트: General/Channel/Event 3단계 모두 구현
+  - Parquet 생성: 주간 PQ 리포트 + 진단 리포트 + 트렌드 학습 데이터
+  - FTP 업로드: 채널별 파일 업로드 + 업로드 매니저

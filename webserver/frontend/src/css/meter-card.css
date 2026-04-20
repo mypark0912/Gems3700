@@ -1,0 +1,50 @@
+/* meter-card.css — dashboard2 카드 스타일과 일관성 유지 */
+
+.meter-card {
+  @apply bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900;
+  @apply shadow-lg rounded-xl border border-gray-200/50 dark:border-gray-700/50;
+  @apply overflow-hidden;
+}
+
+.meter-card-header {
+  @apply flex justify-between items-center px-4 py-2.5;
+}
+
+.meter-card-title {
+  @apply text-base font-bold text-gray-800 dark:text-white flex items-center gap-2;
+}
+
+.meter-card-title::before {
+  content: '';
+  @apply w-1 h-4 rounded-full inline-block flex-shrink-0;
+}
+
+.meter-card-body {
+  @apply px-4 py-1;
+}
+
+/* Accent colors (세로바) */
+.meter-accent-blue::before {
+  @apply bg-blue-500;
+}
+.meter-accent-amber::before {
+  @apply bg-amber-500;
+}
+.meter-accent-emerald::before {
+  @apply bg-emerald-500;
+}
+.meter-accent-violet::before {
+  @apply bg-violet-500;
+}
+.meter-accent-orange::before {
+  @apply bg-orange-500;
+}
+.meter-accent-indigo::before {
+  @apply bg-indigo-500;
+}
+.meter-accent-teal::before {
+  @apply bg-teal-500;
+}
+.meter-accent-rose::before {
+  @apply bg-rose-500;
+}

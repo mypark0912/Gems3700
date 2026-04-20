@@ -1,0 +1,884 @@
+{
+  "Title": "Start idpm300!",
+  "glossary": {
+    "title": "Glossary",
+    "searchPlaceholder": "Search terms...",
+    "searchResults": "Results: {count}",
+    "noResults": "No results found",
+    "tryDifferent": "Try a different search term"
+  },
+  "common": {
+    "positive": "Positive",
+    "nagative": "Nagative",
+    "value": "Value",
+    "yes": "Yes",
+    "no": "No",
+    "save": "Save",
+    "close": "Close",
+    "ok": "OK",
+    "change": "Change",
+    "cancel": "Cancel",
+    "none": "None",
+    "under": "Under",
+    "over": "Over",
+    "minu": "min",
+    "hour": "Hour",
+    "sec": "Sec",
+    "mainChannel": "Channel 1",
+    "subChannel": "Channel 2",
+    "and": "and"
+  },
+  "onboardingModal": {
+    "steps": {
+      "restartCheck": "Restart Check",
+      "mainTest": "Ch1 Test",
+      "subTest": "Ch2 Test",
+      "complete": "Complete"
+    },
+    "restartCheck": {
+      "title": "Restart Check",
+      "checking": "Checking restart requirement...",
+      "status": "Restart Status",
+      "required": "Restart Required",
+      "checkTime": "Check Time",
+      "needsRestart": "Device restart is required. Click \"Next\" to proceed with restart.",
+      "noRestart": "No restart required. Click \"Next\" to proceed."
+    },
+    "mainTest": {
+      "title": "Ch1 Test Result",
+      "loading": "Loading ch1 test result...This process may take 20 seconds or longer.",
+      "report": "Ch1 Device Report"
+    },
+    "subTest": {
+      "title": "Ch2 Test Result",
+      "loading": "Loading ch2 test result...This process may take 20 seconds or longer.",
+      "report": "Ch2 Device Report"
+    },
+    "test": {
+      "assetType": "Asset Type",
+      "serialNumber": "Serial Number",
+      "channel": "Channel",
+      "result": "Result: {errors} Errors, {warnings} Warnings",
+      "assemblyId": "AssemblyId",
+      "detail": "Detail",
+      "status": "Status",
+      "viewCharts": "View Charts",
+      "chartTitle": "{type} Chart",
+      "fixErrors": "Fix Errors First",
+      "statusList": {
+        "info": "Info",
+        "pass": "Pass",
+        "warning": "Warning",
+        "error": "Error"
+      },
+      "chartTypes": {
+        "timedomainvoltage": "Time Domain(Voltage)",
+        "timedomaincurrent": "Time Domain(Current)",
+        "frequencydomainvoltage": "Frequency Domain(Voltage)",
+        "frequencydomaincurrent": "Frequency Domain(Current)"
+      }
+    },
+    "complete": {
+      "title": "Complete Setup",
+      "summary": "Configuration Summary",
+      "restartCheck": "Restart Check",
+      "mainTest": "Ch1 Test",
+      "subTest": "Ch2 Test",
+      "overallStatus": "Overall Status",
+      "completed": "COMPLETED",
+      "passed": "PASSED",
+      "ready": "READY",
+      "errors": "{count} Errors",
+      "confirmMessage": "By completing this setup, you confirm that all tests have been reviewed and the system is ready for operation."
+    },
+    "buttons": {
+      "nextStep": "Next Step →",
+      "restart": "Restart",
+      "finish": "Finish"
+    },
+    "messages": {
+      "restartingFirmware": "Restarting firmware...",
+      "restartFailed": "Firmware restart failed",
+      "checkingMainCommission": "Checking Main commission...",
+      "checkingSubCommission": "Checking Sub commission...",
+      "acquiringWaveform": "Acquiring waveform file...",
+      "triggerFailed": "Trigger failed",
+      "waitingRestart": "Waiting for restart firmware",
+      "commissioningFailed": "Failed Commissioning",
+      "timeout": "timed out. Please try again."
+    }
+  },
+  "saveModal": {
+    "title": "Save Configuration",
+    "nameplateWarning": {
+      "title": "Nameplate Configuration Changed",
+      "single": "Changes to the {channel} {type}'s nameplate parameters invalidate previous calculations. All stored data for {type} will be deleted and rebuilt from scratch.",
+      "multiple": "Changes to {assets} nameplate parameters invalidate previous calculations. All stored data for these assets will be deleted and rebuilt from scratch."
+    },
+    "nameplateConfirm": "I understand and want to proceed with the updates",
+    "validation": {
+      "title": "Validation",
+      "summary": "Validation Summary",
+      "overallStatus": "Overall Status",
+      "errors": "Errors",
+      "warnings": "Warnings",
+      "criticalErrors": "Critical Errors",
+      "allPassed": "All validations passed",
+      "valid": "VALID",
+      "invalid": "INVALID",
+      "validating": "Validating configuration settings..."
+    },
+    "diagnosis": {
+      "title": "Equipment Config",
+      "results": "Equipment Configuration Results",
+      "nameplate": "Nameplate Configuration",
+      "parameters": "Asset Parameters",
+      "settings": "Equipment Settings",
+      "profile": "Advanced Profile",
+      "configSuccess": "All Configurations Successful",
+      "configFailed": "Configuration Failed",
+      "readyToSave": "Ready to save configuration file.",
+      "fixErrors": "Please fix the errors and try again.",
+      "configuring": "Configuring nameplate settings...",
+      "settingParams": "Setting asset parameters...",
+      "savingSettings": "Saving equipment settings...",
+      "savingProfile": "Saving advanced profile..."
+    },
+    "buttons": {
+      "cancel": "Cancel",
+      "next": "Next →",
+      "save": "Save",
+      "close": "Close"
+    },
+    "messages": {
+      "saving": "Saving configuration...",
+      "saveSuccess": "Configuration saved successfully!",
+      "saveFailed": "Save failed"
+    }
+  },
+  "signin": {
+    "account": "Account",
+    "language": "Language",
+    "password": "Password",
+    "context": "Forgot Password?",
+    "login": "Sign In",
+    "msg": "Would you like to register an administrator account?",
+    "link": "Register"
+  },
+  "resetPass": {
+    "account": "Account",
+    "accountType": "Account Type",
+    "email": "Email",
+    "password": "Password",
+    "msg_success": "Password has been reset.",
+    "msg_fail": "Password reset failed.",
+    "msg_undefined": "This email is not registered.",
+    "save": "Save",
+    "close": "Close"
+  },
+  "signup": {
+    "title1": "Language and Device",
+    "title2": "Register admin account",
+    "deviceType": "Device Type",
+    "device0": "IPSM72 Integrated Device",
+    "device1": "IBSM Integrated Device",
+    "device2": "MCS-E Integrated Device",
+    "device3": "Integrated Server",
+    "name": "Name",
+    "account": "Account",
+    "accountType": "Account Type",
+    "language": "Language",
+    "email": "Email Address",
+    "Adminpassword": "Admin Password",
+    "password": "Password",
+    "register": "Sign up",
+    "link": "Login",
+    "msg": "Have an account?"
+  },
+  "header": {
+    "profile": "Profile",
+    "user": "User Management",
+    "maintenance": "Maintenance",
+    "signout": "LogOut",
+    "link": {
+      "msg": "Need Help?",
+      "catalog": "Product catalog",
+      "manual": "User manual",
+      "glossary": "Glossary"
+    }
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "main": "Main Channel",
+    "meter": "Meter",
+    "pq": "Power Quality",
+    "iomodule":"IO Module",
+    "sub": "Branch",
+    "module": "Module",
+    "event": "Alarm/Event",
+    "report": "Report",
+    "trend": "Trend",
+    "config": "Administration",
+    "setup": "Configuration",
+    "general": "General",
+    "system": "System",
+    "service": "Service",
+    "calibration": "Calibration",
+    "maintenance": "Maintenance"
+  },
+  "dashboard": {
+    "loading": "Dashboard Loading",
+    "singleinfo": {
+      "title": "Equipment Info",
+      "Operatingtime": "Running Hours",
+      "EquipmentInformation": "Nameplate Info",
+      "OperationStatus": "Operating Status",
+      "running": "Running",
+      "stopped": "Stopped"
+    },
+    "sitemap": "Dashboard",
+    "meter": {
+      "title": "Meter",
+      "singletitle": "Voltage/Current/Frequency",
+      "subtitle_main": "Channel 1",
+      "subtitle_sub": "Channel 2",
+      "subtitle_main2": "Primary",
+      "subtitle_sub2": "Secondary",
+      "voltage": "Voltage",
+      "current": "Current",
+      "avgvoltage": "Average voltage",
+      "totcurrent": "Average current",
+      "activepower": "Total active power",
+      "activeenergy": "Active Energy",
+      "frequency": "Frequency"
+    },
+    "pq": {
+      "title": "Power Quality",
+      "singletitle": "Unbalance/Harmonics",
+      "title2": "THD",
+      "subtitle_main": "Channel 1",
+      "subtitle_sub": "Channel 2",
+      "voltageunbalance": "Voltage Unbalance",
+      "currentunbalance": "Current Unbalance",
+      "unbalance": "Unbalance",
+      "powerfactor": "Power factor",
+      "THD": "THD"
+    },
+    "diagnosis": {
+      "title": "Status Monitoring",
+      "title2": "Status Monitoring",
+      "subtitle_main": "Channel 1",
+      "subtitle_sub": "Channel 2",
+      "equipment": "Equipment",
+      "diagnostic": "Equipment",
+      "event": "Event Status",
+      "fault": "Fault Status",
+      "pq": "Power Quality",
+      "name": "Name",
+      "type": "Type",
+      "st0": "Stop",
+      "st1": "OK",
+      "st2": "Warning",
+      "st3": "Inspect",
+      "st4": "Repair",
+      "ch_msg": "Last Alarm",
+      "ch1": "No Alarm",
+      "ch2": "Alarm",
+      "noAlarm": "The channel is normal",
+      "item": "Item",
+      "pqfe0": "Stop",
+      "pqfe1": "OK",
+      "pqfe2": "Low",
+      "pqfe3": "Medium",
+      "pqfe4": "High"
+    },
+    "kwh": "Total power consumption",
+    "powerCard": "Power Factor · Active Power",
+    "activePower": "Active Power (P)",
+    "reactivePower": "Reactive Power (Q)",
+    "apparentPower": "Apparent Power (S)",
+    "pfGood": "Good",
+    "pfWarn": "Caution",
+    "pfBad": "Below Standard",
+    "alarmLog": "Alarm / Event Log",
+    "alarmTable": {
+      "time": "Time",
+      "criteria": "Criteria",
+      "status": "Status",
+      "value": "Value"
+    },
+    "kwh_realtime": {
+      "today": "Today",
+      "comparetoyesterday": "vs Yesterday",
+      "thisweek": "This Week",
+      "comparetolastweek": "vs Last Week",
+      "thismonth": "This Month",
+      "comparetolastmonth": "vs Last Month",
+      "thisyear": "This Year",
+      "comparetolastyyear": "vs Last Year"
+    },
+    "transDiag": {
+      "Temperature": "Temperature",
+      "LoadFactor": "Load Factor",
+      "PowerFactor": "Power Factor",
+      "Ig": "Leakage Current",
+      "PT_WiringMode": "PT Wiring Mode",
+      "RatedKVA": "Rated KVA",
+      "RatedVoltage": "Rated Voltage",
+      "RatedFrequency": "Rated Frequency",
+      "RatedCurrent": "Rated Current"
+    }
+  },
+  "meter": {
+    "sitemap": {
+      "title": "Meter",
+      "main": "Channel 1",
+      "sub": "Channel 2"
+    },
+    "cardTitle": {
+      "title_meter": "Meter",
+      "title_power": "Power",
+      "title_thd": "THD",
+      "title_phase": "Phasor Diagram",
+      "title_unbal": "Unbalance",
+      "title_energy": "Energy",
+      "title_demand": "Demand Power",
+      "title_demand_i": "Demand Current"
+    },
+    "Table": {
+      "title": "Meter",
+      "th_tilte": "Title",
+      "th_subtitle": "Item",
+      "th_value": "value",
+      "th_min": "min",
+      "th_max": "max",
+      "th_minTime": "minTime",
+      "th_maxTime": "maxTime",
+      "Phase Voltage": "Phase Voltage",
+      "Line Voltage": "Line Voltage",
+      "Current": "Current",
+      "Unbalance": "Unbalance",
+      "Frequency": "Frequency",
+      "Active Power": "Active Power",
+      "Reactive Power": "Reactive Power",
+      "Apparent Power": "Apparent Power",
+      "THD-U": "THD-U",
+      "THD-I": "THD-I",
+      "TDD-I": "TDD-I",
+      "PF": "Power Factor",
+      "Active": "Active Power",
+      "Reactive": "Reactive Power",
+      "Apparent": "Apparent Power",
+      "Imp.": "Imp.",
+      "Imp. Max": "Imp. Max",
+      "Exp.": "Exp.",
+      "Exp. Max": "Exp. Max",
+      "L1": "L1",
+      "L2": "L2",
+      "L3": "L3"
+    },
+    "cardContext": {
+      "Voltage": "Voltage",
+      "Current": "Current",
+      "Import": "Import",
+      "Export": "Export"
+    }
+  },
+  "diagnosis": {
+    "sitemap": {
+      "title": "Status Monitoring",
+      "main": "Channel 1",
+      "sub": "Channel 2"
+    },
+    "info": {
+      "name": "Equipment Name",
+      "type": "Equipment Type",
+      "drivetype": "Drive Type",
+      "dr1": "DOL",
+      "dr2": "VFD",
+      "location": "Installation Location",
+      "status": "Equipment Status",
+      "Rated Voltage": "Rated Voltage",
+      "Rated Frequency": "Rated Frequency",
+      "Rated Current": "Rated Current",
+      "Speed": "Speed",
+      "Torque": "Torque",
+      "PT WiringMode": "PT Wiring Mode",
+      "Rated KVA": "Rated Capacity"
+    },
+    "tabTitle": {
+      "Dignosis Status": "Equipment",
+      "Fault": "Fault",
+      "PowerQuality": "Power Quality",
+      "Event": "Event",
+      "detailTitle": "Equipment detail item status",
+      "detailTitle_pq": "Power Quality detail item status",
+      "detailTitle_event": "Event detail item status",
+      "detailTitle_fault": "Fault detail item status",
+      "detailTitle_trend": "Equipment detail item trend",
+      "detailTitle_trend_pq": "Power Quality detail item trend",
+      "Meter": "Meter",
+      "Energy": "Energy",
+      "Demand": "Demand",
+      "Parameters": "Parameters",
+      "Diagnosis": "Equipment Status"
+    },
+    "tabContext": {
+      "th_title": "Item",
+      "th_assembly": "Module",
+      "th_value": "Value",
+      "th_status": "Status",
+      "th_description": "Troubleshooting Checklist",
+      "legend": "Status legend",
+      "st0": "Stop",
+      "st1": "OK",
+      "st2": "Warning",
+      "st3": "Inspect",
+      "st4": "Repair",
+      "pqfe0": "Stop",
+      "pqfe1": "OK",
+      "pqfe2": "Low",
+      "pqfe3": "Medium",
+      "pqfe4": "High",
+      "fe2": "Low",
+      "fe3": "Medium",
+      "fe4": "High"
+    }
+  },
+  "report": {
+    "accordionTitle1": "Equipment",
+    "accordionTitle2": "Power Quality",
+    "accordionTitle3": "Event",
+    "accordionTitle4": "Fault",
+    "displaying": "Last saved datetime",
+    "load": "Load",
+    "noData": "No Data",
+    "searchReport": "Report Search",
+    "selectReport": "Select Report",
+    "lastSaved": "Last Saved DateTime",
+    "sitemap": {
+      "title": "Report",
+      "main": "Channel 1",
+      "sub": "Channel 2"
+    },
+    "modal": {
+      "download": "Download",
+      "downloadReport": "Download Report",
+      "downloadDesc1": "Download the currently displayed equipment data as a Word document.",
+      "downloadIncludes": "Includes:",
+      "downloadItem1": "Asset Information",
+      "downloadItem2": "Equipment Status Chart",
+      "downloadItem3": "Detail Analysis",
+      "downloadItem4": "Trend Charts",
+      "downloadDate": "Report Date",
+      "downloading": "Downloading...",
+      "cancel": "Cancel",
+      "confirmDownload": "Download",
+      "downloadError": "Download failed.",
+      "weeklyReport": "Weekly Report",
+      "weeklyReportDesc": "Download an integrated Word report containing all data for the selected week.",
+      "assetInfo": "Asset Information",
+      "equipmentDiag": "Equipment Status Results",
+      "pqDiag": "Power Quality Status Results",
+      "en50160": "EN50160 Analysis Results",
+      "energyAnalysis": "Energy Consumption Analysis",
+      "trendCharts": "Trend Charts for Each Item",
+      "generating": "Report is creating...",
+      "generatingDesc": "Processing charts and data. Please wait a moment."
+    },
+    "info": {
+      "ct_direction1": "CT1 Direction",
+      "ct_direction2": "CT2 Direction",
+      "ct_direction3": "CT3 Direction",
+      "ct_inorminal": "Rated Current",
+      "pt_wiringmode": "PT Wiring Mode",
+      "pt_vnorminal": "Rated Voltage",
+      "pt_linefrequency": "Line Frequency"
+    },
+    "cardTitle": {
+      "Channel": "Equipment Information",
+      "PowerQuality": "Power Quality",
+      "reportdate": "Report Date ",
+      "iticCurAnalysis": "ITIC Curve Analysis",
+      "hourlyEngUsage": "Hourly Energy Usage",
+      "dailyEngUsage": "Daily Energy Usage",
+      "monthlyEngUsage": "Monthly Energy Usage",
+      "installation": "installation place",
+      "EN50160": "EN50160 Report",
+      "Diagnosis": "Equipment Status",
+      "Energy": "Active Energy",
+      "Energy2": "Energy & Load Rate Trend",
+      "parameter": "Trend of Power Quality Parameters",
+      "LoadPatternAnalysis": "Load Rate Pattern Analysis (Day × Hour)",
+      "weeklyLoadDistribution": "Weekly Load Rate Distribution Statistics",
+      "THD1": "Voltage THD",
+      "THD2": "Current THD",
+      "distortionRate": "Distortion Rate",
+      "reportData": "Report Data"
+    },
+    "cardContext": {
+      "th_title": "Item",
+      "th_status": "Status",
+      "th_description": "Description",
+      "st0": "Stop",
+      "st1": "OK",
+      "st2": "Warning",
+      "st3": "Inspect",
+      "st4": "Repair",
+      "lightLoadHours": "Light Load Hours",
+      "mediumLoadHours": "Medium Load Hours",
+      "heavyLoadHours": "Heavy Load Hours",
+      "overloadHours": "Overload Hours",
+      "loadRate": "Load Rate",
+      "overload": "Exceeded",
+      "averageLoadRate": "Average Load Rate",
+      "maxLoadRate": "Max Load Rate",
+      "overloadCount": "Overload Occurrences",
+      "count": "times",
+      "days": {
+        "sun": "Sun",
+        "mon": "Mon",
+        "tue": "Tue",
+        "wed": "Wed",
+        "thu": "Thu",
+        "fri": "Fri",
+        "sat": "Sat",
+        "day": "day",
+        "week": ""
+      },
+      "hight": "Hight",
+      "low": "Low",
+      "info": {
+        "equip": "Equipment Information",
+        "status": "Equipment Status",
+        "pq": "Power Quality Information",
+        "energy": "Total Energy"
+      },
+      "pqInfo": {
+        "This Week": "This Week",
+        "Last Week": "Last Week",
+        "parameter": "Parameter",
+        "compliance": "Compliance",
+        "RequiredQuality": "Required Quality",
+        "hour": "Last 24 Hours",
+        "day": "Last 7 Days",
+        "month": "Last 30 Days"
+      },
+      "energyInfo": {
+        "This Month": "This Month",
+        "Last Month": "Last Month",
+        "Import": "Import",
+        "Export": "Export"
+      },
+      "previewForPdf": {
+        "title1": "Power Quality - EN 50160 Report"
+      },
+      "iticxscale": "Time (sec)",
+      "iticyscale": "% of Base Voltage"
+    }
+  },
+  "pq": {
+    "sitemap": {
+      "title": "Power Quality",
+      "main": "Channel 1",
+      "sub": "Channel 2"
+    },
+    "tabs": {
+      "harmonics": "Harmonics",
+      "waveform": "Waveform"
+    },
+    "options": {
+      "phaseVoltage": "Phase Voltage",
+      "lineVoltage": "Line-to-Line Voltage",
+      "current": "Current",
+      "voltage": "Voltage"
+    },
+    "Button": {
+      "table": "Table",
+      "chart": "Chart"
+    }
+  },
+  "event": {
+    "sitemap": {
+      "title": "Alarm/Event",
+      "main": "Channel 1",
+      "sub": "Channel 2"
+    },
+    "date": {
+      "StartDate": "Occur Datetime",
+      "EndDate": "Return Datetime"
+    },
+    "search": {
+      "title": "Search Option",
+      "period": "Period",
+      "parameter": "Condition Parameter"
+    },
+    "tabs": {
+      "alarmStatus": "Alarm Status",
+      "alarmLog": "Alarm Log",
+      "eventLog": "Event Log"
+    },
+    "table": {
+      "index": "Index",
+      "alarmChannel": "Alarm Type",
+      "state": "State",
+      "count": "Count"
+    },
+    "alarmTable": {
+      "index": "Index",
+      "AlarmLog": "Alarm Log",
+      "Timestamp": "Timestamp",
+      "AlarmChannel": "Alarm Type",
+      "State": "State",
+      "Value": "Level"
+    },
+    "eventTable": {
+      "index": "Index",
+      "EventLog": "Event Log",
+      "Type": "Type",
+      "StartTime": "Start Time",
+      "EndTime": "End Time",
+      "Duration": "Duration",
+      "Phase": "Phase",
+      "Level": "Level"
+    }
+  },
+  "User": {
+    "sidebar": {
+      "title": "User Management",
+      "profile": "My Profile",
+      "user": "Users",
+      "api": "Restful API Users"
+    },
+    "profile": {
+      "title": "Account Information",
+      "account": "Account",
+      "username": "User Name",
+      "email": "Email Address",
+      "useAPI": "Use API for Diagnostic",
+      "nowPass": "Current password",
+      "newPass": "New password",
+      "cnfPass": "Confirm new password"
+    },
+    "user": {
+      "title": "User Management",
+      "msg": "Select account",
+      "account": "Account",
+      "username": "User Name",
+      "email": "Email Address",
+      "Pass": "Password",
+      "role": "User Role",
+      "remove": "Remove account",
+      "btnAdd": "Add Account"
+    },
+    "api": {
+      "title": "Restful API User Management",
+      "msg": "Select account",
+      "noexist": "No existing API users",
+      "account": "Account",
+      "role": "Account Role",
+      "remove": "Remove account",
+      "btnAdd": "Add Account"
+    },
+    "btnSave": "Save Changes"
+  },
+  "trend": {
+    "sitemap": {
+      "title": "Trend",
+      "main": "Channel 1",
+      "sub": "Channel 2",
+      "notice1": "Frequency",
+      "notice2": "Current"
+    },
+    "date": {
+      "StartDate": "Start Date",
+      "EndDate": "End Date"
+    },
+    "TrendTab": {
+      "slot": "Select the parameters below and click the Plot button",
+      "Plot": "Plot",
+      "loading": "chart Loading..."
+    },
+    "Linechart": {
+      "TrendChart": "Trend Chart",
+      "nodata": "There is no data for the selected period",
+      "parametercount": "Maximum 4 parameters can be selected",
+      "metercount": "Maximum 4 parameters can be selected"
+    },
+    "tabTitle": {
+      "Meter": "Meter",
+      "Power Quality": "PowerQuality",
+      "Diagnosis": "Equipment Status",
+      "Parameters": "Parameters",
+      "Energy": "Energy"
+    },
+    "treetable": {
+      "Item": "Item",
+      "Assembly": "Module",
+      "Select": "Select"
+    }
+  },
+  "config": {
+    "comfirmtext1": "The changed settings will delete all previous calculations for",
+    "comfirmtext2": "Would you like to proceed?",
+    "apply": "Apply",
+    "nameplates": "Nameplates",
+    "nameplatesConfiguration": "Nameplate Configuration",
+    "parameters": "Parameters/Thresholds",
+    "parametersConfiguration": "Parameter Configuration",
+    "addbearing": "Add Bearing",
+    "eventSetup": "Event Setup",
+    "trendSetup": "Trend Setup",
+    "sitemap": {
+      "title": "Configuration",
+      "Main Channel": "Channel 1",
+      "Sub Channel": "Channel 2",
+      "Command": "System",
+      "General": "General",
+      "User Management": "User Management",
+      "API User Management": "Restful API User Management",
+      "Account": "Account",
+      "Trend": "Trend",
+      "Maintenance": "Maintenance",
+      "Service": "Service",
+      "Calibrate": "Calibrate"
+    },
+    "maintenance": {
+      "header": "System Maintenance",
+      "header2": "User Action Log",
+      "Title": "Title",
+      "enterTitle": "Enter Title",
+      "Installation": "Installation",
+      "Update": "Update",
+      "Replacement": "Replacement",
+      "Calibration": "Calibration",
+      "FirmWare": "Firmware",
+      "App": "App",
+      "Web": "Web",
+      "Context": "Context",
+      "Save": "Save",
+      "Delete": "Delete"
+    },
+    "selectOption": {
+      "useDiagnosis": "Use Diagnosis",
+      "main": "Main",
+      "sub": "Sub",
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "plansPanel": {
+      "useWaveFormFTP": "Waveform FTP",
+      "useSNTP": "SNTP",
+      "info": "Waveform and event files will be stored locally",
+      "dhcp": "IP address will be assigned automatically by DHCP server.",
+      "devInformation": {
+        "title": "Device Information",
+        "name": "Name",
+        "loc": "Location",
+        "sn": "Serial Number",
+        "mac": "Mac Address"
+      },
+      "communication": {
+        "title": "Communication",
+        "ip": "IP Address",
+        "sm": "Subnet Mask",
+        "gw": "Gateway",
+        "dns": "DNS Server"
+      },
+      "modbus": {
+        "title": "Modbus",
+        "tcp": "TCP Port",
+        "tcpTO": "Timeout (ms)",
+        "snInfor": "Serial Information",
+        "rtuid": "RTU/ID",
+        "baudrate": "Baud Rate",
+        "parity": "Parity",
+        "dbits": "Data Bits",
+        "sbits": "Stop Bits",
+        "rtu_use": "USE",
+        "yes": "Yes",
+        "no": "No"
+      },
+      "demand": {
+        "title": "Demand",
+        "interval": "Interval",
+        "minutes": "Minutes",
+        "hours": "Hours"
+      },
+      "dig": {
+        "title": "Equipment Monitoring Setup",
+        "advanced": "Advanced",
+        "dburl": "DBUrl",
+        "dbToken": "DBToken",
+        "dbOrg": "DBOrganization",
+        "influxPath": "InfluxPath",
+        "rPeriod": "RetentionPeriod",
+        "eventHistory": "EventHistory",
+        "trCount": "TrendRecordCount",
+        "faultLimits": "FaultLimits",
+        "keepLogFiles": "NumberOfDaysToKeepBackupFiles",
+        "dataPath": "DataPath",
+        "fileProType": "FileProcessType",
+        "logLevel": "logLevel"
+      }
+    },
+    "channelPanel": {
+      "selEnable": "Enable",
+      "selPQ": "PowerQuality",
+      "tempR": "Temp R",
+      "tempS": "Temp S",
+      "tempT": "Temp T",
+      "dashoutput": "Dashboard Output Settings",
+      "alarmCard": {
+        "title": "Alarm",
+        "common": "COMMON",
+        "timeDelay": "Compare time delay (sec)",
+        "alChannel": "Alarm Channel",
+        "parameter": "Parameter",
+        "conditions": "Conditions",
+        "hysteresis": "Hysteresis(%)",
+        "value": "Level"
+      },
+      "Diagnosis": {
+        "title": "Equipment Management",
+        "AddAsset": "Add Asset",
+        "UnregisterAsset": "Unregister Asset",
+        "registerAsset": "Register Asset",
+        "NameChange": "Name Change",
+        "DeleteAsset": "Delete Asset",
+        "AssetName": "Asset Name",
+        "AssetType": "Asset Type",
+        "EquipmentName": "Equipment Name",
+        "transformerCapacity": "Capacity",
+        "EditConfiguration": "Edit Configuration",
+        "CreateAsset": "Create"
+      }
+    },
+    "system": {
+      "title_1": "Clear",
+      "title_2": "Channel 2 Clear Command",
+      "title_3": "Settings",
+      "title_4": "Backup / Software Update",
+      "demand": "Demand",
+      "minmax": "MaxMin",
+      "energy": "Energy",
+      "alarm": "Alarm",
+      "eventCount": "Event Count",
+      "runhour": "Run Hour",
+      "init": "Init setting",
+      "reboot": "Reboot",
+      "import": "Import",
+      "export": "Export",
+      "restore": "Restore",
+      "reset": "Reset",
+      "warnmessage1": "confirm the system reinstallation",
+      "warnmessage2": "Reinstalling the smart system will delete all existing data.",
+      "warnmessage3": "Please download a backup before proceeding.",
+      "warnmessage4": "Are you sure you want to continue?",
+      "confirm": "Proceed with reinstallation",
+      "cancel": "Cancel"
+    },
+    "save": "Save Changes",
+    "testSet": "Test Equipment Status Settings"
+  }
+}

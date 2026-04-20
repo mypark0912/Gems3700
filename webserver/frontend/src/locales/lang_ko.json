@@ -1,0 +1,879 @@
+{
+  "Title": "idpm300 시작하기!",
+  "glossary": {
+      "title": "용어설명집",
+      "searchPlaceholder": "용어 검색...",
+      "searchResults": "검색 결과: {count}개",
+      "noResults": "검색 결과가 없습니다",
+      "tryDifferent": "다른 검색어를 입력해 보세요"
+    },
+  "common": {
+    "positive": "정상",
+    "negative": "역상",
+    "value": "값",
+    "yes": "예",
+    "no": "아니오",
+    "save": "저장",
+    "close": "닫기",
+    "ok": "확인",
+    "change": "변경",
+    "cancel": "취소",
+    "none": "없음",
+    "under": "미만",
+    "over": "초과",
+    "min": "분",
+    "hour": "시",
+    "sec": "초",
+    "mainChannel": "채널 1",
+    "subChannel": "채널 2",
+    "and": "및"
+  },
+  "onboardingModal": {
+    "steps": {
+      "restartCheck": "재시작 확인",
+      "mainTest": "채널 1 테스트",
+      "subTest": "채널 2 테스트",
+      "complete": "완료"
+    },
+    "restartCheck": {
+      "title": "재시작 확인",
+      "checking": "재시작 필요 여부 확인 중...",
+      "status": "재시작 상태",
+      "required": "재시작 필요",
+      "checkTime": "확인 시각",
+      "needsRestart": "장치 재시작이 필요합니다. \"다음\"을 클릭하여 재시작을 진행하세요.",
+      "noRestart": "재시작이 필요하지 않습니다. \"다음\"을 클릭하여 진행하세요."
+    },
+    "mainTest": {
+      "title": "채널1 테스트 결과",
+      "loading": "채널1 테스트 결과를 불러오는 중...이 과정은 20초 이상 소요될 수 있습니다.",
+      "report": "채널1 장치 리포트"
+    },
+    "subTest": {
+      "title": "채널2 테스트 결과",
+      "loading": "채널2 테스트 결과를 불러오는 중...이 과정은 20초 이상 소요될 수 있습니다.",
+      "report": "채널2 장치 리포트"
+    },
+    "test": {
+      "assetType": "자산 유형",
+      "serialNumber": "시리얼 번호",
+      "channel": "채널",
+      "result": "결과: {errors}개 오류, {warnings}개 경고",
+      "assemblyId": "어셈블리ID",
+      "detail": "상세",
+      "status": "상태",
+      "viewCharts": "차트 보기",
+      "chartTitle": "{type} 차트",
+      "fixErrors": "오류를 먼저 수정하세요",
+      "statusList": {
+        "info": "정보",
+        "pass": "통과",
+        "warning": "경고",
+        "error": "오류"
+      },
+      "chartTypes": {
+        "timedomainvoltage": "시간 영역(전압)",
+        "timedomaincurrent": "시간 영역(전류)",
+        "frequencydomainvoltage": "주파수 영역(전압)",
+        "frequencydomaincurrent": "주파수 영역(전류)"
+      }
+    },
+    "complete": {
+      "title": "설정 완료",
+      "summary": "설정 요약",
+      "restartCheck": "재시작 확인",
+      "mainTest": "채널 1 테스트",
+      "subTest": "채널 2 테스트",
+      "overallStatus": "전체 상태",
+      "completed": "완료됨",
+      "passed": "통과",
+      "ready": "준비됨",
+      "errors": "{count}개 오류",
+      "confirmMessage": "이 설정을 완료함으로써 모든 테스트를 검토했으며 시스템이 작동할 준비가 되었음을 확인합니다."
+    },
+    "buttons": {
+      "nextStep": "다음 단계 →",
+      "restart": "재시작",
+      "finish": "완료"
+    },
+    "messages": {
+      "restartingFirmware": "펌웨어 재시작 중...",
+      "restartFailed": "펌웨어 재시작 실패",
+      "checkingMainCommission": "채널1 커미셔닝 확인 중...",
+      "checkingSubCommission": "채널2 커미셔닝 확인 중...",
+      "acquiringWaveform": "파형 파일 획득 중...",
+      "triggerFailed": "트리거 실패",
+      "waitingRestart": "펌웨어 재시작 대기 중",
+      "commissioningFailed": "커미셔닝 실패",
+      "timeout": "시간이 초과되었습니다. 다시 시도해 주세요."
+    }
+  },
+  "saveModal": {
+    "title": "설정 저장",
+    "nameplateWarning": {
+      "title": "네임플레이트 설정 변경됨",
+      "single": "{channel}의 {type} 네임플레이트 파라미터 변경으로 이전 계산이 무효화됩니다. {type}의 모든 저장된 데이터가 삭제되고 처음부터 다시 구축됩니다.",
+      "multiple": "{assets}의 네임플레이트 파라미터 변경으로 이전 계산이 무효화됩니다. 해당 자산들의 모든 저장된 데이터가 삭제되고 처음부터 다시 구축됩니다."
+    },
+    "nameplateConfirm": "변경 사항을 이해했으며 업데이트를 진행하겠습니다",
+    "validation": {
+      "title": "검증",
+      "summary": "검증 요약",
+      "overallStatus": "전체 상태",
+      "errors": "오류",
+      "warnings": "경고",
+      "criticalErrors": "치명적 오류",
+      "allPassed": "모든 검증 통과",
+      "valid": "유효함",
+      "invalid": "유효하지 않음",
+      "validating": "설정을 검증하는 중..."
+    },
+    "diagnosis": {
+      "title": "설비 설정",
+      "results": "설비 설정 결과",
+      "nameplate": "네임플레이트 설정",
+      "parameters": "자산 파라미터",
+      "settings": "설비 설정",
+      "profile": "고급 프로파일",
+      "configSuccess": "모든 설정 완료",
+      "configFailed": "설정 실패",
+      "readyToSave": "설정 파일 저장 준비 완료",
+      "fixErrors": "오류를 수정한 후 다시 시도하세요.",
+      "configuring": "네임플레이트 설정 중...",
+      "settingParams": "자산 파라미터 설정 중...",
+      "savingSettings": "설비 설정 저장 중...",
+      "savingProfile": "고급 프로파일 저장 중..."
+    },
+    "buttons": {
+      "cancel": "취소",
+      "next": "다음 →",
+      "save": "저장",
+      "close": "닫기"
+    },
+    "messages": {
+      "saving": "설정 저장 중...",
+      "saveSuccess": "설정이 성공적으로 저장되었습니다!",
+      "saveFailed": "저장 실패"
+    }
+  },
+  "signin": {
+    "account": "계정",
+    "language": "언어",
+    "password": "비밀번호",
+    "context": "비밀번호를 잊으셨나요?",
+    "login": "로그인",
+    "msg": "관리자 계정을 등록하시겠습니까?",
+    "link": "등록"
+  },
+  "resetPass": {
+    "account": "계정",
+    "accountType": "계정종류",
+    "email": "이메일",
+    "password": "비밀번호",
+    "msg_success": "비밀번호가 초기화되었습니다.",
+    "msg_fail": "비밀번호 초기화 실패",
+    "msg_undefined": "등록되지 않은 이메일입니다.",
+    "save": "저장",
+    "close": "닫기"
+  },
+  "signup": {
+    "title1": "언어 및 장비 설정",
+    "title2": "관리자 계정 등록",
+    "deviceType": "장비 종류",
+    "device0": "IPSM72 연동 장비",
+    "device1": "IBSM 연동 장비",
+    "device2": "MCS-E 연동 장비",
+    "device3": "통합 서버",
+    "name": "이름",
+    "account": "계정",
+    "accountType": "계정종류",
+    "language": "언어",
+    "email": "이메일",
+    "Adminpassword": "관리자 비밀번호",
+    "password": "비밀번호",
+    "register": "등록",
+    "link": "로그인",
+    "msg": "계정이 있으신가요?"
+  },
+  "header": {
+    "profile": "프로필",
+    "user": "사용자 관리",
+    "signout": "로그아웃",
+    "maintenance": "유지보수",
+    "link": {
+      "msg": "도움이 필요하세요?",
+      "catalog": "카달로그",
+      "manual": "사용자매뉴얼",
+      "glossary": "용어설명"
+    }
+  },
+  "sidebar": {
+    "dashboard": "대시보드",
+    "main": "주 채널",
+    "meter": "계측",
+    "pq": "전력품질",
+    "iomodule":"IO 모듈현황",
+    "sub": "브랜치",
+    "module": "모듈",
+    "sub1": "2차측",
+    "event": "알람/이벤트",
+    "report": "리포트",
+    "trend": "트렌드",
+    "config": "관리자",
+    "setup": "설정",
+    "general": "일반",
+    "system": "시스템",
+    "service": "서비스",
+    "calibration": "캘리브레이션",
+    "maintenance": "유지보수"
+  },
+  "dashboard": {
+    "loading": "대시보드 로딩 중",
+    "singleinfo": {
+      "title": "설비 정보",
+      "Operatingtime": "운전 시간",
+      "EquipmentInformation": "명판 정보",
+      "OperationStatus": "운용 현황",
+      "running": "가동중",
+      "stopped": "정지"
+    },
+    "sitemap": "대시보드",
+    "meter": {
+      "title": "계측",
+      "singletitle": "전압/전류/주파수",
+      "subtitle_main": "채널 1",
+      "subtitle_sub": "채널 2",
+      "subtitle_main2": "1차측",
+      "subtitle_sub2": "2차측",
+      "voltage": "전압",
+      "current": "전류",
+      "avgvoltage": "평균 전압",
+      "totcurrent": "평균 전류",
+      "activepower": "총 유효 전력",
+      "activeenergy": "유효 전력량",
+      "frequency": "주파수"
+    },
+    "pq": {
+      "title": "전력 품질 현황",
+      "singletitle": "불평형률/고조파",
+      "title2": "총 고조파 왜곡률",
+      "subtitle_main": "채널 1",
+      "subtitle_sub": "채널 2",
+      "voltageunbalance": "전압 불평형률",
+      "currentunbalance": "전류 불평형률",
+      "unbalance": "불평형률",
+      "powerfactor": "역률",
+      "THD": "총 고조파 왜곡률"
+    },
+    "diagnosis": {
+      "title": "상태 감시",
+      "title2": "상태 감시",
+      "subtitle_main": "채널 1",
+      "subtitle_sub": "채널 2",
+      "equipment": "설비",
+      "pq": "전력 품질",
+      "diagnostic": "설비",
+      "event": "이벤트 상태",
+      "fault": "전기적 이상 상태",
+      "name": "이름",
+      "type": "종류",
+      "st0": "정지",
+      "st1": "정상",
+      "st2": "주의",
+      "st3": "경고",
+      "st4": "위험",
+      "ch_msg": "마지막 알람",
+      "ch1": "알람 없음",
+      "ch2": "알람",
+      "noAlarm": "채널 정상",
+      "item": "세부 항목",
+      "pqfe0": "정지",
+      "pqfe1": "정상",
+      "pqfe2": "주의",
+      "pqfe3": "경고",
+      "pqfe4": "위험"
+    },
+    "kwh": "전력량 현황",
+    "powerCard": "역률 · 유효전력",
+    "activePower": "유효전력 (P)",
+    "reactivePower": "무효전력 (Q)",
+    "apparentPower": "피상전력 (S)",
+    "pfGood": "양호",
+    "pfWarn": "주의",
+    "pfBad": "기준 미달",
+    "alarmLog": "알람 / 이벤트 로그",
+    "alarmTable": {
+      "time": "시간",
+      "criteria": "내용",
+      "status": "상태",
+      "value": "값"
+    },
+    "kwh_realtime": {
+      "today": "오늘",
+      "comparetoyesterday": "전일대비",
+      "thisweek": "금주",
+      "comparetolastweek": "전주대비",
+      "thismonth": "금월",
+      "comparetolastmonth": "전월대비",
+      "thisyear": "연간",
+      "comparetolastyyear": "전년대비"
+    },
+    "transDiag": {
+      "Temperature": "온도",
+      "LoadFactor": "부하율",
+      "PowerFactor": "역률",
+      "Ig": "누설 전류",
+      "PT_WiringMode": "PT 결선방식",
+      "RatedKVA": "정격 용량",
+      "RatedVoltage": "정격 전압",
+      "RatedFrequency": "정격 주파수",
+      "RatedCurrent": "정격 전류"
+    }
+  },
+  "meter": {
+    "sitemap": {
+      "title": "계측",
+      "main": "채널 1",
+      "sub": "채널 2"
+    },
+    "cardTitle": {
+      "title_meter": "계측",
+      "title_power": "전력",
+      "title_thd": "총고조파 왜곡률",
+      "title_phase": "전압/전류 위상",
+      "title_unbal": "불평형률",
+      "title_energy": "전력량",
+      "title_demand": "수요전력",
+      "title_demand_i": "수요전류"
+    },
+    "Table": {
+      "th_tilte": "항목",
+      "th_subtitle": "분류",
+      "th_value": "현재값",
+      "th_min": "최소값",
+      "th_max": "최대값",
+      "th_minTime": "최소값 시각",
+      "th_maxTime": "최대값 시각",
+      "Phase Voltage": "상 전압",
+      "Line Voltage": "선간 전압",
+      "Current": "전류",
+      "Unbalance": "불평형률",
+      "Frequency": "주파수",
+      "Active Power": "유효 전력",
+      "Reactive Power": "무효 전력",
+      "Apparent Power": "피상 전력",
+      "THD-U": "THD-U",
+      "THD-I": "THD-I",
+      "TDD-I": "TDD-I",
+      "PF": "역률",
+      "Active": "유효 전력",
+      "Reactive": "무효 전력",
+      "Apparent": "피상 전력",
+      "Imp.": "Imp.",
+      "Imp. Max": "Imp. Max",
+      "Exp.": "Exp.",
+      "Exp. Max": "Exp. Max",
+      "L1": "L1",
+      "L2": "L2",
+      "L3": "L3"
+    },
+    "cardContext": {
+      "Voltage": "전압",
+      "Current": "전류",
+      "Import": "수전",
+      "Export": "발전"
+    }
+  },
+  "diagnosis": {
+    "sitemap": {
+      "title": "상태 감시",
+      "main": "채널 1",
+      "sub": "채널 2"
+    },
+    "info": {
+      "name": "설비 이름",
+      "type": "설비 종류",
+      "drivetype": "구동방식",
+      "dr1": "직입기동",
+      "dr2": "인버터기동",
+      "location": "설치 장소",
+      "status": "설비 상태",
+      "Rated Voltage": "정격 전압",
+      "Rated Frequency": "정격 주파수",
+      "Rated Current": "정격 전류",
+      "Speed": "회전속도",
+      "Torque": "회전력",
+      "PT WiringMode": "PT 결선방식",
+      "Rated KVA": "정격 용량"
+    },
+    "tabTitle": {
+      "Dignosis Status": "설비",
+      "Fault": "전기적 이상",
+      "PowerQuality": "전력품질 상태",
+      "Event": "이벤트",
+      "detailTitle": "세부항목 상태",
+      "detailTitle_pq": "세부항목 상태",
+      "detailTitle_event": "세부항목 상태",
+      "detailTitle_fault": "세부항목 상태",
+      "detailTitle_trend": "설비상태 세부항목 트렌드",
+      "detailTitle_trend_pq": "전력품질상태 세부항목 트렌드"
+    },
+    "tabContext": {
+      "th_title": "항목",
+      "th_assembly": "모듈",
+      "th_value": "값",
+      "th_status": "상태",
+      "th_description": "이상 시 점검사항",
+      "legend": "상태 범례",
+      "st0": "정지",
+      "st1": "정상",
+      "st2": "주의",
+      "st3": "경고",
+      "st4": "위험",
+      "pqfe0": "정지",
+      "pqfe1": "정상",
+      "pqfe2": "주의",
+      "pqfe3": "경고",
+      "pqfe4": "위험",
+      "fe2": "낮음",
+      "fe3": "중간",
+      "fe4": "높음"
+    }
+  },
+  "report": {
+    "accordionTitle1": "설비",
+    "accordionTitle2": "전력품질",
+    "accordionTitle3": "이벤트",
+    "accordionTitle4": "전기적이상",
+    "displaying": "마지막 저장 시간",
+    "load": "불러오기",
+    "noData": "데이터 없음",
+    "searchReport": "보고서 조회",
+    "selectReport": "보고서 선택",
+    "lastSaved": "마지막 저장 시간",
+    "sitemap": {
+      "title": "리포트",
+      "main": "채널 1",
+      "sub": "채널 2"
+    },
+    "modal": {
+      "download": "Download",
+      "downloadReport": "리포트 다운로드",
+      "downloadDesc1": "현재 표시된 설비 데이터를 Word 문서로 다운로드합니다.",
+      "downloadIncludes": "포함 내용:",
+      "downloadItem1": "설비 정보",
+      "downloadItem2": "설비 상태 결과 차트",
+      "downloadItem3": "상세 분석 항목",
+      "downloadItem4": "트렌드 차트",
+      "downloadDate": "기준 날짜",
+      "downloading": "다운로드 중...",
+      "cancel": "취소",
+      "confirmDownload": "다운로드",
+      "downloadError": "다운로드에 실패했습니다.",
+      "weeklyReport": "주간리포트",
+      "weeklyReportDesc": "선택한 주간의 모든 데이터를 통합한 Word 문서를 다운로드합니다.",
+      "assetInfo": "설비정보",
+      "equipmentDiag": "설비상태결과",
+      "pqDiag": "전력품질 상태결과",
+      "en50160": "EN50160 분석결과",
+      "energyAnalysis":"전력량 분석",
+      "trendCharts":"각 항목의 트렌드차트",
+      "generating":"리포트 생성 중...",
+      "generatingDesc":"차트와 데이터를 처리하고 있습니다. 잠시만 기다려주세요."
+    },
+    "info": {
+      "ct_direction1": "CT1 방향",
+      "ct_direction2": "CT2 방향",
+      "ct_direction3": "CT3 방향",
+      "ct_inorminal": "정격 전류",
+      "pt_wiringmode": "PT 결선방식",
+      "pt_vnorminal": "정격 전압",
+      "pt_linefrequency": "정격 주파수"
+    },
+    "cardTitle": {
+      "Channel": "설비정보",
+      "PowerQuality": "전력품질",
+      "reportdate": "보고서 날짜",
+      "installation": "설치 장소",
+      "EN50160": "EN50160 리포트",
+      "iticCurAnalysis": "ITIC 분석",
+      "hourlyEngUsage": "시간당 사용 추이",
+      "dailyEngUsage": "일간 사용 추이",
+      "monthlyEngUsage": "월간 사용 추이",
+      "reportData": "보고서 데이터",
+
+      "Diagnosis": "설비 상태",
+      "Energy": "전력량",
+      "Energy2": "전력량 & 부하율 추이",
+      "parameter": "전력품질 파라미터 추이",
+      "LoadPatternAnalysis": "부하율 패턴 분석 (요일 × 시간)",
+      "weeklyLoadDistribution": "주간 부하율 분포 통계",
+      "THD1": "전압 고조파왜곡률",
+      "THD2": "전류 고조파왜곡률",
+      "distortionRate": "왜곡률"
+    },
+    "cardContext": {
+      "th_title": "항목",
+      "th_status": "상태",
+      "th_description": "설명",
+      "st0": "정지",
+      "st1": "정상",
+      "st2": "주의",
+      "st3": "경고",
+      "st4": "위험",
+      "lightLoadHours": "경부하 시간",
+      "mediumLoadHours": "중간부하 시간",
+      "heavyLoadHours": "고부하 시간",
+      "overloadHours": "과부하 시간",
+      "loadRate": "부하율",
+      "overload": "초과",
+      "averageLoadRate": "평균 부하율",
+      "maxLoadRate": "최대 부하율",
+      "overloadCount": "과부하 발생",
+      "count": "회",
+      "days": {
+        "sun": "일",
+        "mon": "월",
+        "tue": "화",
+        "wed": "수",
+        "thu": "목",
+        "fri": "금",
+        "sat": "토",
+        "day": "day",
+        "week": "요일"
+      },
+      "hight": "높음",
+      "low": "낮음",
+      "info": {
+        "equip": "설비 정보",
+        "status": "설비 상태",
+        "pq": "전력품질 상태",
+        "energy": "총 전력량"
+      },
+      "pqInfo": {
+        "This Week": "이번 주",
+        "Last Week": "지난 주",
+        "parameter": "매개변수",
+        "compliance": "준수사항",
+        "RequiredQuality": "요구 품질",
+        "hour": "최근 24시간",
+        "day": "최근 7일",
+        "month": "최근 30일"
+      },
+      "energyInfo": {
+        "This Month": "이번 달",
+        "Last Month": "지난 달",
+        "Import": "수전",
+        "Export": "발전"
+      },
+      "iticxscale": "시간 (초)",
+      "iticyscale": "기준전압 대비 (%)"
+    }
+  },
+  "pq": {
+    "sitemap": {
+      "title": "전력 품질",
+      "main": "채널 1",
+      "sub": "채널 2"
+    },
+    "tabs": {
+      "harmonics": "고조파",
+      "waveform": "파형"
+    },
+    "options": {
+      "phaseVoltage": "상전압",
+      "lineVoltage": "선간전압",
+      "current": "전류",
+      "voltage": "전압"
+    },
+    "Button": {
+      "table": "테이블",
+      "chart": "차트"
+    }
+  },
+  "event": {
+    "sitemap": {
+      "title": "알람/이벤트",
+      "main": "채널 1",
+      "sub": "채널 2"
+    },
+    "date": {
+      "StartDate": "시작 날짜",
+      "EndDate": "종료 날짜"
+    },
+    "search": {
+      "title": "검색 옵션",
+      "period": "기간",
+      "parameter": "조건 파라미터"
+    },
+    "tabs": {
+      "alarmStatus": "알람 상태",
+      "alarmLog": "알람 이력",
+      "eventLog": "이벤트 이력"
+    },
+    "table": {
+      "index": "번호",
+      "alarmChannel": "알람 유형",
+      "state": "상태",
+      "count": "횟수"
+    },
+    "alarmTable": {
+      "index": "번호",
+      "AlarmLog": "알람 내용",
+      "Timestamp": "발생 시간",
+      "AlarmChannel": "알람 기준",
+      "State": "상태",
+      "Value": "값"
+    },
+    "eventTable": {
+      "index": "번호",
+      "EventLog": "이벤트 로그",
+      "Type": "유형",
+      "StartTime": "발생 시간",
+      "EndTime": "복귀 시간",
+      "Duration": "지속 시간",
+      "Phase": "상",
+      "Level": "레벨"
+    }
+  },
+  "User": {
+    "sidebar": {
+      "title": "사용자 관리",
+      "profile": "프로필",
+      "user": "사용자",
+      "api": "Restful API 사용자"
+    },
+    "profile": {
+      "title": "계정 정보",
+      "account": "계정",
+      "username": "사용자 이름",
+      "email": "이메일",
+      "useAPI": "진단 API 사용유무",
+      "nowPass": "현재 비밀번호",
+      "newPass": "새 비밀번호",
+      "cnfPass": "새 비밀번호 확인"
+    },
+    "user": {
+      "title": "사용자 관리",
+      "msg": "계정을 선택하세요.",
+      "account": "계정",
+      "username": "사용자 이름",
+      "email": "이메일",
+      "Pass": "비밀번호",
+      "role": "계정 권한",
+      "remove": "계정 삭제",
+      "btnAdd": "계정 추가"
+    },
+    "api": {
+      "title": "Restful API 계정 관리",
+      "msg": "계정을 선택하세요.",
+      "noexist": "API 계정이 없습니다.",
+      "account": "계정",
+      "role": "계정 권한",
+      "remove": "계정 삭제",
+      "btnAdd": "계정 추가"
+    },
+    "btnSave": "저장하기"
+  },
+  "trend": {
+    "sitemap": {
+      "title": "트렌드",
+      "main": "채널 1",
+      "sub": "채널 2",
+      "notice1":"주파수",
+      "notice2":"전류"
+    },
+    "date": {
+      "StartDate": "시작 날짜",
+      "EndDate": "종료 날짜"
+    },
+    "TrendTab": {
+      "slot": "아래에서 파라미터를 선택한 후 [차트 그리기] 버튼을 클릭하세요",
+      "Plot": "차트 그리기",
+      "loading": "차트 로딩 중..."
+    },
+    "Linechart": {
+      "TrendChart": "트렌드 차트",
+      "nodata": "선택한 기간에 대한 데이터가 없습니다",
+      "parametercount": "최대 4개 파라미터 선택 가능",
+      "metercount": "최대 4개 파라미터 선택 가능"
+    },
+    "tabTitle": {
+      "Meter": "계측",
+      "Power Quality": "전력 품질",
+      "Diagnosis": "설비 상태",
+      "Parameters": "파라미터",
+      "Energy": "전력량",
+      "Demand": "수요 전력"
+    },
+    "treetable": {
+      "Item": "항목",
+      "Assembly": "모듈",
+      "Select": "선택"
+    }
+  },
+  "config": {
+    "comfirmtext1": "설비 주요 설정 변경 시 이전의 계산값이 모두 삭제됩니다.",
+    "comfirmtext2": "계속 진행하시겠습니까?",
+    "apply": "적용",
+    "nameplates":"명판정보",
+    "nameplatesConfiguration":"명판정보 설정",
+    "parameters":"파라미터/임계값",    
+    "parametersConfiguration":"파라미터 설정",
+    "addbearing":"베어링 추가",
+    "eventSetup":"이벤트 설정",
+    "trendSetup":"트랜드 설정",
+    "sitemap": {
+      "title": "설정",
+      "Main Channel": "채널 1",
+      "Sub Channel": "채널 2",
+      "Command": "시스템",
+      "General": "일반",
+      "User Management": "사용자 관리",
+      "API User Management": "Restful API 사용자 관리",
+      "Account": "프로필",
+      "Trend": "트렌드",
+      "Maintenance": "유지보수",
+      "Service": "서비스",
+      "Calibrate": "캘리브레이션"
+    },
+    "maintenance": {
+      "header": "시스템 유지보수",
+      "header2": "사용자 행위 로그",
+      "Title": "타이틀",
+      "enterTitle": "타이틀 입력",
+      "Installation": "설치",
+      "Update": "업데이트",
+      "Replacement": "교체",
+      "Calibration": "캘리브레이션",
+      "FirmWare": "펌웨어",
+      "App": "앱",
+      "Web": "웹",
+      "Context": "내용",
+      "Save": "저장",
+      "Delete": "삭제"
+    },
+    "selectOption": {
+      "useDiagnosis": "진단 사용",
+      "main": "주",
+      "sub": "보조",
+      "active": "활성",
+      "inactive": "비활성"
+    },
+    "plansPanel": {
+      "useWaveFormFTP": "파형 FTP",
+      "useSNTP": "SNTP",
+      "info": "파형 파일과 이벤트 파일이 현재 장치에 저장됩니다",
+      "dhcp": "IP 주소는 DHCP 서버에 의해 자동으로 할당됩니다.",
+      "devInformation": {
+        "title": "장치 정보",
+        "name": "이름",
+        "loc": "위치",
+        "sn": "Serial 번호",
+        "mac": "Mac 주소"
+      },
+      "communication": {
+        "title": "통신 설정",
+        "ip": "IP 주소",
+        "sm": "서브넷 마스크",
+        "gw": "게이트웨이",
+        "dns": "DNS 서버"
+      },
+      "modbus": {
+        "title": "Modbus",
+        "tcp": "TCP 포트",
+        "tcpTO": "응답 대기시간 (ms)",
+        "snInfor": "직렬 통신 정보",
+        "rtuid": "RTU/ID",
+        "baudrate": "통신 속도",
+        "parity": "패리티",
+        "dbits": "데이터 비트",
+        "sbits": "스톱 비트",
+        "rtu_use": "사용",
+        "yes": "예",
+        "no": "아니오"
+      },
+      "demand": {
+        "title": "수요 전력",
+        "interval": "측정 간격",
+        "minutes": "분",
+        "hours": "시간"
+      },
+      "dig": {
+        "title": "설비 감시 설정",
+        "advanced": "고급",
+        "dburl": "DB 주소",
+        "dbToken": "DB 토큰",
+        "dbOrg": "DB 조직",
+        "influxPath": "InfluxDB 경로",
+        "rPeriod": "DB 보존 기간",
+        "eventHistory": "이벤트 이력",
+        "trCount": "트렌드 기록 수",
+        "faultLimits": "오류 한계값",
+        "keepLogFiles": "백업 파일 보관 일수",
+        "dataPath": "데이터 경로",
+        "fileProType": "파일 처리 방식",
+        "logLevel": "로그 수준"
+      }
+    },
+    "channelPanel": {
+      "tempR":"온도 R상",
+      "tempS":"온도 S상",
+      "tempT":"온도 T상",
+      "selEnable": "사용",
+      "selPQ": "전력품질",
+      "dashoutput": "대시보드 출력설정",
+      "alarmCard": {
+        "title": "알람",
+        "common": "공통",
+        "timeDelay": "비교 시간 지연 (초)",
+        "alChannel": "알람 채널",
+        "parameter": "발생 요소",
+        "conditions": "발생 조건",
+        "hysteresis": "편차 범위(%)",
+        "value": "기준 값"
+      },
+      "Diagnosis": {
+        "title": "설비 관리",
+        "AddAsset": "설비 추가",
+        "UnregisterAsset": "설비 등록 해제",
+        "registerAsset": "설비 등록",
+        "NameChange": "이름 변경",
+        "DeleteAsset": "설비 삭제",
+        "AssetName": "설비 이름",
+        "AssetType": "설비 타입",
+        "EquipmentName": "장비 이름",
+        "transformerCapacity": "변압기 수용량",
+        "EditConfiguration": "수정 여부",
+        "CreateAsset": "생성"
+      }
+    },
+    "system": {
+      "title_1": "초기화",
+      "title_2": "채널 2 초기화 명령어",
+      "title_3": "설정",
+      "title_4": "백업 / 소프트웨어 업데이트",
+      "demand": "수요전력",
+      "minmax": "최대/최소",
+      "energy": "전력량",
+      "alarm": "알람 발생횟수",
+      "eventCount": "이벤트 발생횟수",
+      "runhour": "운전 시간",
+      "init": "설정 초기화",
+      "reboot": "재부팅",
+      "import": "가져오기",
+      "export": "내보내기",
+      "restore": "복원",
+      "reset": "초기화",
+      "warnmessage1": "시스템 재설치 확인",
+      "warnmessage2": "스마트 시스템을 재설치하면 기존 데이터가 모두 삭제됩니다.",
+      "warnmessage3": "계속하기 전에 백업을 다운로드하시기 바랍니다.",
+      "warnmessage4": "정말 진행하시겠습니까?",
+      "confirm": "재설치 진행",
+      "cancel": "취소"
+    },
+    
+    "save": "변경 저장",
+    "testSet": "테스트 설비 상태 설정 "
+  }
+}
